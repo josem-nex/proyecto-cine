@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "cine.application/1.0.0": {
+        "dependencies": {
+          "cine.domain": "1.0.0"
+        },
+        "runtime": {
+          "cine.application.dll": {}
+        }
+      },
+      "cine.domain/1.0.0": {
+        "runtime": {
+          "cine.domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "cine.application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "cine.domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
