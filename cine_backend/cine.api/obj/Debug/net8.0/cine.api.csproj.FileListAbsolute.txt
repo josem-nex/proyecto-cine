@@ -38,3 +38,5 @@
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/obj/Debug/net8.0/cine.api.pdb
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/obj/Debug/net8.0/cine.api.genruntimeconfig.cache
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/obj/Debug/net8.0/ref/cine.api.dll
+/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/bin/Debug/net8.0/MediatR.dll
+/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/bin/Debug/net8.0/MediatR.Contracts.dll

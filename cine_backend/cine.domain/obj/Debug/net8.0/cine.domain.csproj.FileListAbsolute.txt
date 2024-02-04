@@ -10,3 +10,4 @@
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/obj/Debug/net8.0/refint/cine.domain.dll
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/obj/Debug/net8.0/cine.domain.pdb
 /home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/obj/Debug/net8.0/ref/cine.domain.dll
+/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/obj/Debug/net8.0/cine.domain.csproj.AssemblyReference.cache

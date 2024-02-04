@@ -1,36 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/cine.api.csproj": {}
+    "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.api\\cine.api.csproj": {}
   },
   "projects": {
-    "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/cine.api.csproj": {
+    "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.api\\cine.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/cine.api.csproj",
+        "projectUniqueName": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.api\\cine.api.csproj",
         "projectName": "cine.api",
-        "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/cine.api.csproj",
-        "packagesPath": "/home/nex/.nuget/packages/",
-        "outputPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.api/obj/",
+        "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.api\\cine.api.csproj",
+        "packagesPath": "C:\\Users\\nex\\.nuget\\packages\\",
+        "outputPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nex/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj": {
-                "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj"
+              "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj": {
+                "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj"
               },
-              "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/cine.infrastructure.csproj": {
-                "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/cine.infrastructure.csproj"
+              "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\cine.infrastructure.csproj": {
+                "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\cine.infrastructure.csproj"
               }
             }
           }
@@ -73,34 +75,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj": {
+    "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj",
+        "projectUniqueName": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj",
         "projectName": "cine.application",
-        "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj",
-        "packagesPath": "/home/nex/.nuget/packages/",
-        "outputPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/obj/",
+        "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj",
+        "packagesPath": "C:\\Users\\nex\\.nuget\\packages\\",
+        "outputPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nex/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj": {
-                "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj"
+              "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj": {
+                "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj"
               }
             }
           }
@@ -114,6 +118,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -130,26 +140,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj": {
+    "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj",
+        "projectUniqueName": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj",
         "projectName": "cine.domain",
-        "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj",
-        "packagesPath": "/home/nex/.nuget/packages/",
-        "outputPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/obj/",
+        "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj",
+        "packagesPath": "C:\\Users\\nex\\.nuget\\packages\\",
+        "outputPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nex/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -167,6 +179,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -183,37 +201,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/cine.infrastructure.csproj": {
+    "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\cine.infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/cine.infrastructure.csproj",
+        "projectUniqueName": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\cine.infrastructure.csproj",
         "projectName": "cine.infrastructure",
-        "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/cine.infrastructure.csproj",
-        "packagesPath": "/home/nex/.nuget/packages/",
-        "outputPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.infrastructure/obj/",
+        "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\cine.infrastructure.csproj",
+        "packagesPath": "C:\\Users\\nex\\.nuget\\packages\\",
+        "outputPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nex/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj": {
-                "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.application/cine.application.csproj"
+              "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj": {
+                "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.application\\cine.application.csproj"
               },
-              "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj": {
-                "projectPath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj"
+              "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj": {
+                "projectPath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj"
               }
             }
           }
@@ -243,7 +263,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

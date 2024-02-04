@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8lRJ94FTUNsPvA5wXEg6Tphwt5nGQEkMQfAlxgRvcXJk2h8dBZOUgWEd4eVpft2WOjnA3gkFJL2SMrot5ydL+Q==",
+  "dgSpecHash": "bV6ghllk5aqPamSQlBivsua4JzeckYgAB8arANgySHraZFa9czGwWpZm6Ev7nZ0rSLE0BV9BhVArd9dpHiIyhA==",
   "success": true,
-  "projectFilePath": "/home/nex/Estudio/5toSEM/IG_Software/Proyecto_Cine/cine_backend/cine.domain/cine.domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "M:\\Estudio\\5toSEM\\IG_Software\\Proyecto_Cine\\cine_backend\\cine.domain\\cine.domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nex\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\nex\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\nex\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
