@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cine.domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+693baa1a3d11d5e6f6374db42b25fb085fc42b2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f642e8a76762a0686d56d35e5d18b499a46c5eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("cine.domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cine.domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
