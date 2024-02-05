@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cine.infrastructure", "cine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cine.domain", "cine.domain\cine.domain.csproj", "{87AEEFAD-0326-4566-9FB7-E983629B88DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cine.contracts", "cine.contracts\cine.contracts.csproj", "{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{87AEEFAD-0326-4566-9FB7-E983629B88DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AEEFAD-0326-4566-9FB7-E983629B88DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AEEFAD-0326-4566-9FB7-E983629B88DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

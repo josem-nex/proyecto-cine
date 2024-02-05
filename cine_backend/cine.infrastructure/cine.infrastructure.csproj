@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\cine.domain\cine.domain.csproj" />
     <ProjectReference Include="..\cine.application\cine.application.csproj" />
   </ItemGroup>
 
