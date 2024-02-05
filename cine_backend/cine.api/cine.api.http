@@ -1,4 +1,4 @@
-@cine.api_HostAddress = http://localhost:5202
+@cine.api_HostAddress = https://localhost:7129
 
 GET {{cine.api_HostAddress}}/weatherforecast/
 Accept: application/json
