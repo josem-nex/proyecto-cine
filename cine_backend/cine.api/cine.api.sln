@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cine.api", "cine.api.csproj", "{50658BD3-B3EB-492A-83FA-647B1F0F9497}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cine.Api", "Cine.Api.csproj", "{50658BD3-B3EB-492A-83FA-647B1F0F9497}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

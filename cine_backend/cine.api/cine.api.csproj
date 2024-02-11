@@ -14,13 +14,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\cine.contracts\cine.contracts.csproj" />
-    <ProjectReference Include="..\cine.application\cine.application.csproj" />
-    <ProjectReference Include="..\cine.infrastructure\cine.infrastructure.csproj" />
+    <ProjectReference Include="..\Cine.Contracts\Cine.Contracts.csproj" />
+    <ProjectReference Include="..\Cine.Application\Cine.Application.csproj" />
+    <ProjectReference Include="..\Cine.Infrastructure\Cine.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
