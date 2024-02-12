@@ -13,6 +13,8 @@
 *.bin
 *obj
 *.obj
+*.angular
+.angular
 bin
 obj
 .vscode
