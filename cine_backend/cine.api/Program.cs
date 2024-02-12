@@ -1,12 +1,14 @@
-using cine.api.Data;
-using Cine.Application.Services.Authentication;
-using Cine.Contracts.Authentication;
+using Cine.Application;
+using Cine.Infraestructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    builder.Services
+        .AddApplication()
+        .AddInfraestructure();
     // Add services to the container.
-    builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+    // builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
     builder.Services.AddControllers();
 }
 
