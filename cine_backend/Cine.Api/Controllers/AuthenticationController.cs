@@ -27,11 +27,11 @@ namespace Cine.Api.Controllers
                                                               request.Email,
                                                               request.Password); 
 
-            var response = new AuthenticationResponse(authRequest.ID,
-                                                      authRequest.Firstname,
-                                                      authRequest.Lastname,
-                                                      authRequest.Email,
-                                                      authRequest.Points,
+            var response = new AuthenticationResponse(authRequest.User.Id,
+                                                      authRequest.User.FirstName,
+                                                      authRequest.User.LastName,
+                                                      authRequest.User.Email,
+                                                    //   authRequest.Points,
                                                       authRequest.Token);                                                                 
             return Ok(response);
         }
@@ -39,11 +39,11 @@ namespace Cine.Api.Controllers
         public IActionResult Login(LoginRequest request)
         {
             var authRequest = _authenticationService.Login(request.Email, request.Password);
-            var response = new AuthenticationResponse(authRequest.ID,
-                                                      authRequest.Firstname,
-                                                      authRequest.Lastname,
-                                                      authRequest.Email,
-                                                      authRequest.Points,
+            var response = new AuthenticationResponse(authRequest.User.Id,
+                                                      authRequest.User.FirstName,
+                                                      authRequest.User.LastName,
+                                                      authRequest.User.Email,
+                                                    //   authRequest.Points,
                                                       authRequest.Token);
             return Ok(response);
         }
