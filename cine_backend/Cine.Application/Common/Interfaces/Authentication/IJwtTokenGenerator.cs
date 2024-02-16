@@ -1,6 +1,9 @@
+using Cine.Domain.Entities;
+
 namespace Cine.Application.Common.Interfaces.Authentication;
 
 public interface IJwtTokenGenerator
 {
-    string GenerateToken(Guid ID, string firstname, string lastname);
+    string GenerateToken(User user);
 }
+        

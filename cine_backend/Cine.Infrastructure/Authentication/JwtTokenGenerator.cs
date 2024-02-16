@@ -5,10 +5,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Cine.Application.Common.Interfaces.Services;
 using Microsoft.Extensions.Options;
+using Cine.Domain.Entities;
 namespace Cine.Infrastructure.Authentication;
 public class JwtTokenGenerator : IJwtTokenGenerator
 {
-    private readonly JwtSettings _jwtSettings; 
+    private readonly JwtSettings _jwtSettings;
     private readonly IDateTimeProvider _dateTimeProvider;
 
     public JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptions<JwtSettings> jwtOptions)
@@ -17,16 +18,16 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtSettings = jwtOptions.Value;
     }
 
-    public string GenerateToken(Guid ID, string firstname, string lastname)
+    public string GenerateToken(User user)
     {
         var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(
-                        Encoding.UTF8.GetBytes(_jwtSettings.Secret)), 
+                        Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
                         SecurityAlgorithms.HmacSha256);
         var claims = new[]{
-            new Claim(JwtRegisteredClaimNames.Sub, ID.ToString()),
-            new Claim(JwtRegisteredClaimNames.GivenName, firstname),
-            new Claim(JwtRegisteredClaimNames.FamilyName, lastname),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
         var securityToken = new JwtSecurityToken(
@@ -35,7 +36,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             expires: _dateTimeProvider.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
             claims: claims,
             signingCredentials: signingCredentials);
-        
+
         return new JwtSecurityTokenHandler().WriteToken(securityToken);
     }
 }
