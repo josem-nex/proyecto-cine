@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Cine.Contracts.Authentication;
 using Cine.Application.Services.Authentication;
 namespace Cine.Api.Controllers
@@ -25,14 +21,14 @@ namespace Cine.Api.Controllers
             var authRequest = _authenticationService.Register(request.FirstName,
                                                               request.LastName,
                                                               request.Email,
-                                                              request.Password); 
+                                                              request.Password);
 
             var response = new AuthenticationResponse(authRequest.User.Id,
                                                       authRequest.User.FirstName,
                                                       authRequest.User.LastName,
                                                       authRequest.User.Email,
-                                                    //   authRequest.Points,
-                                                      authRequest.Token);                                                                 
+                                                      //   authRequest.Points,
+                                                      authRequest.Token);
             return Ok(response);
         }
         [HttpPost("login")]
@@ -43,7 +39,7 @@ namespace Cine.Api.Controllers
                                                       authRequest.User.FirstName,
                                                       authRequest.User.LastName,
                                                       authRequest.User.Email,
-                                                    //   authRequest.Points,
+                                                      //   authRequest.Points,
                                                       authRequest.Token);
             return Ok(response);
         }
