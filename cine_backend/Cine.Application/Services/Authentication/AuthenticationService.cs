@@ -1,3 +1,4 @@
+using Cine.Application.Common.Errors;
 using Cine.Application.Common.Interfaces.Authentication;
 using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Application.Services.Authentication;
@@ -23,7 +24,7 @@ namespace Cine.Contracts.Authentication
             //  Crear un JwT Token
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new Exception("User with given email already exists");
+                throw new DuplicateEmailException();
             }
             var user = new User
             {
