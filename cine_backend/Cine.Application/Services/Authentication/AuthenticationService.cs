@@ -50,11 +50,11 @@ namespace Cine.Contracts.Authentication
             // crear token jwt 
             if (_userRepository.GetUserByEmail(email) is not User user)
             {
-                throw new Exception("User with given email does not exist");
+                throw new NonExistentEmailException();
             }
             if (user.Password != password)
             {
-                throw new Exception("Invalid Password");
+                throw new IncorrectPasswordException();
             }
             var token = _jwtTokenGenerator.GenerateToken(user);
 

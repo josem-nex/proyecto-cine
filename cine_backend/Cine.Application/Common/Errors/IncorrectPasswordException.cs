@@ -1,8 +1,8 @@
 using System.Net;
 
 namespace Cine.Application.Common.Errors;
-public class DuplicateEmailException : Exception, IServiceException
+public class IncorrectPasswordException : Exception, IServiceException
 {
     public HttpStatusCode StatusCode => HttpStatusCode.Conflict;
-    public string ErrorMessage => "Email already exists.";
+    public string ErrorMessage => "Incorrect password.";
 }
