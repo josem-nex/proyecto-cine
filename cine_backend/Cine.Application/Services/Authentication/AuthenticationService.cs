@@ -1,8 +1,9 @@
-using Cine.Application.Common.Errors;
 using Cine.Application.Common.Interfaces.Authentication;
 using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Application.Services.Authentication;
+using Cine.Domain.Common.Errors;
 using Cine.Domain.Entities;
+using ErrorOr;
 
 namespace Cine.Contracts.Authentication
 {
@@ -17,14 +18,14 @@ namespace Cine.Contracts.Authentication
             _userRepository = userRepository;
         }
 
-        public AuthenticationResult Register(string firstname, string lastname, string email, string password)
+        public ErrorOr<AuthenticationResult> Register(string firstname, string lastname, string email, string password)
         {
             //  Revisar que el correo no existe, o sea el usuario tiene que ser único a la hora de registrarse
             //  Generar un ID único, Crear el usuario y annadirlo a la BD
             //  Crear un JwT Token
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new DuplicateEmailException();
+                return Errors.User.DuplicatedEmail;
             }
             var user = new User
             {
@@ -43,18 +44,18 @@ namespace Cine.Contracts.Authentication
                 token);
         }
 
-        public AuthenticationResult Login(string email, string password)
+        public ErrorOr<AuthenticationResult> Login(string email, string password)
         {
             // Validar que el usuario existe
             // Validar si la contrasenna es correcta
             // crear token jwt 
             if (_userRepository.GetUserByEmail(email) is not User user)
             {
-                throw new NonExistentEmailException();
+                return Errors.User.EmailNotFound;
             }
             if (user.Password != password)
             {
-                throw new IncorrectPasswordException();
+                return Errors.User.InvalidPassword;
             }
             var token = _jwtTokenGenerator.GenerateToken(user);
 

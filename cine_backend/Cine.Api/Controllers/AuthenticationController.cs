@@ -2,11 +2,11 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using Cine.Contracts.Authentication;
 using Cine.Application.Services.Authentication;
+using ErrorOr;
 namespace Cine.Api.Controllers
 {
-    [ApiController]
     [Route("auth")]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : ApiController
     {
         private readonly IAuthenticationService _authenticationService;
 
@@ -15,33 +15,40 @@ namespace Cine.Api.Controllers
             _authenticationService = authenticationService;
         }
 
+        private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
+        {
+            var response = new AuthenticationResponse(
+                                                    authResult.User.Id,
+                                                    authResult.User.FirstName,
+                                                    authResult.User.LastName,
+                                                    authResult.User.Email,
+                                                    //   authResult.Points,
+                                                    authResult.Token);
+            return response;
+        }
+
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
-            var authRequest = _authenticationService.Register(request.FirstName,
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(request.FirstName,
                                                               request.LastName,
                                                               request.Email,
                                                               request.Password);
-
-            var response = new AuthenticationResponse(authRequest.User.Id,
-                                                      authRequest.User.FirstName,
-                                                      authRequest.User.LastName,
-                                                      authRequest.User.Email,
-                                                      //   authRequest.Points,
-                                                      authRequest.Token);
-            return Ok(response);
+            return authResult.Match(
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors)
+            );
         }
+
+
         [HttpPost("login")]
         public IActionResult Login(LoginRequest request)
         {
-            var authRequest = _authenticationService.Login(request.Email, request.Password);
-            var response = new AuthenticationResponse(authRequest.User.Id,
-                                                      authRequest.User.FirstName,
-                                                      authRequest.User.LastName,
-                                                      authRequest.User.Email,
-                                                      //   authRequest.Points,
-                                                      authRequest.Token);
-            return Ok(response);
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Login(request.Email, request.Password);
+            return authResult.Match(
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors)
+            );
         }
     }
 }

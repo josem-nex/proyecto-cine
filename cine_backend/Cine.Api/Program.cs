@@ -1,6 +1,7 @@
-using Cine.Api.Filters;
+using Cine.Api.Common.Errors;
 using Cine.Application;
 using Cine.Infraestructure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfraestructure(builder.Configuration);
     builder.Services.AddControllers();
+    builder.Services.AddSingleton<ProblemDetailsFactory, CineProblemDetailsFactory>();
 }
 
 var app = builder.Build();

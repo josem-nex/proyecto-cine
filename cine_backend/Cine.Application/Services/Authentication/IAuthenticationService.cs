@@ -1,10 +1,10 @@
+using ErrorOr;
 namespace Cine.Application.Services.Authentication;
-
 public interface IAuthenticationService
 {
-    AuthenticationResult Register(string firstname,
+    ErrorOr<AuthenticationResult> Register(string firstname,
                                   string lastname,
                                   string email,
                                   string password);
-    AuthenticationResult Login(string email, string password);
+    ErrorOr<AuthenticationResult> Login(string email, string password);
 }
