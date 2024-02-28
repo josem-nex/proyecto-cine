@@ -33,9 +33,11 @@ public class RegisterCommandHandler :
             FirstName = command.FirstName,
             LastName = command.LastName,
             Email = command.Email,
+            Ci = command.Ci,
+            Address = command.Address,
+            PhoneNumber = command.PhoneNumber,
             Password = command.Password
         };
-
         _userRepository.Add(user);
         // Guid id = Guid.NewGuid();
         var token = _jwtTokenGenerator.GenerateToken(user);

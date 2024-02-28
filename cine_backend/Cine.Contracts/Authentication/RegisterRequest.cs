@@ -3,8 +3,8 @@ public record RegisterRequest(
     string FirstName,
     string LastName,
     string Email,
+    string Ci,
+    string Address,
+    string PhoneNumber,
     string Password
-    // string CI,
-    // string PhoneNumber,
-    // string Address
     );

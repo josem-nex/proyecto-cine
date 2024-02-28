@@ -4,6 +4,9 @@ public record AuthenticationResponse(
     string FirstName,
     string LastName,
     string Email,
-    // int Points,
+    string CI,
+    string Address,
+    string PhoneNumber,
+    int Points,
     string Token
 );
