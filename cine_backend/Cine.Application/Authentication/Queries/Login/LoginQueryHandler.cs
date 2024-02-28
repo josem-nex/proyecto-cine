@@ -20,6 +20,7 @@ public class LoginQueryHandler :
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery request, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
         // Validar que el usuario existe
         // Validar si la contrasenna es correcta
         // crear token jwt 

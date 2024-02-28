@@ -19,6 +19,8 @@ public class RegisterCommandHandler :
     }
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
+
         //  Revisar que el correo no existe, o sea el usuario tiene que ser único a la hora de registrarse
         //  Generar un ID único, Crear el usuario y annadirlo a la BD
         //  Crear un JwT Token

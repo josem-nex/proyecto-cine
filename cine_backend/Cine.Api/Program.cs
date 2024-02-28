@@ -1,15 +1,13 @@
-using Cine.Api.Common.Errors;
+using Cine.Api;
 using Cine.Application;
 using Cine.Infraestructure;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services
+        .AddPresentation()
         .AddApplication()
         .AddInfraestructure(builder.Configuration);
-    builder.Services.AddControllers();
-    builder.Services.AddSingleton<ProblemDetailsFactory, CineProblemDetailsFactory>();
 }
 
 var app = builder.Build();
