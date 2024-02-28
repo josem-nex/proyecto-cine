@@ -1,5 +1,5 @@
-using Cine.Application.Services.Authentication;
-using Cine.Contracts.Authentication;
+using System.Reflection;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cine.Application;
@@ -7,7 +7,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddMediatR(typeof(DependencyInjection).Assembly);
         return services;
     }
 }

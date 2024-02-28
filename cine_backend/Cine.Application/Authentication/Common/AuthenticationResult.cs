@@ -1,6 +1,5 @@
 using Cine.Domain.Entities;
-
-namespace Cine.Application.Services.Authentication;
+namespace Cine.Application.Authentication.Common;
 public record AuthenticationResult(
     User User,
     string Token);
