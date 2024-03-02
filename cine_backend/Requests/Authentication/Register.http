@@ -3,11 +3,11 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-    "firstname": "Jose Miguel",
-    "lastname":  "Zayas Pérez",
-    "email": "nex25k@gmail.com",
-    "ci": "01121765364",
+    "firstname": "Laura Maria",
+    "lastname":  "Ramona",
+    "email": "lmariar@gmail.com",
+    "ci": "02101576475",
     "address": "Calle 1 #123",
     "phonenumber": "787-123-1234",
-    "password": "123mvsdn213"
+    "password": "123mn213"
 }
