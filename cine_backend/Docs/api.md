@@ -24,13 +24,13 @@ POST {{host}}/auth/register
 
 ```json
 {
-    "firstname": "Jose Miguel",
-    "lastname":  "Zayas Pérez",
-    "password": "123mvsdn213",
-    "ci": "01121765364",
-    "address": "D'Beche, Guanabacoa, La Habana",
-    "phone": "+5354388544",
-    "email": "nex25k@gmail.com",
+  "firstname": "Laura Maria",
+  "lastname": "Ramona",
+  "email": "lmariar@gmail.com",
+  "ci": "02101576475",
+  "address": "Calle 1 #123",
+  "phonenumber": "787-123-1234",
+  "password": "123mn213"
 }
 ```
 
@@ -46,12 +46,12 @@ Location: {{host}}/socios/{{id}}
 
 ```json
 {
-    "id": "guid123-1234-3123-1234-234bgf23fd",
-    "firstname": "Jose Miguel",
-    "lastname":  "Zayas Pérez",
-    "email": "nex25k@gmail.com",
-    "points": 0,
-    "token": "ewwrw...gfdg"
+  "id": "guid123-1234-3123-1234-234bgf23fd",
+  "firstname": "Jose Miguel",
+  "lastname": "Zayas Pérez",
+  "email": "nex25k@gmail.com",
+  "points": 0,
+  "token": "ewwrw...gfdg"
 }
 ```
 
@@ -71,21 +71,14 @@ GET /socios/{{id}}
 
 ```json
 {
-    "id": "00000000-0000-0000-0000-000000000000",
-    "name": "Vegan Sunshine",
-    "description": "Vegan everything! Join us for a healthy socio..",
-    "startDateTime": "2022-04-08T08:00:00",
-    "endDateTime": "2022-04-08T11:00:00",
-    "lastModifiedDateTime": "2022-04-06T12:00:00",
-    "savory": [
-        "Oatmeal",
-        "Avocado Toast",
-        "Omelette",
-        "Salad"
-    ],
-    "Sweet": [
-        "Cookie"
-    ]
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "Vegan Sunshine",
+  "description": "Vegan everything! Join us for a healthy socio..",
+  "startDateTime": "2022-04-08T08:00:00",
+  "endDateTime": "2022-04-08T11:00:00",
+  "lastModifiedDateTime": "2022-04-06T12:00:00",
+  "savory": ["Oatmeal", "Avocado Toast", "Omelette", "Salad"],
+  "Sweet": ["Cookie"]
 }
 ```
 
@@ -99,19 +92,12 @@ PUT /socios/{{id}}
 
 ```json
 {
-    "name": "Vegan Sunshine",
-    "description": "Vegan everything! Join us for a healthy socio..",
-    "startDateTime": "2022-04-08T08:00:00",
-    "endDateTime": "2022-04-08T11:00:00",
-    "savory": [
-        "Oatmeal",
-        "Avocado Toast",
-        "Omelette",
-        "Salad"
-    ],
-    "Sweet": [
-        "Cookie"
-    ]
+  "name": "Vegan Sunshine",
+  "description": "Vegan everything! Join us for a healthy socio..",
+  "startDateTime": "2022-04-08T08:00:00",
+  "endDateTime": "2022-04-08T11:00:00",
+  "savory": ["Oatmeal", "Avocado Toast", "Omelette", "Salad"],
+  "Sweet": ["Cookie"]
 }
 ```
 

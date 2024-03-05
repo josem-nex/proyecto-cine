@@ -1,13 +1,13 @@
-using System;
-using Microsoft.AspNetCore.Mvc;
 using Cine.Contracts.Authentication;
-using ErrorOr;
-using MediatR;
 using Cine.Application.Authentication.Commands.Register;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Authentication.Querys.Login;
-using MapsterMapper;
 using Cine.Application.Authentication.Queries.GetAll;
+using Cine.Application.Authentication.Commands.Delete;
+using Microsoft.AspNetCore.Mvc;
+using ErrorOr;
+using MediatR;
+using MapsterMapper;
 namespace Cine.Api.Controllers
 {
     [Route("auth")]
@@ -47,27 +47,21 @@ namespace Cine.Api.Controllers
         public async Task<IActionResult> GetAllUsers()
         {
             var query = new GetUserListQuery();
-            System.Console.WriteLine("GetAllUsers");
             ErrorOr<GetUserListResult> result = await _mediator.Send(query);
             return result.Match(
                 result => Ok(_mapper.Map<GetUserListResult>(result)),
                 errors => Problem(errors)
             );
         }
-
-
-
-
-
-        // [HttpPost("delete")]
-        // public async Task<IActionResult> DeleteUser(DeleteUserRequest request)
-        // {
-        //     var command = _mapper.Map<DeleteUserCommand>(request);
-        //     ErrorOr<Unit> result = await _mediator.Send(command);
-        //     return result.Match(
-        //         _ => Ok(),
-        //         errors => Problem(errors)
-        //     );
-        // }
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteUser(DeleteUserRequest request)
+        {
+            var command = _mapper.Map<DeleteUserCommand>(request);
+            ErrorOr<Unit> result = await _mediator.Send(command);
+            return result.Match(
+                _ => Ok(),
+                errors => Problem(errors)
+            );
+        }
     }
 }
