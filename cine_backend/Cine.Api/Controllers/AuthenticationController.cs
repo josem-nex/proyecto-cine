@@ -7,6 +7,7 @@ using Cine.Application.Authentication.Commands.Register;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Authentication.Querys.Login;
 using MapsterMapper;
+using Cine.Application.Authentication.Queries.GetAll;
 namespace Cine.Api.Controllers
 {
     [Route("auth")]
@@ -42,5 +43,31 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
+        [HttpPost("users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var query = new GetUserListQuery();
+            System.Console.WriteLine("GetAllUsers");
+            ErrorOr<GetUserListResult> result = await _mediator.Send(query);
+            return result.Match(
+                result => Ok(_mapper.Map<GetUserListResult>(result)),
+                errors => Problem(errors)
+            );
+        }
+
+
+
+
+
+        // [HttpPost("delete")]
+        // public async Task<IActionResult> DeleteUser(DeleteUserRequest request)
+        // {
+        //     var command = _mapper.Map<DeleteUserCommand>(request);
+        //     ErrorOr<Unit> result = await _mediator.Send(command);
+        //     return result.Match(
+        //         _ => Ok(),
+        //         errors => Problem(errors)
+        //     );
+        // }
     }
 }
