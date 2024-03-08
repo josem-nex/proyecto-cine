@@ -4,11 +4,11 @@ using Cine.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-public class UserConfigurations : IEntityTypeConfiguration<User>
+public class PartnerConfigurations : IEntityTypeConfiguration<Partner>
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    public void Configure(EntityTypeBuilder<Partner> builder)
     {
-        builder.ToTable("Users");
+        builder.ToTable("Partners");
         builder.HasKey(u => u.Id);
 
         builder.Property(u => u.Id)

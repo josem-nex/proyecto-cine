@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cine.Infrastructure.Migrations
 {
     [DbContext(typeof(CineDbContext))]
-    [Migration("20240302203954_InitialCreate")]
+    [Migration("20240308041210_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace Cine.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Cine.Domain.Entities.User", b =>
+            modelBuilder.Entity("Cine.Domain.Entities.Partner", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -70,7 +70,7 @@ namespace Cine.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Partners", (string)null);
                 });
 #pragma warning restore 612, 618
         }

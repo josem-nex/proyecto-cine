@@ -14,7 +14,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfraestructure(
         this IServiceCollection services,
-        Microsoft.Extensions.Configuration.ConfigurationManager configuration)
+        ConfigurationManager configuration)
     {
         services.AddDbContext<CineDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("SqlConnection")));
@@ -22,7 +22,7 @@ public static class DependencyInjection
         services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPartnerRepository, PartnerRepository>();
         return services;
     }
 }

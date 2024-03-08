@@ -4,7 +4,7 @@ using ErrorOr;
 namespace Cine.Domain.Common.Errors;
 public static partial class Errors
 {
-    public static class User
+    public static class Partner
     {
         public static Error DuplicatedEmail => Error.Conflict(
             code: ErrorCode.DuplicatedEmail,

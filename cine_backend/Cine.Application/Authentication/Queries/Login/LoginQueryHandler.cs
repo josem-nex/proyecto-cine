@@ -11,11 +11,11 @@ public class LoginQueryHandler :
     IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
-    private readonly IUserRepository _userRepository;
-    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+    private readonly IPartnerRepository _partnerRepository;
+    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IPartnerRepository partnerRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
-        _userRepository = userRepository;
+        _partnerRepository = partnerRepository;
     }
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -24,18 +24,18 @@ public class LoginQueryHandler :
         // Validar que el usuario existe
         // Validar si la contrasenna es correcta
         // crear token jwt 
-        if (_userRepository.GetUserByEmail(request.Email) is not User user)
+        if (_partnerRepository.GetPartnerByEmail(request.Email) is not Partner partner)
         {
-            return Errors.User.EmailNotFound;
+            return Errors.Partner.EmailNotFound;
         }
-        if (user.Password != request.Password)
+        if (partner.Password != request.Password)
         {
-            return Errors.User.InvalidPassword;
+            return Errors.Partner.InvalidPassword;
         }
-        var token = _jwtTokenGenerator.GenerateToken(user);
+        var token = _jwtTokenGenerator.GenerateToken(partner);
 
         return new AuthenticationResult(
-            user,
+            partner,
             token);
     }
 }

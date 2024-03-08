@@ -24,7 +24,7 @@ namespace Cine.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
-            var command = _mapper.Map<RegisterCommand>(request);
+            var command = _mapper.Map<RegisterPartnerCommand>(request);
             ErrorOr<AuthenticationResult> authResult = await _mediator.Send(command);
             return authResult.Match(
                 authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
@@ -43,20 +43,20 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        [HttpPost("users")]
-        public async Task<IActionResult> GetAllUsers()
+        [HttpPost("partners")]
+        public async Task<IActionResult> GetAllPartners()
         {
-            var query = new GetUserListQuery();
-            ErrorOr<GetUserListResult> result = await _mediator.Send(query);
+            var query = new GetPartnerListQuery();
+            ErrorOr<GetPartnerListResult> result = await _mediator.Send(query);
             return result.Match(
-                result => Ok(_mapper.Map<GetUserListResult>(result)),
+                result => Ok(_mapper.Map<GetPartnerListResult>(result)),
                 errors => Problem(errors)
             );
         }
         [HttpPost("delete")]
-        public async Task<IActionResult> DeleteUser(DeleteUserRequest request)
+        public async Task<IActionResult> DeletePartner(DeletePartnerRequest request)
         {
-            var command = _mapper.Map<DeleteUserCommand>(request);
+            var command = _mapper.Map<DeletePartnerCommand>(request);
             ErrorOr<Unit> result = await _mediator.Send(command);
             return result.Match(
                 _ => Ok(),

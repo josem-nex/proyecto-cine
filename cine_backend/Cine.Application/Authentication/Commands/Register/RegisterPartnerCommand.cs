@@ -3,7 +3,7 @@ using ErrorOr;
 using MediatR;
 
 namespace Cine.Application.Authentication.Commands.Register;
-public record RegisterCommand(
+public record RegisterPartnerCommand(
     string FirstName,
     string LastName,
     string Email,

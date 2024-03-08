@@ -1,6 +1,6 @@
 # Domain Models
 
-## User
+## Partner
 
 ```json
 {

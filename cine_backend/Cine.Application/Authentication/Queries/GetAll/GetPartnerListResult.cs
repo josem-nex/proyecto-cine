@@ -1,4 +1,3 @@
 using Cine.Domain.Entities;
-
 namespace Cine.Application.Authentication.Queries.GetAll;
-public record GetUserListResult(List<User> Users);
+public record GetPartnerListResult(List<Partner> Partners);

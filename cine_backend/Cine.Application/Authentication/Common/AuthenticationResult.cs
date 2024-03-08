@@ -1,5 +1,5 @@
 using Cine.Domain.Entities;
 namespace Cine.Application.Authentication.Common;
 public record AuthenticationResult(
-    User User,
+    Partner Partner,
     string Token);

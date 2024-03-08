@@ -1,22 +1,22 @@
-# Buber socio API
+# Buber Partner API
 
-- [Socio API](#buber-socio-api)
-  - [Create socio](#create-socio)
-    - [Create socio Request](#create-socio-request)
-    - [Create socio Response](#create-socio-response)
-  - [Get socio](#get-socio)
-    - [Get socio Request](#get-socio-request)
-    - [Get socio Response](#get-socio-response)
-  - [Update socio](#update-socio)
-    - [Update socio Request](#update-socio-request)
-    - [Update socio Response](#update-socio-response)
-  - [Delete socio](#delete-socio)
-    - [Delete socio Request](#delete-socio-request)
-    - [Delete socio Response](#delete-socio-response)
+- [Partner API](#buber-Partner-api)
+  - [Create Partner](#create-Partner)
+    - [Create Partner Request](#create-Partner-request)
+    - [Create Partner Response](#create-Partner-response)
+  - [Get Partner](#get-Partner)
+    - [Get Partner Request](#get-Partner-request)
+    - [Get Partner Response](#get-Partner-response)
+  - [Update Partner](#update-Partner)
+    - [Update Partner Request](#update-Partner-request)
+    - [Update Partner Response](#update-Partner-response)
+  - [Delete Partner](#delete-Partner)
+    - [Delete Partner Request](#delete-Partner-request)
+    - [Delete Partner Response](#delete-Partner-response)
 
-## Create socio
+## Create Partner
 
-### Create socio Request
+### Create Partner Request
 
 ```js
 POST {{host}}/auth/register
@@ -34,14 +34,14 @@ POST {{host}}/auth/register
 }
 ```
 
-### Create socio Response
+### Create Partner Response
 
 ```js
 201 Created
 ```
 
 ```yml
-Location: {{host}}/socios/{{id}}
+Location: {{host}}/Partners/{{id}}
 ```
 
 ```json
@@ -55,15 +55,15 @@ Location: {{host}}/socios/{{id}}
 }
 ```
 
-## Get socio
+## Get Partner
 
-### Get socio Request
+### Get Partner Request
 
 ```js
-GET /socios/{{id}}
+GET /Partners/{{id}}
 ```
 
-### Get socio Response
+### Get Partner Response
 
 ```js
 200 Ok
@@ -73,7 +73,7 @@ GET /socios/{{id}}
 {
   "id": "00000000-0000-0000-0000-000000000000",
   "name": "Vegan Sunshine",
-  "description": "Vegan everything! Join us for a healthy socio..",
+  "description": "Vegan everything! Join us for a healthy Partner..",
   "startDateTime": "2022-04-08T08:00:00",
   "endDateTime": "2022-04-08T11:00:00",
   "lastModifiedDateTime": "2022-04-06T12:00:00",
@@ -82,18 +82,18 @@ GET /socios/{{id}}
 }
 ```
 
-## Update socio
+## Update Partner
 
-### Update socio Request
+### Update Partner Request
 
 ```js
-PUT /socios/{{id}}
+PUT /Partners/{{id}}
 ```
 
 ```json
 {
   "name": "Vegan Sunshine",
-  "description": "Vegan everything! Join us for a healthy socio..",
+  "description": "Vegan everything! Join us for a healthy Partner..",
   "startDateTime": "2022-04-08T08:00:00",
   "endDateTime": "2022-04-08T11:00:00",
   "savory": ["Oatmeal", "Avocado Toast", "Omelette", "Salad"],
@@ -101,7 +101,7 @@ PUT /socios/{{id}}
 }
 ```
 
-### Update socio Response
+### Update Partner Response
 
 ```js
 204 No Content
@@ -114,18 +114,18 @@ or
 ```
 
 ```yml
-Location: {{host}}/socios/{{id}}
+Location: {{host}}/Partners/{{id}}
 ```
 
-## Delete socio
+## Delete Partner
 
-### Delete socio Request
+### Delete Partner Request
 
 ```js
-DELETE /socios/{{id}}
+DELETE /Partners/{{id}}
 ```
 
-### Delete socio Response
+### Delete Partner Response
 
 ```js
 204 No Content

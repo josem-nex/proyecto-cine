@@ -18,16 +18,16 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtSettings = jwtOptions.Value;
     }
 
-    public string GenerateToken(User user)
+    public string GenerateToken(Partner Partner)
     {
         var signingCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(
                         Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
                         SecurityAlgorithms.HmacSha256);
         var claims = new[]{
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
-            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+            new Claim(JwtRegisteredClaimNames.Sub, Partner.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.GivenName, Partner.FirstName),
+            new Claim(JwtRegisteredClaimNames.FamilyName, Partner.LastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
         var securityToken = new JwtSecurityToken(
