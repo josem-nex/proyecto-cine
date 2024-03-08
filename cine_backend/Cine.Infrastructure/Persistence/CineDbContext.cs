@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Cine.Infrastructure.Persistence;
 public class CineDbContext : DbContext
 {
+    public DbSet<User> Users { get; set; } = null!;
     public DbSet<Partner> Partners { get; set; } = null!;
     public CineDbContext(DbContextOptions<CineDbContext> options) : base(options)
     {

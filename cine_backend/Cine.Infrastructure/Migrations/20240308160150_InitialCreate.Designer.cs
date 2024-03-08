@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cine.Infrastructure.Migrations
 {
     [DbContext(typeof(CineDbContext))]
-    [Migration("20240308041210_InitialCreate")]
+    [Migration("20240308160150_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,15 +25,10 @@ namespace Cine.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Cine.Domain.Entities.Partner", b =>
+            modelBuilder.Entity("Cine.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Ci")
                         .IsRequired()
@@ -55,6 +50,22 @@ namespace Cine.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.HasKey("Id");
+
+                    b.ToTable("Users", (string)null);
+
+                    b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("Cine.Domain.Entities.Partner", b =>
+                {
+                    b.HasBaseType("Cine.Domain.Entities.User");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -68,9 +79,16 @@ namespace Cine.Infrastructure.Migrations
                     b.Property<int>("Points")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
                     b.ToTable("Partners", (string)null);
+                });
+
+            modelBuilder.Entity("Cine.Domain.Entities.Partner", b =>
+                {
+                    b.HasOne("Cine.Domain.Entities.User", null)
+                        .WithOne()
+                        .HasForeignKey("Cine.Domain.Entities.Partner", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

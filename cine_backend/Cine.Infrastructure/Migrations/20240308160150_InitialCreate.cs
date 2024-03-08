@@ -12,14 +12,25 @@ namespace Cine.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Partners",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Ci = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Ci = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Partners",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Points = table.Column<int>(type: "int", nullable: false),
@@ -28,6 +39,12 @@ namespace Cine.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Partners", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Partners_Users_Id",
+                        column: x => x.Id,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
         }
 
@@ -36,6 +53,9 @@ namespace Cine.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Partners");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

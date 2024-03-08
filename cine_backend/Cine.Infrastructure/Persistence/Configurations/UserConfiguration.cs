@@ -4,12 +4,12 @@ using Cine.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-public class PartnerConfigurations : IEntityTypeConfiguration<Partner>
+public class UserConfigurations : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<Partner> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable("Partners");
-        /* builder.HasKey(u => u.Id);
+        builder.ToTable("Users");
+        builder.HasKey(u => u.Id);
 
         builder.Property(u => u.Id)
             .ValueGeneratedNever()
@@ -29,21 +29,6 @@ public class PartnerConfigurations : IEntityTypeConfiguration<Partner>
             .HasMaxLength(100);
 
         builder.Property(u => u.Ci)
-            .IsRequired()
-            .HasMaxLength(100); */
-
-        builder.Property(u => u.Address)
-            .IsRequired()
-            .HasMaxLength(150);
-
-        builder.Property(u => u.PhoneNumber)
-            .IsRequired()
-            .HasMaxLength(100);
-
-        builder.Property(u => u.Points)
-            .IsRequired();
-
-        builder.Property(u => u.Password)
             .IsRequired()
             .HasMaxLength(100);
 
