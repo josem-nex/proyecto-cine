@@ -1,5 +1,37 @@
-<mat-toolbar class="mat-toolbar-init">
-  <span>Cine plus</span>
-  <span class="example-spacer"></span>
-  
-</mat-toolbar>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="styleheet" href="app.component.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>{{title}}</h1>
+      <!--<p>Resize the browser window to see the effect.</p>-->
+
+    </div>
+
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/movie">Movies</a>
+      <a href="/about">About</a>
+      <a href="/login" style="float:right">Login</a>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <div class="footer">
+      <h2>{{footer}}</h2>
+    </div>
+
+
+  </div>
+
+
+</body>
+
+</html>
