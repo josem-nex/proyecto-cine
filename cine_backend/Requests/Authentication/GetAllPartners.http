@@ -1,5 +1,5 @@
 @host= http://localhost:5000
-POST {{host}}/auth/Partners
+GET {{host}}/auth/Partners
 Content-Type: application/json
 
 {

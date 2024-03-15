@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
 using MediatR;
 using MapsterMapper;
+using Microsoft.AspNetCore.HttpLogging;
 namespace Cine.Api.Controllers
 {
     [Route("auth")]
@@ -33,7 +34,7 @@ namespace Cine.Api.Controllers
         }
 
 
-        [HttpPost("login")]
+        [HttpGet("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
             var query = _mapper.Map<LoginQuery>(request);
@@ -43,7 +44,7 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        [HttpPost("partners")]
+        [HttpGet("partners")]
         public async Task<IActionResult> GetAllPartners()
         {
             var query = new GetPartnerListQuery();
@@ -53,7 +54,7 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        [HttpPost("delete")]
+        [HttpDelete("delete")]
         public async Task<IActionResult> DeletePartner(DeletePartnerRequest request)
         {
             var command = _mapper.Map<DeletePartnerCommand>(request);

@@ -1,5 +1,5 @@
 @host= http://localhost:5000
-POST {{host}}/auth/login
+GET {{host}}/auth/login
 Content-Type: application/json
 
 {
