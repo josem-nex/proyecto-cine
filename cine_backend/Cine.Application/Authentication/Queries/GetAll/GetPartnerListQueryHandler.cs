@@ -1,4 +1,5 @@
 using Cine.Application.Common.Interfaces.Persistence;
+using Cine.Domain.Entities;
 using ErrorOr;
 using MediatR;
 
@@ -16,7 +17,7 @@ public class GetPartnerListQueryHandler :
     public async Task<ErrorOr<GetPartnerListResult>> Handle(GetPartnerListQuery request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        var partners = _partnerRepository.GetPartnerList();
+        List<Partner> partners = await _partnerRepository.GetPartnerList();
         return new GetPartnerListResult(partners);
     }
 }

@@ -54,7 +54,7 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        [HttpDelete("delete")]
+        [HttpPost("delete")]
         public async Task<IActionResult> DeletePartner(DeletePartnerRequest request)
         {
             var command = _mapper.Map<DeletePartnerCommand>(request);

@@ -1,5 +1,5 @@
 @host= http://localhost:5000
-DELETE {{host}}/auth/delete
+POST {{host}}/auth/delete
 Content-Type: application/json
 
 {

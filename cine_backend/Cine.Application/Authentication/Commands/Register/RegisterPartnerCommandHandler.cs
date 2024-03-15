@@ -24,7 +24,7 @@ public class RegisterPartnerCommandHandler :
         //  Revisar que el correo no existe, o sea el usuario tiene que ser único a la hora de registrarse
         //  Generar un ID único, Crear el usuario y annadirlo a la BD
         //  Crear un JwT Token
-        if (_partnerRepository.GetPartnerByEmail(command.Email) is not null)
+        if (await _partnerRepository.GetPartnerByEmail(command.Email) is not null)
         {
             return Errors.Partner.DuplicatedEmail;
         }
@@ -37,7 +37,7 @@ public class RegisterPartnerCommandHandler :
             command.PhoneNumber,
             command.Password
         );
-        _partnerRepository.Add(partner);
+        await _partnerRepository.Add(partner);
         // Guid id = Guid.NewGuid();
         var token = _jwtTokenGenerator.GenerateToken(partner);
 

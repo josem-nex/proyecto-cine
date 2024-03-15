@@ -4,9 +4,9 @@ namespace Cine.Application.Common.Interfaces.Persistence;
 
 public interface IPartnerRepository
 {
-    void Add(Partner partner);
-    void Update(Partner partner);
-    void Delete(string email);
-    Partner? GetPartnerByEmail(string email);
-    List<Partner> GetPartnerList();
+    Task Add(Partner partner);
+    Task Update(Partner partner);
+    Task Delete(string email);
+    Task<Partner?> GetPartnerByEmail(string email);
+    Task<List<Partner>> GetPartnerList();
 }

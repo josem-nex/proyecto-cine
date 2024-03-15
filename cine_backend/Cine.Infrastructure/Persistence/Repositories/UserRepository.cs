@@ -12,32 +12,32 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
 
-    public void Add(User user)
+    public async Task Add(User user)
     {
-        _dbContext.Users.Add(user);
-        _dbContext.SaveChanges();
+        await _dbContext.Users.AddAsync(user);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public User? GetUserByEmail(string email)
+    public async Task<User?> GetUserByEmail(string email)
     {
-        return _dbContext.Users.SingleOrDefault(u => u.Email == email);
+        return await _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email);
     }
 
-    public void Delete(string email)
+    public async Task Delete(string email)
     {
-        var user = _dbContext.Users.SingleOrDefault(u => u.Email == email);
+        var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email);
         _dbContext.Users.Remove(user);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<User> GetUserList()
+    public Task<List<User>> GetUserList()
     {
-        return _dbContext.Users.AsNoTracking().ToList();
+        return _dbContext.Users.AsNoTracking().ToListAsync();
     }
 
-    public void Update(User user)
+    public async Task Update(User user)
     {
         _dbContext.Users.Update(user);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 }

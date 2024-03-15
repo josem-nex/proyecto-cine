@@ -4,9 +4,9 @@ namespace Cine.Application.Common.Interfaces.Persistence;
 
 public interface IUserRepository
 {
-    void Add(User user);
-    void Update(User user);
-    void Delete(string email);
-    User? GetUserByEmail(string email);
-    List<User> GetUserList();
+    Task Add(User user);
+    Task Update(User user);
+    Task Delete(string email);
+    Task<User?> GetUserByEmail(string email);
+    Task<List<User>> GetUserList();
 }

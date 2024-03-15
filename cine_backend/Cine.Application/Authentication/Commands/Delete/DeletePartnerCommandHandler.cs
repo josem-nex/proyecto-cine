@@ -17,7 +17,7 @@ public class DeletePartnerCommandHandler : IRequestHandler<DeletePartnerCommand,
     public async Task<ErrorOr<Unit>> Handle(DeletePartnerCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_partnerRepository.GetPartnerByEmail(request.Email) is not Partner Partner)
+        if (await _partnerRepository.GetPartnerByEmail(request.Email) is not Partner Partner)
         {
             return Errors.Partner.EmailNotFound;
         }
@@ -25,7 +25,7 @@ public class DeletePartnerCommandHandler : IRequestHandler<DeletePartnerCommand,
         {
             return Errors.Partner.InvalidPassword;
         }
-        _partnerRepository.Delete(request.Email);
+        await _partnerRepository.Delete(request.Email);
         return Unit.Value;
     }
 }

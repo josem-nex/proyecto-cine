@@ -13,35 +13,35 @@ public class PartnerRepository : IPartnerRepository
         _dbContext = dbContext;
     }
 
-    public void Add(Partner Partner)
+    public async Task Add(Partner Partner)
     {
-        _dbContext.Partners.Add(Partner);
-        _dbContext.SaveChanges();
+        await _dbContext.Partners.AddAsync(Partner);
+        await _dbContext.SaveChangesAsync();
         // _Partners.Add(Partner);
     }
 
 
-    public Partner? GetPartnerByEmail(string email)
+    public async Task<Partner?> GetPartnerByEmail(string email)
     {
-        return _dbContext.Partners.SingleOrDefault(u => u.Email == email);
+        return await _dbContext.Partners.SingleOrDefaultAsync(u => u.Email == email);
         // return _Partners.SingleOrDefault(u => u.Email == email);
     }
-    public void Delete(string email)
+    public async Task Delete(string email)
     {
         // garantizar que ese usuario ya exista, revisar eso antes
-        var Partner = _dbContext.Partners.SingleOrDefault(u => u.Email == email);
+        var Partner = await _dbContext.Partners.SingleOrDefaultAsync(u => u.Email == email);
         _dbContext.Partners.Remove(Partner);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<Partner> GetPartnerList()
+    public async Task<List<Partner>> GetPartnerList()
     {
-        return _dbContext.Partners.AsNoTracking().ToList();
+        return await _dbContext.Partners.AsNoTracking().ToListAsync();
     }
 
-    public void Update(Partner Partner)
+    public async Task Update(Partner Partner)
     {
         _dbContext.Partners.Update(Partner);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 }

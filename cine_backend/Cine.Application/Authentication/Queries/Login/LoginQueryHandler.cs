@@ -24,7 +24,7 @@ public class LoginQueryHandler :
         // Validar que el usuario existe
         // Validar si la contrasenna es correcta
         // crear token jwt 
-        if (_partnerRepository.GetPartnerByEmail(request.Email) is not Partner partner)
+        if (await _partnerRepository.GetPartnerByEmail(request.Email) is not Partner partner)
         {
             return Errors.Partner.EmailNotFound;
         }
