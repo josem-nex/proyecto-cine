@@ -4,41 +4,41 @@ using Cine.Domain.Entities.Movies;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cine.Infrastructure.Persistence.Repositories;
-public class MoviesRepository /* : IMoviesRepository */
+public class MovieRepository : IMovieRepository
 {
     private readonly CineDbContext _dbContext;
 
-    public MoviesRepository(CineDbContext dbContext)
+    public MovieRepository(CineDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public void Add(Movie Movies)
+    public async Task Add(Movie movie)
     {
-        _dbContext.Movies.Add(Movies);
-        _dbContext.SaveChanges();
+        await _dbContext.Movies.AddAsync(movie);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Movie? GetMoviesById(int Id)
+    public async Task<Movie?> GetMovieById(int Id)
     {
-        return _dbContext.Movies.SingleOrDefault(u => u.Id == Id);
+        return await _dbContext.Movies.SingleOrDefaultAsync(u => u.Id == Id);
     }
 
-    public void Delete(int Id)
+    public async Task Delete(int Id)
     {
-        var Movie = _dbContext.Movies.SingleOrDefault(u => u.Id == Id);
-        _dbContext.Movies.Remove(Movie);
-        _dbContext.SaveChanges();
+        var movie = await _dbContext.Movies.SingleOrDefaultAsync(u => u.Id == Id);
+        _dbContext.Movies.Remove(movie);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<Movie> GetMoviesList()
+    public Task<List<Movie>> GetMovieList()
     {
-        return _dbContext.Movies.AsNoTracking().ToList();
+        return _dbContext.Movies.AsNoTracking().ToListAsync();
     }
 
-    public void Update(Movie Movies)
+    public async Task Update(Movie movie)
     {
-        _dbContext.Movies.Update(Movies);
-        _dbContext.SaveChanges();
+        _dbContext.Movies.Update(movie);
+        await _dbContext.SaveChangesAsync();
     }
 }
