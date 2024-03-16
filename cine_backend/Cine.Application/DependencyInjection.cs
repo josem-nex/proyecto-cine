@@ -1,4 +1,5 @@
 using System.Reflection;
+using Cine.Application.Models.Movies.Queries;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -23,6 +23,7 @@ public static class DependencyInjection
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddScoped<IPartnerRepository, PartnerRepository>();
+        services.AddScoped<IMovieRepository, MovieRepository>();
         return services;
     }
 }
