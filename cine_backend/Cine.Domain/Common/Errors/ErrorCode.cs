@@ -6,4 +6,6 @@ public class ErrorCode
     public const string InvalidPassword = "Auth.InvalidPassword";
     public const string NullValue = "Error.NullValue";
     public const string Validation = "Error.Validation";
+    public const string CountryNotFound = "Error.CountryNotFound";
+    public const string MovieAlreadyExists = "Error.MovieAlreadyExists";
 }

@@ -9,4 +9,6 @@ public interface IMovieRepository
     Task Delete(int Id);
     Task<Movie?> GetMovieById(int ID);
     Task<List<Movie>> GetMovieList();
+    Task<Movie?> GetMovieByTitle(string title);
+
 }

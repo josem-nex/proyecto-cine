@@ -4,6 +4,7 @@ using Cine.Application.Authentication.Commands.Register;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Authentication.Queries.GetAll;
 using Cine.Application.Authentication.Querys.Login;
+using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Queries;
 using Cine.Contracts.Authentication;
 using Mapster;
@@ -23,5 +24,7 @@ public class AuthenticationMappingConfig : IRegister
             .ConstructUsing(src => new GetPartnerListResult(src.Partners));
         config.NewConfig<GetAllMoviesResult, GetAllMoviesResult>()
             .ConstructUsing(src => new GetAllMoviesResult(src.Movies));
+        config.NewConfig<AddMovieResult, AddMovieResponse>()
+            .Map(dest => dest, src => src.Movie);
     }
 }

@@ -22,4 +22,5 @@ public static partial class Errors
             code: ErrorCode.Validation,
             description: $"{field}: {message}");
     }
+    
 }

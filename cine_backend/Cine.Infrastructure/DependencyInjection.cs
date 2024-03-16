@@ -24,6 +24,7 @@ public static class DependencyInjection
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddScoped<IPartnerRepository, PartnerRepository>();
         services.AddScoped<IMovieRepository, MovieRepository>();
+        services.AddScoped<ICountryRepository, CountryRepository>();
         return services;
     }
 }

@@ -1,0 +1,15 @@
+@host= http://localhost:5000
+POST {{host}}/movies/add/
+Content-Type: application/json
+
+{
+    "title": "The Dark Knight",
+    "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept",
+    "director": "Christopher Nolan",
+    "imageurl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+    "durationminutes": "152",
+    "releasedate": "2008-07-18",
+    "language": "English",
+    "rating": 9,
+    "countryid": "2"   
+}

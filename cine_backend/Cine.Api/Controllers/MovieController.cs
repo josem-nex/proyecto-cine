@@ -4,6 +4,7 @@ using ErrorOr;
 using MediatR;
 using MapsterMapper;
 using Cine.Application.Models.Movies.Queries;
+using Cine.Application.Models.Movies.Commands.AddMovie;
 namespace Cine.Api.Controllers
 {
     [Route("movies")]
@@ -26,16 +27,17 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        /* [HttpPost("add")]
-        public async Task<IActionResult> AddMovie([FromBody] AddMovieRequest request)
+        [HttpPost("add")]
+        public async Task<IActionResult> AddMovie(AddMovieRequest request)
         {
             var command = _mapper.Map<AddMovieCommand>(request);
             ErrorOr<AddMovieResult> movieResult = await _mediator.Send(command);
+            System.Console.WriteLine("mediatorok");
             return movieResult.Match(
                 movieResult => Ok(_mapper.Map<AddMovieResponse>(movieResult)),
                 errors => Problem(errors)
             );
-        } */
+        }
 
 
         /* 

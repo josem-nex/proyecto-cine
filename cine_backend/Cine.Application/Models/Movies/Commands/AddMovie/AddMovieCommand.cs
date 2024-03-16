@@ -8,9 +8,10 @@ public record AddMovieCommand(
     string Title,
     string Description,
     string Director,
+    string ImageUrl,
     int DurationMinutes,
     DateTime ReleaseDate,
     string Language,
     int Rating,
     int CountryId
-) : IRequest<ErrorOr<AddMovieResponse>>;
+) : IRequest<ErrorOr<AddMovieResult>>;

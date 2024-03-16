@@ -23,6 +23,10 @@ public class MovieRepository : IMovieRepository
     {
         return await _dbContext.Movies.SingleOrDefaultAsync(u => u.Id == Id);
     }
+    public async Task<Movie?> GetMovieByTitle(string title)
+    {
+        return await _dbContext.Movies.SingleOrDefaultAsync(u => u.Title == title);
+    }
 
     public async Task Delete(int Id)
     {

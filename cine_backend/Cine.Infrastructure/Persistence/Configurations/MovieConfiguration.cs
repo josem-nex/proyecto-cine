@@ -22,6 +22,10 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
             .IsRequired()
             .HasMaxLength(100);
 
+        builder.Property(a => a.ImageUrl)
+            .IsRequired()
+            .HasMaxLength(500);
+
         builder.Property(a => a.ReleaseDate)
             .IsRequired();
 
