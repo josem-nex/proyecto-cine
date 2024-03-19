@@ -13,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 {
     app.UseExceptionHandler("/error");
+    app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
     app.UseHttpsRedirection();
     app.MapControllers();
     app.Run();
