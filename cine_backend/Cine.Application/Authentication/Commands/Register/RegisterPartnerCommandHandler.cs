@@ -5,6 +5,7 @@ using Cine.Domain.Common.Errors;
 using Cine.Domain.Entities;
 using ErrorOr;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cine.Application.Authentication.Commands.Register;
 public class RegisterPartnerCommandHandler :
@@ -21,13 +22,12 @@ public class RegisterPartnerCommandHandler :
     {
         await Task.CompletedTask;
 
-        //  Revisar que el correo no existe, o sea el usuario tiene que ser único a la hora de registrarse
-        //  Generar un ID único, Crear el usuario y annadirlo a la BD
-        //  Crear un JwT Token
         if (await _partnerRepository.GetPartnerByEmail(command.Email) is not null)
         {
             return Errors.Partner.DuplicatedEmail;
         }
+        var hasher = new PasswordHasher<Partner>();
+        var hashedPassword = hasher.HashPassword(null, command.Password);
         var partner = new Partner(
             command.FirstName,
             command.LastName,
@@ -35,7 +35,7 @@ public class RegisterPartnerCommandHandler :
             command.Ci,
             command.Address,
             command.PhoneNumber,
-            command.Password
+            hashedPassword
         );
         await _partnerRepository.Add(partner);
         // Guid id = Guid.NewGuid();

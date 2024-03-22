@@ -12,4 +12,11 @@ public class Partner : User
         PhoneNumber = phoneNumber;
         Password = password;
     }
+    public void Update(string firstName, string lastName, string email, string ci, string address, string phoneNumber, string password)
+    {
+        base.Update(firstName, lastName, email, ci);
+        Address = address;
+        PhoneNumber = phoneNumber;
+        Password = password;
+    }
 }

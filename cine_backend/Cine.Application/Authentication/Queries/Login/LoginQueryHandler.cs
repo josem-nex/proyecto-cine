@@ -5,6 +5,7 @@ using Cine.Domain.Common.Errors;
 using Cine.Domain.Entities;
 using ErrorOr;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cine.Application.Authentication.Querys.Login;
 public class LoginQueryHandler :
@@ -21,17 +22,17 @@ public class LoginQueryHandler :
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        // Validar que el usuario existe
-        // Validar si la contrasenna es correcta
-        // crear token jwt 
         if (await _partnerRepository.GetPartnerByEmail(request.Email) is not Partner partner)
         {
             return Errors.Partner.EmailNotFound;
         }
-        if (partner.Password != request.Password)
+        var hasher = new PasswordHasher<Partner>();
+        var verificationResult = hasher.VerifyHashedPassword(partner, partner.Password, request.Password);
+        if (verificationResult == PasswordVerificationResult.Failed)
         {
             return Errors.Partner.InvalidPassword;
         }
+
         var token = _jwtTokenGenerator.GenerateToken(partner);
 
         return new AuthenticationResult(

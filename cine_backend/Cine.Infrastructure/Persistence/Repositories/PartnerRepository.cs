@@ -44,4 +44,9 @@ public class PartnerRepository : IPartnerRepository
         _dbContext.Partners.Update(Partner);
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task<Partner?> GetPartnerById(Guid id)
+    {
+        return await _dbContext.Partners.SingleOrDefaultAsync(u => u.Id == id);
+    }
 }

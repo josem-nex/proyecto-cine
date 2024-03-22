@@ -9,6 +9,7 @@ using ErrorOr;
 using MediatR;
 using MapsterMapper;
 using Microsoft.AspNetCore.HttpLogging;
+using Cine.Application.Authentication.Commands.Update;
 namespace Cine.Api.Controllers
 {
     [Route("auth")]
@@ -34,13 +35,23 @@ namespace Cine.Api.Controllers
         }
 
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
             var query = _mapper.Map<LoginQuery>(request);
             ErrorOr<AuthenticationResult> authResult = await _mediator.Send(query);
             return authResult.Match(
                 authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
+                errors => Problem(errors)
+            );
+        }
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdatePartner(UpdatePartnerRequest request)
+        {
+            var command = _mapper.Map<UpdatePartnerCommand>(request);
+            ErrorOr<AuthenticationResult> result = await _mediator.Send(command);
+            return result.Match(
+                result => Ok(_mapper.Map<AuthenticationResponse>(result)),
                 errors => Problem(errors)
             );
         }

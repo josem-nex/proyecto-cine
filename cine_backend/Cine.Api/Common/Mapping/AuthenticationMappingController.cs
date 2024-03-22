@@ -1,6 +1,7 @@
 namespace Cine.Api.Common.Mapping;
 
 using Cine.Application.Authentication.Commands.Register;
+using Cine.Application.Authentication.Commands.Update;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Authentication.Queries.GetAll;
 using Cine.Application.Authentication.Querys.Login;
@@ -14,6 +15,7 @@ public class AuthenticationMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<RegisterRequest, RegisterPartnerCommand>();
+        config.NewConfig<UpdatePartnerRequest, UpdatePartnerCommand>();
 
         config.NewConfig<LoginRequest, LoginQuery>();
 

@@ -21,6 +21,9 @@ public static partial class Errors
         public static Error Validation(string field, string message) => Error.Validation(
             code: ErrorCode.Validation,
             description: $"{field}: {message}");
+        public static Error PartnerNotFound => Error.NotFound(
+            code: ErrorCode.PartnerNotFound,
+            description: "Partner not found");
     }
-    
+
 }

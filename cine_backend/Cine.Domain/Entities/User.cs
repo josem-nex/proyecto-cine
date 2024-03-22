@@ -13,4 +13,11 @@ public class User
         Email = email;
         Ci = ci;
     }
+    public void Update(string firstName, string lastName, string email, string ci)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        Ci = ci;
+    }
 }

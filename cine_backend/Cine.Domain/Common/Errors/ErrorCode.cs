@@ -8,4 +8,6 @@ public class ErrorCode
     public const string Validation = "Error.Validation";
     public const string CountryNotFound = "Error.CountryNotFound";
     public const string MovieAlreadyExists = "Error.MovieAlreadyExists";
+    public const string PartnerNotFound = "Error.PartnerNotFound";
+
 }

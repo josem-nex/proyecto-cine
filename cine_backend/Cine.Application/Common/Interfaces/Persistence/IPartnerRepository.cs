@@ -8,5 +8,6 @@ public interface IPartnerRepository
     Task Update(Partner partner);
     Task Delete(string email);
     Task<Partner?> GetPartnerByEmail(string email);
+    Task<Partner?> GetPartnerById(Guid id);
     Task<List<Partner>> GetPartnerList();
 }
