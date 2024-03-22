@@ -8,5 +8,10 @@ public class Country
     {
         Name = name;
     }
+    public Country(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
 
 }

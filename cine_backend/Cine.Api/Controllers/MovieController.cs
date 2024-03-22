@@ -5,6 +5,10 @@ using MediatR;
 using MapsterMapper;
 using Cine.Application.Models.Movies.Queries;
 using Cine.Application.Models.Movies.Commands.AddMovie;
+using Cine.Domain.Entities.Movies;
+using Cine.Domain.Entities.Tickets;
+using Cine.Application.Models.Movies.Queries.GetAll;
+using Cine.Application.Models.Movies.Queries.GetOne;
 namespace Cine.Api.Controllers
 {
     [Route("movies")]
@@ -17,7 +21,7 @@ namespace Cine.Api.Controllers
             _mediator = mediator;
             _mapper = mapper;
         }
-        [HttpGet("all")]
+        [HttpGet("getall")]
         public async Task<IActionResult> GetAllMovies()
         {
             var query = new GetAllMoviesQuery();
@@ -38,19 +42,19 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
+        [HttpGet("get")]
+        public async Task<IActionResult> GetMovie(GetMovieRequest request)
+        {
+            var query = _mapper.Map<GetMovieQuery>(request);
+            ErrorOr<GetMovieResult> authResult = await _mediator.Send(query);
+            return authResult.Match(
+                authResult => Ok(_mapper.Map<GetMovieResponse>(authResult)),
+                errors => Problem(errors)
+            );
+        }
 
 
         /* 
-                [HttpGet("{movieId:int}")]
-                public async Task<IActionResult> GetMovie(LoginRequest request)
-                {
-                    var query = _mapper.Map<LoginQuery>(request);
-                    ErrorOr<MovieResult> authResult = await _mediator.Send(query);
-                    return authResult.Match(
-                        authResult => Ok(_mapper.Map<MovieResponse>(authResult)),
-                        errors => Problem(errors)
-                    );
-                }
                 [HttpPost("delete")]
                 public async Task<IActionResult> DeletePartner(DeletePartnerRequest request)
                 {
@@ -62,4 +66,7 @@ namespace Cine.Api.Controllers
                     );
                 } */
     }
+
+
+
 }

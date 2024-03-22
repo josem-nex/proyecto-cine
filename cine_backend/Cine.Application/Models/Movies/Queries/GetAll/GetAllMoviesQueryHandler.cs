@@ -1,4 +1,4 @@
-namespace Cine.Application.Models.Movies.Queries;
+namespace Cine.Application.Models.Movies.Queries.GetAll;
 
 using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Domain.Entities.Movies;

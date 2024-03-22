@@ -10,4 +10,5 @@ public class ErrorCode
     public const string MovieAlreadyExists = "Error.MovieAlreadyExists";
     public const string PartnerNotFound = "Error.PartnerNotFound";
     public const string CountryAlreadyExists = "Error.CountryAlreadyExists";
+    public const string MovieNotFound = "Error.MovieNotFound";
 }

@@ -33,8 +33,3 @@ public class Movie
 }
 
 
-
-/* 
-INSERT INTO "Movies"("Title","Description","Director","DurationMinutes","ReleaseDate","Language","Rating","CountryId","ImageUrl") 
-VALUES ('virgen a los 40','comedia','queseyo',232,'1994-02-01 17:00:41','2009',216,49,'123123') 
-*/
