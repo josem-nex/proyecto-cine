@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/countries/add
+Content-Type: application/json
+
+{
+    "name": "Puerto Rico"
+}

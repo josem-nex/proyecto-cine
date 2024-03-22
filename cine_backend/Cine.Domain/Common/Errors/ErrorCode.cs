@@ -9,5 +9,5 @@ public class ErrorCode
     public const string CountryNotFound = "Error.CountryNotFound";
     public const string MovieAlreadyExists = "Error.MovieAlreadyExists";
     public const string PartnerNotFound = "Error.PartnerNotFound";
-
+    public const string CountryAlreadyExists = "Error.CountryAlreadyExists";
 }

@@ -164,3 +164,109 @@ Los errores se encuentran en Domain/Errors/
   ]
 }
 ```
+
+## Movie
+
+### Add
+
+#### Request
+
+```json
+{
+  "title": "Avatar",
+  "description": "Bichos azules raros",
+  "director": "el jefe",
+  "imageurl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+  "durationminutes": "194",
+  "releasedate": "2002-07-18",
+  "language": "English",
+  "rating": 8,
+  "countryid": "3"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 27,
+  "title": "Avatar",
+  "description": "Bichos azules raros",
+  "director": "el jefe",
+  "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+  "durationMinutes": 194,
+  "releaseDate": "2002-07-18T00:00:00",
+  "language": "English",
+  "rating": 8,
+  "countryId": 3
+}
+```
+
+## Country
+
+### Add
+
+#### Request
+
+```json
+{
+  "name": "Venezuela"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 3,
+  "name": "Venezuela"
+}
+```
+
+### GetAll
+
+#### Request
+
+```json
+{}
+```
+
+#### Response
+
+```json
+{
+  "countries": [
+    {
+      "id": 1,
+      "name": "USA"
+    },
+    {
+      "id": 2,
+      "name": "Colombia"
+    },
+    {
+      "id": 3,
+      "name": "Venezuela"
+    }
+  ]
+}
+```
+
+### GetOne
+
+#### Request
+
+```json
+{
+  "id": 3
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 3,
+  "name": "Venezuela"
+}
+```

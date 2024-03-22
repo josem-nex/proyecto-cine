@@ -12,6 +12,20 @@ public class CountryRepository : ICountryRepository
     {
         _dbContext = dbContext;
     }
+
+    public async Task<Country> Add(Country country)
+    {
+        await Task.CompletedTask;
+        var cy = _dbContext.Countries.AddAsync(country);
+        await _dbContext.SaveChangesAsync();
+        return cy.Result.Entity;
+    }
+
+    public async Task<List<Country>> GetAllAsync()
+    {
+        return await _dbContext.Countries.ToListAsync();
+    }
+
     public async Task<Country?> GetCountryById(int Id)
     {
         return await _dbContext.Countries.SingleOrDefaultAsync(u => u.Id == Id);
