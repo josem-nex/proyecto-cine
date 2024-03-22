@@ -9,6 +9,7 @@ using Cine.Application.Models.Countries.Commands.Add;
 using Cine.Application.Models.Countries.Queries.GetAll;
 using Cine.Application.Models.Countries.Queries.GetOne;
 using Cine.Application.Models.Movies.Commands.AddMovie;
+using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
@@ -48,7 +49,7 @@ public class AuthenticationMappingConfig : IRegister
             // .Map(dest => dest.Country, src => src.Movie.Country)
             .Map(dest => dest.CountryId, src => src.Movie.CountryId);
         config.NewConfig<GetMovieRequest, GetMovieQuery>();
-
+        config.NewConfig<UpdateMovieRequest, UpdateMovieCommand>();
 
         config.NewConfig<GetAllCountriesQuery, GetAllCountriesQuery>();
         config.NewConfig<GetAllCountriesResult, GetAllCountriesResult>()

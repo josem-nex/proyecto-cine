@@ -9,6 +9,8 @@ using Cine.Domain.Entities.Movies;
 using Cine.Domain.Entities.Tickets;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
+using Cine.Application.Models.Movies.Commands.DeleteMovie;
+using Cine.Application.Models.Movies.Commands.UpdateMovie;
 namespace Cine.Api.Controllers
 {
     [Route("movies")]
@@ -36,7 +38,6 @@ namespace Cine.Api.Controllers
         {
             var command = _mapper.Map<AddMovieCommand>(request);
             ErrorOr<AddMovieResult> movieResult = await _mediator.Send(command);
-            System.Console.WriteLine("mediatorok");
             return movieResult.Match(
                 movieResult => Ok(_mapper.Map<AddMovieResponse>(movieResult)),
                 errors => Problem(errors)
@@ -52,21 +53,26 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-
-
-        /* 
-                [HttpPost("delete")]
-                public async Task<IActionResult> DeletePartner(DeletePartnerRequest request)
-                {
-                    var command = _mapper.Map<DeletePartnerCommand>(request);
-                    ErrorOr<Unit> result = await _mediator.Send(command);
-                    return result.Match(
-                        _ => Ok(),
-                        errors => Problem(errors)
-                    );
-                } */
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeleteMovie(DeleteMovieRequest request)
+        {
+            var command = _mapper.Map<DeleteMovieCommand>(request);
+            ErrorOr<Unit> result = await _mediator.Send(command);
+            return result.Match(
+                _ => Ok(),
+                errors => Problem(errors)
+            );
+        }
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateMovie(UpdateMovieRequest request)
+        {
+            var command = _mapper.Map<UpdateMovieCommand>(request);
+            ErrorOr<GetMovieResult> result = await _mediator.Send(command);
+            return result.Match(
+                result => Ok(_mapper.Map<GetMovieResponse>(result)),
+                errors => Problem(errors)
+            );
+        }
     }
-
-
 
 }

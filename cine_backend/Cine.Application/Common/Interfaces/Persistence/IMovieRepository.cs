@@ -6,7 +6,7 @@ public interface IMovieRepository
 {
     Task Add(Movie movie);
     Task Update(Movie movie);
-    Task Delete(int Id);
+    Task Delete(Movie movie);
     Task<Movie?> GetMovieById(int ID);
     Task<List<Movie>> GetMovieList();
     Task<Movie?> GetMovieByTitle(string title);

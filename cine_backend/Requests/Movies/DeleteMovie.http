@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/movies/delete
+Content-Type: application/json
+
+{
+    "Id": 27
+}

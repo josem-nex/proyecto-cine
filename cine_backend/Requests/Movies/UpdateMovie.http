@@ -1,0 +1,16 @@
+@host= http://localhost:5000
+POST {{host}}/movies/update
+Content-Type: application/json
+
+{
+  "id": 20,
+  "title": "titanic",
+  "description": "candelamedormi",
+  "director": "queseyo",
+  "imageUrl": "123123",
+  "durationMinutes": 232,
+  "releaseDate": "1994-02-01T17:00:41",
+  "language": "2009",
+  "rating": 216,
+  "countryId": 49
+}

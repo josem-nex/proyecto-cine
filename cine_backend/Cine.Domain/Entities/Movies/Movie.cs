@@ -1,4 +1,5 @@
 using Cine.Domain.Entities.Tickets;
+using ErrorOr;
 
 namespace Cine.Domain.Entities.Movies;
 public class Movie
@@ -29,6 +30,18 @@ public class Movie
         Rating = rating;
         CountryId = countryId;
         // Las listas de Actores y Géneros se inicializan como vacías
+    }
+    public void Update(string title, string description, string director, string imageUrl, int durationMinutes, DateTime releaseDate, string language, int rating, int countryId)
+    {
+        Title = title;
+        Description = description;
+        Director = director;
+        ImageUrl = imageUrl;
+        DurationMinutes = durationMinutes;
+        ReleaseDate = releaseDate;
+        Language = language;
+        Rating = rating;
+        CountryId = countryId;
     }
 }
 

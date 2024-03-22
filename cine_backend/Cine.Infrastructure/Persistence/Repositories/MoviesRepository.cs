@@ -28,9 +28,8 @@ public class MovieRepository : IMovieRepository
         return await _dbContext.Movies.SingleOrDefaultAsync(u => u.Title == title);
     }
 
-    public async Task Delete(int Id)
+    public async Task Delete(Movie movie)
     {
-        var movie = await _dbContext.Movies.SingleOrDefaultAsync(u => u.Id == Id);
         _dbContext.Movies.Remove(movie);
         await _dbContext.SaveChangesAsync();
     }

@@ -202,6 +202,126 @@ Los errores se encuentran en Domain/Errors/
 }
 ```
 
+### GetAll
+
+#### Request
+
+```json
+{}
+```
+
+#### Response
+
+```json
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Avatar",
+      "description": "Bichos azules raros",
+      "director": "el jefe",
+      "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+      "durationMinutes": 194,
+      "releaseDate": "2002-07-18T00:00:00",
+      "language": "English",
+      "rating": 8,
+      "countryId": 3
+    },
+    {
+      "id": 2,
+      "title": "Otrapeli",
+      "description": "Otradescripdcion",
+      "director": "el jefe",
+      "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+      "durationMinutes": 194,
+      "releaseDate": "2002-07-18T00:00:00",
+      "language": "English",
+      "rating": 8,
+      "countryId": 3
+    }
+  ]
+}
+```
+
+### Delete
+
+#### Request
+
+```json
+{
+  "id": 27
+}
+```
+
+#### Response
+
+```json
+{}
+```
+
+### GetOne
+
+#### Request
+
+```json
+{
+  "id": 1
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 1,
+  "title": "Avatar",
+  "description": "Bichos azules raros",
+  "director": "el jefe",
+  "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+  "durationMinutes": 194,
+  "releaseDate": "2002-07-18T00:00:00",
+  "language": "English",
+  "rating": 8,
+  "countryId": 3
+}
+```
+
+### Update
+
+#### Request
+
+```json
+{
+  "id": 1,
+  "title": "Avatar editado",
+  "description": "Bichos azules raros",
+  "director": "el jefe",
+  "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+  "durationMinutes": 194,
+  "releaseDate": "2002-07-18",
+  "language": "English",
+  "rating": 8,
+  "countryId": 3
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 1,
+  "title": "Avatar editado",
+  "description": "Bichos azules raros",
+  "director": "el jefe",
+  "imageUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
+  "durationMinutes": 194,
+  "releaseDate": "2002-07-18T00:00:00",
+  "language": "English",
+  "rating": 8,
+  "countryId": 3
+}
+```
+
 ## Country
 
 ### Add
