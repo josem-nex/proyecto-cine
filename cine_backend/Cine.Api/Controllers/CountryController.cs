@@ -39,7 +39,7 @@ public class CountryController : ApiController
             errors => Problem(errors)
         );
     }
-    [HttpGet("get")]
+    [HttpPost("get")]
     public async Task<IActionResult> GetCountry(GetCountryRequest request)
     {
         var query = _mapper.Map<GetCountryQuery>(request);

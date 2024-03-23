@@ -43,7 +43,7 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-        [HttpGet("get")]
+        [HttpPost("get")]
         public async Task<IActionResult> GetMovie(GetMovieRequest request)
         {
             var query = _mapper.Map<GetMovieQuery>(request);

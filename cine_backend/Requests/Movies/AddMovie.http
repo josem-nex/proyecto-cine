@@ -7,9 +7,9 @@ Content-Type: application/json
     "description": "Bichos azules raros",
     "director": "el jefe",
     "imageurl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm2488712192",
-    "durationminutes": "194",
+    "durationminutes": 194,
     "releasedate": "2002-07-18",
     "language": "English",
     "rating": 8,
-    "countryid": "3"
+    "countryid": 3
 }   
