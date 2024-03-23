@@ -5,6 +5,7 @@ using Cine.Domain.Common.Errors;
 using Cine.Domain.Entities;
 using ErrorOr;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cine.Application.Authentication.Commands.Update;
 public class UpdatePartnerCommandHandler :
@@ -23,6 +24,8 @@ public class UpdatePartnerCommandHandler :
         var partner = await _partnerRepository.GetPartnerById(Guid.Parse(command.Id));
         if (partner is null)
             return Errors.Partner.PartnerNotFound;
+        var hasher = new PasswordHasher<Partner>();
+        var hashedPassword = hasher.HashPassword(partner, command.Password);
         partner.Update(
             command.FirstName,
             command.LastName,
@@ -30,7 +33,7 @@ public class UpdatePartnerCommandHandler :
             command.Ci,
             command.Address,
             command.PhoneNumber,
-            command.Password
+            hashedPassword
         );
 
         await _partnerRepository.Update(partner);

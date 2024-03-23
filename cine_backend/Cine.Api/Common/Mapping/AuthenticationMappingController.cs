@@ -1,20 +1,23 @@
 namespace Cine.Api.Common.Mapping;
 
+using Cine.Api.Controllers;
 using Cine.Application.Authentication.Commands.Register;
 using Cine.Application.Authentication.Commands.Update;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Authentication.Queries.GetAll;
 using Cine.Application.Authentication.Querys.Login;
+using Cine.Application.Models.Admins.Commands;
+using Cine.Application.Models.Admins.Queries.Get;
+using Cine.Application.Models.Admins.Queries.GetAll;
+using Cine.Application.Models.Admins.Queries.Login;
 using Cine.Application.Models.Countries.Commands.Add;
 using Cine.Application.Models.Countries.Queries.GetAll;
 using Cine.Application.Models.Countries.Queries.GetOne;
 using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
-using Cine.Application.Models.Movies.Queries;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
 using Cine.Contracts.Authentication;
-using Cine.Domain.Entities.Movies;
 using Mapster;
 
 public class AuthenticationMappingConfig : IRegister
@@ -32,6 +35,20 @@ public class AuthenticationMappingConfig : IRegister
 
         config.NewConfig<GetPartnerListResult, GetPartnerListResult>()
             .ConstructUsing(src => new GetPartnerListResult(src.Partners));
+
+        config.NewConfig<AddAdminRequest, AddAdminCommand>();
+        config.NewConfig<GetAdminResult, GetAdminResponse>()
+            .Map(dest => dest, src => src.Admin);
+        config.NewConfig<AddAdminResult, GetAdminResponse>()
+            .Map(dest => dest, src => src.Admin);
+        config.NewConfig<GetAdminRequest, GetAdminQuery>();
+        config.NewConfig<GetAllAdminResult, GetAllAdminResult>()
+            .ConstructUsing(src => new GetAllAdminResult(src.Admins));
+        config.NewConfig<LoginAdminRequest, LoginAdminQuery>();
+
+
+
+
         config.NewConfig<GetAllMoviesResult, GetAllMoviesResult>()
             .ConstructUsing(src => new GetAllMoviesResult(src.Movies));
         config.NewConfig<AddMovieResult, AddMovieResponse>()

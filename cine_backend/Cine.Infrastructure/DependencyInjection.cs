@@ -25,6 +25,7 @@ public static class DependencyInjection
         services.AddScoped<IPartnerRepository, PartnerRepository>();
         services.AddScoped<IMovieRepository, MovieRepository>();
         services.AddScoped<ICountryRepository, CountryRepository>();
+        services.AddScoped<IAdminRepository, AdminRepository>();
         return services;
     }
 }

@@ -11,4 +11,6 @@ public class ErrorCode
     public const string PartnerNotFound = "Error.PartnerNotFound";
     public const string CountryAlreadyExists = "Error.CountryAlreadyExists";
     public const string MovieNotFound = "Error.MovieNotFound";
+    public const string AdminNotFound = "Error.AdminNotFound";
+    public const string DuplicatedAdmin = "Error.DuplicatedAdmin";
 }

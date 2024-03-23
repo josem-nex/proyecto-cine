@@ -3,12 +3,12 @@ POST {{host}}/auth/update
 Content-Type: application/json
 
 {
-    "id": "1250bd0e-1256-4fb7-8729-4871c5066776",
-    "firstname": "Laura Maria editada",
+    "id": "b9d06468-ee62-4a58-8b4e-4ac4a5d2f990",
+    "firstname": "Laura Maria",
     "lastname":  "Ramona",
     "email": "lmariar@gmail.com",
     "ci": "02101576475",
     "address": "Calle 1 #123",
     "phonenumber": "787-123-1234",
-    "password": "123mn213"
+    "password": "123mn21"
 }

@@ -2,11 +2,12 @@
 POST {{host}}/auth/login
 Content-Type: application/json
 
-# {
-#     "email": "lmariar@gmail.com",
-#     "password": "123mn213"
-# }
 {
-    "email": "camello@gmail.com",
-    "password": "87654321"
+    "email": "lmariar@gmail.com",
+    "password": "123mn21"
 }
+
+# {
+#     "email": "camello@gmail.com",
+#     "password": "87654321"
+#}

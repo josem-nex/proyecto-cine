@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/admin/get
+Content-Type: application/json
+
+{
+    "id": "c74cac61-ac81-480d-ae9e-756bd203f279"
+}

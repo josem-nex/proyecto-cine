@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
 using MediatR;
 using MapsterMapper;
-using Microsoft.AspNetCore.HttpLogging;
 using Cine.Application.Authentication.Commands.Update;
 namespace Cine.Api.Controllers
 {

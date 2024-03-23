@@ -29,6 +29,13 @@ public class AdminRepository : IAdminRepository
     public async Task<Admin?> GetAdminById(Guid Id)
     {
         var admin = await _dbContext.Admins.FindAsync(Id);
+        System.Console.WriteLine(admin.User);
+        return admin;
+    }
+
+    public async Task<Admin?> GetAdminByUser(string user)
+    {
+        var admin = await _dbContext.Admins.FirstOrDefaultAsync(a => a.User == user);
         return admin;
     }
 

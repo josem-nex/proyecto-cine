@@ -1,0 +1,8 @@
+@host= http://localhost:5000
+POST {{host}}/admin/add
+Content-Type: application/json
+
+{
+    "User": "nex25k",
+    "Password": "Kjkszpj*"
+}
