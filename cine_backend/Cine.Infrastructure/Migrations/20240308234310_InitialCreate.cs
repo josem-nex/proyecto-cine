@@ -108,6 +108,19 @@ namespace Cine.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    User = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Movies",
                 columns: table => new
                 {
@@ -420,6 +433,7 @@ namespace Cine.Infrastructure.Migrations
                 name: "IX_Tickets_ShowTimesId",
                 table: "Tickets",
                 column: "ShowTimesId");
+
         }
 
         /// <inheritdoc />
@@ -475,6 +489,9 @@ namespace Cine.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Countrys");
+
+            migrationBuilder.DropTable(
+                name: "Admins");
         }
     }
 }

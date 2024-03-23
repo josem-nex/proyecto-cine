@@ -364,6 +364,26 @@ namespace Cine.Infrastructure.Migrations
                     b.UseTptMappingStrategy();
                 });
 
+            modelBuilder.Entity("Cine.Domain.Entities.Admin", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("User")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins", (string)null);
+                });
+
             modelBuilder.Entity("DiscountTicket", b =>
                 {
                     b.Property<int>("DiscountsId")

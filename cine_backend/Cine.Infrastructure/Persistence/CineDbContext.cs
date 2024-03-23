@@ -20,6 +20,7 @@ public class CineDbContext : DbContext
     public DbSet<Discount> Discounts { get; set; } = null!;
     public DbSet<MonetaryPurchase> MonetaryPurchases { get; set; } = null!;
     public DbSet<PointsPurchase> PointsPurchases { get; set; } = null!;
+    public DbSet<Admin> Admins { get; set; } = null!;
 
     public CineDbContext(DbContextOptions<CineDbContext> options) : base(options)
     {
