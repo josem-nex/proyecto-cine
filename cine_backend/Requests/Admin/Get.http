@@ -3,5 +3,5 @@ POST {{host}}/admin/get
 Content-Type: application/json
 
 {
-    "id": "c74cac61-ac81-480d-ae9e-756bd203f279"
+    "id":"a426771e-dfc6-416b-86a7-5443fb6413d5"
 }

@@ -3,7 +3,7 @@ POST {{host}}/admin/update
 Content-Type: application/json
 
 {
-    "id": "c74cac61-ac81-480d-ae9e-756bd203f279",
-    "user": "nex25k",
-    "password": "Kjkszpj*"
+    "id":"a426771e-dfc6-416b-86a7-5443fb6413d5",
+    "user": "rdaniel editado",
+    "password": "Rdaniel*"
 }

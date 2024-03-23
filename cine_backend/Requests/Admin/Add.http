@@ -3,6 +3,6 @@ POST {{host}}/admin/add
 Content-Type: application/json
 
 {
-    "User": "nex25k",
-    "Password": "Kjkszpj*"
+    "User": "rdaniel",
+    "Password": "Rdaniel*"
 }

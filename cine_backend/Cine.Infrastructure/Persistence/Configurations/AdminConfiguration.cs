@@ -21,7 +21,7 @@ public class AdminConfigurations : IEntityTypeConfiguration<Admin>
             .HasMaxLength(50);
         builder.Property(u => u.Password)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(100);
 
     }
 }

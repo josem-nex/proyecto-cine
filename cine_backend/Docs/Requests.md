@@ -390,3 +390,130 @@ Los errores se encuentran en Domain/Errors/
   "name": "Venezuela"
 }
 ```
+
+## Admin
+
+### Add
+
+#### Request
+
+```json
+{
+  "User": "rdaniel",
+  "Password": "Rdaniel*"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5",
+  "user": "rdaniel",
+  "password": "AQAAAAIAAYagAAAAELL4qOJIKWvx/i93IgBQPzCZmBj9toGkiAOLXYRQnXuUG21eoQ4JxmPH4I8jms1K0A=="
+}
+```
+
+### Get
+
+#### Request
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5",
+  "user": "rdaniel",
+  "password": "AQAAAAIAAYagAAAAELL4qOJIKWvx/i93IgBQPzCZmBj9toGkiAOLXYRQnXuUG21eoQ4JxmPH4I8jms1K0A=="
+}
+```
+
+### Delete
+
+#### Request
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5"
+}
+```
+
+#### Response
+
+```json
+{}
+```
+
+### Update
+
+#### Request
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5",
+  "user": "rdaniel editado",
+  "password": "Rdaniel*"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "a426771e-dfc6-416b-86a7-5443fb6413d5",
+  "user": "rdaniel editado",
+  "password": "AQAAAAIAAYagAAAAEJQ3o/Udp1t+c2YJudDGORer8lczbpKXFm/jnTS5AeBOEyn25lL23TCahUa8UEEMGg=="
+}
+```
+
+### Getall
+
+#### Request
+
+```json
+{}
+```
+
+#### Response
+
+```json
+[
+  {
+    "id": "a426771e-dfc6-416b-86a7-5443fb6413d5",
+    "user": "rdaniel editado",
+    "password": "AQAAAAIAAYagAAAAEJQ3o/Udp1t+c2YJudDGORer8lczbpKXFm/jnTS5AeBOEyn25lL23TCahUa8UEEMGg=="
+  },
+  {
+    "id": "8c6b9132-2c27-4414-8b36-6113b3959587",
+    "user": "nex25k",
+    "password": "AQAAAAIAAYagAAAAEOKDRf5gmzOkQkrFjVh8JsWI2fU1gtNdHwwi1DBdnN+Gj/A6Zrb0AdjDpTdBd+HhNw=="
+  }
+]
+```
+
+### Login
+
+#### Request
+
+```json
+{
+  "User": "nex25k",
+  "Password": "Kjkszpj*"
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "8c6b9132-2c27-4414-8b36-6113b3959587",
+  "user": "nex25k",
+  "password": "AQAAAAIAAYagAAAAEOKDRf5gmzOkQkrFjVh8JsWI2fU1gtNdHwwi1DBdnN+Gj/A6Zrb0AdjDpTdBd+HhNw=="
+}
+```

@@ -5,6 +5,7 @@ using Cine.Domain.Common.Errors;
 using Cine.Application.Models.Admins.Queries.GetAll;
 using Cine.Domain.Entities;
 using Cine.Application.Models.Admins.Queries.Get;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cine.Application.Models.Admins.Commands;
 
@@ -20,7 +21,11 @@ public class UpdateAdminCommandHandler : IRequestHandler<UpdateAdminCommand, Err
         Admin admin = await _adminRepository.GetAdminById(request.Id);
         if (admin is null)
             return Errors.Admin.AdminNotFound;
-        admin.Update(request.User, request.Password);
+
+        var hasher = new PasswordHasher<Admin>();
+        var hashedPassword = hasher.HashPassword(null, request.Password);
+
+        admin.Update(request.User, hashedPassword);
         var result = await _adminRepository.Update(admin);
         return new GetAdminResult(result);
     }
