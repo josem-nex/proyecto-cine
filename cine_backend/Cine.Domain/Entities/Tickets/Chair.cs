@@ -4,5 +4,6 @@ public class Chair
     public int Id { get; private set; }
     public int Row { get; private set; }
     public int Column { get; private set; }
-    public Hall Hall { get; private set; } = null!;
+    public Hall? Hall { get; private set; }
+    public int HallId { get; private set; }
 }
