@@ -13,4 +13,6 @@ public class ErrorCode
     public const string MovieNotFound = "Error.MovieNotFound";
     public const string AdminNotFound = "Error.AdminNotFound";
     public const string DuplicatedAdmin = "Error.DuplicatedAdmin";
+    public const string HallNotFound = "Error.HallNotFound";
+    public const string DuplicatedHall = "Error.DuplicatedHall";
 }

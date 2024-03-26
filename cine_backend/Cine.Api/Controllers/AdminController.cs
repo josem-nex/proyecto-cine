@@ -1,14 +1,10 @@
-using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Application.Models.Admins.Commands;
 using Cine.Application.Models.Admins.Queries.Get;
 using Cine.Application.Models.Admins.Queries.GetAll;
 using Cine.Application.Models.Admins.Queries.Login;
-using Cine.Domain.Common.Errors;
-using Cine.Domain.Entities;
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cine.Api.Controllers;

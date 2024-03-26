@@ -1,0 +1,8 @@
+@host= http://localhost:5000
+POST {{host}}/halls/add
+Content-Type: application/json
+
+{
+    "Name": "Sala1", 
+    "Capacity": 50
+}
