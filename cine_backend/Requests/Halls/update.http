@@ -1,8 +1,9 @@
 @host= http://localhost:5000
-POST {{host}}/halls/add
+POST {{host}}/halls/update
 Content-Type: application/json
 
 {
-    "Name": "Sala1", 
+    "Id": 1,
+    "Name": "Sala00", 
     "Capacity": 50
 }
