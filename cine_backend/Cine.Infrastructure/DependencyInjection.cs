@@ -28,6 +28,7 @@ public static class DependencyInjection
         services.AddScoped<IAdminRepository, AdminRepository>();
         services.AddScoped<IHallRepository, HallRepository>();
         services.AddScoped<IScheduleRepository, ScheduleRepository>();
+        services.AddScoped<IShowTimeRepository, ShowTimeRepository>();
         return services;
     }
 }

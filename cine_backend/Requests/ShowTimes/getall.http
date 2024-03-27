@@ -1,7 +1,7 @@
 @host= http://localhost:5000
-POST {{host}}/movies/delete
+GET {{host}}/showtimes/getall
 Content-Type: application/json
 
 {
-    "Id": 36
+
 }

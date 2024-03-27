@@ -4,9 +4,12 @@ using MediatR;
 using MapsterMapper;
 using Cine.Domain.Entities.Tickets;
 using Cine.Domain.Entities.Movies;
+using Cine.Domain.Common.Errors;
+using Cine.Application.Common.Interfaces.Persistence;
+using Cine.Application.Models.ShowTimes;
 namespace Cine.Api.Controllers
 {
-    [Route("ShowTimes")]
+    [Route("showtimes")]
     public class ShowTimeController : ApiController
     {
         private readonly ISender _mediator;
@@ -67,27 +70,4 @@ namespace Cine.Api.Controllers
             );
         }
     }
-
-    public record UpdateShowTimeCommand(int Id, int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId) : IRequest<ErrorOr<GetShowTimeResult>>;
-
-    public record UpdateShowTimeRequest(int Id, int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId);
-
-    public record DeleteShowTimeCommand(int Id) : IRequest<ErrorOr<Unit>>;
-    public record DeleteShowTimeRequest(int Id);
-
-    public record GetShowTimeQuery(int Id) : IRequest<ErrorOr<GetShowTimeResult>>;
-
-    public record GetShowTimeRequest(int Id);
-
-    public record GetShowTimeResponse(int Id, Hall Halls, int HallsId, Schedule Schedules, int SchedulesId, int Cost, int CostPoints, Movie Movie, int MovieId);
-
-    public record GetShowTimeResult(ShowTime ShowTime);
-
-    public record AddShowTimeCommand(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId) : IRequest<ErrorOr<GetShowTimeResult>>;
-
-    public record AddShowTimeRequest(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId);
-
-    public record GetAllShowTimesResult(List<ShowTime> ShowTimes);
-
-    public record GetAllShowTimesQuery() : IRequest<ErrorOr<GetAllShowTimesResult>>;
 }

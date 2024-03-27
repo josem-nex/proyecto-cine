@@ -12,4 +12,20 @@ public class ShowTime
     public int CostPoints { get; private set; }
     public Movie? Movie { get; private set; }
     public int MovieId { get; private set; }
+    public ShowTime(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId)
+    {
+        this.HallsId = HallsId;
+        this.SchedulesId = SchedulesId;
+        this.Cost = Cost;
+        this.CostPoints = CostPoints;
+        this.MovieId = MovieId;
+    }
+    public void Update(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId)
+    {
+        this.HallsId = HallsId;
+        this.SchedulesId = SchedulesId;
+        this.Cost = Cost;
+        this.CostPoints = CostPoints;
+        this.MovieId = MovieId;
+    }
 }

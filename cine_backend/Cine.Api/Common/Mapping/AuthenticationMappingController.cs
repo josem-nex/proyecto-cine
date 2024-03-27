@@ -22,8 +22,109 @@ using Cine.Application.Models.Movies.Queries.GetOne;
 using Cine.Application.Models.Schedules.Commands;
 using Cine.Application.Models.Schedules.Queries.Get;
 using Cine.Application.Models.Schedules.Queries.GetAll;
+using Cine.Application.Models.ShowTimes;
 using Cine.Contracts.Authentication;
 using Mapster;
+
+/* 
+
+    public record DeleteShowTimeCommand(int Id) : IRequest<ErrorOr<Unit>>;
+    public record DeleteShowTimeRequest(int Id);
+    public class DeleteShowTimeCommandHandler : IRequestHandler<DeleteShowTimeCommand, ErrorOr<Unit>>
+    {
+        private readonly IShowTimeRepository _ShowTimeRepository;
+        public DeleteShowTimeCommandHandler(IShowTimeRepository ShowTimeRepository)
+        {
+            _ShowTimeRepository = ShowTimeRepository;
+        }
+        public async Task<ErrorOr<Unit>> Handle(DeleteShowTimeCommand request, CancellationToken cancellationToken)
+        {
+            ShowTime? ShowTime = await _ShowTimeRepository.GetShowTimeById(request.Id);
+            if (ShowTime is null)
+            {
+                return Errors.ShowTime.ShowTimeNotFound;
+            }
+            await _ShowTimeRepository.Delete(ShowTime);
+            return Unit.Value;
+        }
+    }
+
+    public record GetShowTimeRequest(int Id);
+    public record GetShowTimeResponse(int Id, int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId);
+    public record GetShowTimeResult(ShowTime ShowTime);
+    public record GetShowTimeQuery(int Id) : IRequest<ErrorOr<GetShowTimeResult>>;
+    public class GetShowTimeQueryHandler : IRequestHandler<GetShowTimeQuery, ErrorOr<GetShowTimeResult>>
+    {
+        private readonly IShowTimeRepository _ShowTimeRepository;
+        public GetShowTimeQueryHandler(IShowTimeRepository ShowTimeRepository)
+        {
+            _ShowTimeRepository = ShowTimeRepository;
+        }
+        public async Task<ErrorOr<GetShowTimeResult>> Handle(GetShowTimeQuery request, CancellationToken cancellationToken)
+        {
+            ShowTime? ShowTime = await _ShowTimeRepository.GetShowTimeById(request.Id);
+            if (ShowTime is null)
+            {
+                return Errors.ShowTime.ShowTimeNotFound;
+            }
+            return new GetShowTimeResult(ShowTime);
+        }
+    }
+
+    public record AddShowTimeCommand(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId) : IRequest<ErrorOr<GetShowTimeResult>>;
+    public record AddShowTimeRequest(int HallsId, int SchedulesId, int Cost, int CostPoints, int MovieId);
+    public class AddShowTimeCommandHandler : IRequestHandler<AddShowTimeCommand, ErrorOr<GetShowTimeResult>>
+    {
+        private readonly IShowTimeRepository _ShowTimeRepository;
+        private readonly IHallRepository _HallRepository;
+        private readonly IScheduleRepository _ScheduleRepository;
+        private readonly IMovieRepository _MovieRepository;
+        public AddShowTimeCommandHandler(IShowTimeRepository ShowTimeRepository, IHallRepository HallRepository, IScheduleRepository ScheduleRepository, IMovieRepository MovieRepository)
+        {
+            _ShowTimeRepository = ShowTimeRepository;
+            _HallRepository = HallRepository;
+            _ScheduleRepository = ScheduleRepository;
+            _MovieRepository = MovieRepository;
+        }
+        public async Task<ErrorOr<GetShowTimeResult>> Handle(AddShowTimeCommand request, CancellationToken cancellationToken)
+        {
+            Hall? Halls = await _HallRepository.GetHallById(request.HallsId);
+            if (Halls is null)
+            {
+                return Errors.Hall.HallNotFound;
+            }
+            Schedule? Schedules = await _ScheduleRepository.GetScheduleById(request.SchedulesId);
+            if (Schedules is null)
+            {
+                return Errors.Schedule.ScheduleNotFound;
+            }
+            Movie? Movie = await _MovieRepository.GetMovieById(request.MovieId);
+            if (Movie is null)
+            {
+                return Errors.Movie.MovieNotFound;
+            }
+            ShowTime ShowTime = new ShowTime(request.HallsId, request.SchedulesId, request.Cost, request.CostPoints, request.MovieId);
+            await _ShowTimeRepository.Add(ShowTime);
+            return new GetShowTimeResult(ShowTime);
+        }
+    }
+    public record GetAllShowTimesResult(List<ShowTime> ShowTimes);
+    public record GetAllShowTimesQuery() : IRequest<ErrorOr<GetAllShowTimesResult>>;
+    public class GetAllShowTimesQueryHandler : IRequestHandler<GetAllShowTimesQuery, ErrorOr<GetAllShowTimesResult>>
+    {
+        private readonly IShowTimeRepository _ShowTimeRepository;
+        public GetAllShowTimesQueryHandler(IShowTimeRepository ShowTimeRepository)
+        {
+            _ShowTimeRepository = ShowTimeRepository;
+        }
+        public async Task<ErrorOr<GetAllShowTimesResult>> Handle(GetAllShowTimesQuery request, CancellationToken cancellationToken)
+        {
+            List<ShowTime> ShowTimes = await _ShowTimeRepository.GetShowTimeList();
+            return new GetAllShowTimesResult(ShowTimes);
+        }
+    }
+ */
+
 
 public class AuthenticationMappingConfig : IRegister
 {
@@ -104,5 +205,18 @@ public class AuthenticationMappingConfig : IRegister
         config.NewConfig<UpdateScheduleRequest, UpdateScheduleCommand>();
         config.NewConfig<DeleteScheduleRequest, DeleteScheduleCommand>();
 
+
+        config.NewConfig<AddShowTimeRequest, AddShowTimeCommand>();
+        config.NewConfig<GetShowTimeResult, GetShowTimeResponse>()
+            .Map(dest => dest.Id, src => src.ShowTime.Id)
+            .Map(dest => dest.HallsId, src => src.ShowTime.HallsId)
+            .Map(dest => dest.SchedulesId, src => src.ShowTime.SchedulesId)
+            .Map(dest => dest.Cost, src => src.ShowTime.Cost)
+            .Map(dest => dest.CostPoints, src => src.ShowTime.CostPoints)
+            .Map(dest => dest.MovieId, src => src.ShowTime.MovieId);
+        config.NewConfig<GetShowTimeRequest, GetShowTimeQuery>();
+        config.NewConfig<DeleteShowTimeRequest, DeleteShowTimeCommand>();
+        config.NewConfig<GetAllShowTimesResult, GetAllShowTimesResult>()
+            .ConstructUsing(src => new GetAllShowTimesResult(src.ShowTimes));
     }
 }

@@ -5,7 +5,7 @@ public class Hall
     public string Name { get; private set; } = null!;
     public int Capacity { get; private set; }
     public List<Chair> Chairs { get; private set; } = new List<Chair>();
-    // public List<Schedule> Schedules { get; private set; } = null!;
+    public List<Schedule> Schedules { get; private set; } = null!;
     public Hall(string name, int capacity)
     {
         Name = name;

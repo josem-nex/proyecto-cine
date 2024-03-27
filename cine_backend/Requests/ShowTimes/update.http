@@ -1,0 +1,12 @@
+@host= http://localhost:5000
+POST {{host}}/showtimes/update
+Content-Type: application/json
+
+{
+    "Id": 2,
+    "HallsId": 2,
+    "SchedulesId": 2,
+    "Cost": 100001,
+    "CostPoints": 100,
+    "MovieId": 19
+}
