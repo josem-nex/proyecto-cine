@@ -15,4 +15,7 @@ public class ErrorCode
     public const string DuplicatedAdmin = "Error.DuplicatedAdmin";
     public const string HallNotFound = "Error.HallNotFound";
     public const string DuplicatedHall = "Error.DuplicatedHall";
+    public const string ScheduleNotFound = "Error.ScheduleNotFound";
+    public const string ScheduleAlreadyExists = "Error.ScheduleAlreadyExists";
+    public const string ScheduleInvalid = "Error.ScheduleInvalid";
 }

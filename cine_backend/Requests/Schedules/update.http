@@ -1,0 +1,9 @@
+@host= http://localhost:5000
+POST {{host}}/schedules/update
+Content-Type: application/json
+
+{
+    "Id": 3,
+    "DateStart": "2022-12-01T08:05:00",
+    "DateEnd": "2022-12-01T17:10:00"
+}

@@ -19,6 +19,9 @@ using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
+using Cine.Application.Models.Schedules.Commands;
+using Cine.Application.Models.Schedules.Queries.Get;
+using Cine.Application.Models.Schedules.Queries.GetAll;
 using Cine.Contracts.Authentication;
 using Mapster;
 
@@ -90,5 +93,16 @@ public class AuthenticationMappingConfig : IRegister
             .Map(dest => dest, src => src.Hall);
         config.NewConfig<GetAllHallsResult, GetAllHallsResult>()
             .ConstructUsing(src => new GetAllHallsResult(src.Halls));
+
+
+        config.NewConfig<GetAllSchedulesResult, GetAllSchedulesResult>()
+            .ConstructUsing(src => new GetAllSchedulesResult(src.Schedules));
+        config.NewConfig<AddScheduleRequest, AddScheduleCommand>();
+        config.NewConfig<GetScheduleResult, GetScheduleResponse>()
+            .Map(dest => dest, src => src.Schedule);
+        config.NewConfig<GetScheduleRequest, GetScheduleQuery>();
+        config.NewConfig<UpdateScheduleRequest, UpdateScheduleCommand>();
+        config.NewConfig<DeleteScheduleRequest, DeleteScheduleCommand>();
+
     }
 }

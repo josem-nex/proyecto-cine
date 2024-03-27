@@ -1,12 +1,8 @@
-
 using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
 using MediatR;
 using MapsterMapper;
-using Cine.Application.Models.Movies.Queries;
 using Cine.Application.Models.Movies.Commands.AddMovie;
-using Cine.Domain.Entities.Movies;
-using Cine.Domain.Entities.Tickets;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
 using Cine.Application.Models.Movies.Commands.DeleteMovie;
