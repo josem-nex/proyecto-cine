@@ -31,6 +31,20 @@ public class Movie
         CountryId = countryId;
         // Las listas de Actores y Géneros se inicializan como vacías
     }
+    public Movie(string title, string description, string director, string imageUrl, int durationMinutes, DateTime releaseDate, string language, int rating, int countryId, Country country)
+    {
+        Title = title;
+        Description = description;
+        Director = director;
+        ImageUrl = imageUrl;
+        DurationMinutes = durationMinutes;
+        ReleaseDate = releaseDate;
+        Language = language;
+        Rating = rating;
+        CountryId = countryId;
+        Country = country;
+        // Las listas de Actores y Géneros se inicializan como vacías
+    }
     public void Update(string title, string description, string director, string imageUrl, int durationMinutes, DateTime releaseDate, string language, int rating, int countryId)
     {
         Title = title;
