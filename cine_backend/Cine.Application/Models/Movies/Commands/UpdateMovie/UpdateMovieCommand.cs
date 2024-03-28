@@ -1,4 +1,5 @@
 using Cine.Application.Models.Movies.Queries.GetOne;
+using Cine.Domain.Entities.Movies;
 using ErrorOr;
 using MediatR;
 
@@ -14,4 +15,6 @@ public record UpdateMovieCommand(
     DateTime ReleaseDate,
     string Language,
     int Rating,
+    List<int> IdActors,
+    List<int> IdGenres,
     int CountryId) : IRequest<ErrorOr<GetMovieResult>>;

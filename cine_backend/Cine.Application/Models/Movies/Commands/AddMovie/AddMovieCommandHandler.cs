@@ -1,7 +1,6 @@
 using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Domain.Common.Errors;
 using Cine.Domain.Entities.Movies;
-using Cine.Domain.Entities.Tickets;
 using ErrorOr;
 using MediatR;
 
@@ -10,10 +9,14 @@ public class AddMovieCommandHandler : IRequestHandler<AddMovieCommand, ErrorOr<A
 {
     private readonly IMovieRepository _movieRepository;
     private readonly ICountryRepository _countryRepository;
-    public AddMovieCommandHandler(IMovieRepository movieRepository, ICountryRepository countryRepository)
+    private readonly IActorRepository _actorRepository;
+    private readonly IGenreRepository _genreRepository;
+    public AddMovieCommandHandler(IMovieRepository movieRepository, ICountryRepository countryRepository, IActorRepository actorRepository, IGenreRepository genreRepository)
     {
-        _countryRepository = countryRepository;
         _movieRepository = movieRepository;
+        _countryRepository = countryRepository;
+        _actorRepository = actorRepository;
+        _genreRepository = genreRepository;
     }
     public async Task<ErrorOr<AddMovieResult>> Handle(AddMovieCommand command, CancellationToken cancellationToken)
     {
@@ -28,6 +31,26 @@ public class AddMovieCommandHandler : IRequestHandler<AddMovieCommand, ErrorOr<A
         {
             return Errors.Movie.MovieAlreadyExists;
         }
+        List<Actor> actors = new();
+        List<Genre> genres = new();
+        foreach (var idActor in command.IdActors)
+        {
+            var actor = await _actorRepository.GetActorById(idActor);
+            if (actor is null)
+            {
+                return Errors.Movie.ActorNotFound;
+            }
+            actors.Add(actor);
+        }
+        foreach (var idGenre in command.IdGenres)
+        {
+            var genre = await _genreRepository.GetGenreById(idGenre);
+            if (genre is null)
+            {
+                return Errors.Movie.GenreNotFound;
+            }
+            genres.Add(genre);
+        }
         var movie = new Movie(
             command.Title,
             command.Description,
@@ -37,7 +60,10 @@ public class AddMovieCommandHandler : IRequestHandler<AddMovieCommand, ErrorOr<A
             command.ReleaseDate,
             command.Language,
             command.Rating,
-            command.CountryId);
+            actors,
+            genres,
+            command.CountryId,
+            country);
         await _movieRepository.Add(movie);
         return new AddMovieResult(movie);
     }

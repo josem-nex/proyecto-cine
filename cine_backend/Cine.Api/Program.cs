@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Cine.Api;
 using Cine.Application;
 using Cine.Infraestructure;
@@ -7,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services
         .AddPresentation()
         .AddApplication()
-        .AddInfraestructure(builder.Configuration);
+        .AddInfraestructure(builder.Configuration)
+        // .AddControllers().AddJsonOptions(options =>
+        // {
+        //     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        // })
+        ;
 }
 
 var app = builder.Build();

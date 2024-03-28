@@ -11,5 +11,7 @@ Content-Type: application/json
     "releasedate": "2002-07-18",
     "language": "English",
     "rating": 8,
+    "idactors": [1, 2],
+    "idgenres": [1, 2, 3],
     "countryid": 3
 }   

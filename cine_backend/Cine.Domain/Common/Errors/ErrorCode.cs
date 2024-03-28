@@ -21,4 +21,6 @@ public class ErrorCode
     public const string ShowTimeNotFound = "Error.ShowTimeNotFound";
     public const string ShowTimeAlreadyExists = "Error.ShowTimeAlreadyExists";
     public const string ShowTimeInvalid = "Error.ShowTimeInvalid";
+    public const string ActorNotFound = "Error.ActorNotFound";
+    public const string GenreNotFound = "Error.GenreNotFound";
 }

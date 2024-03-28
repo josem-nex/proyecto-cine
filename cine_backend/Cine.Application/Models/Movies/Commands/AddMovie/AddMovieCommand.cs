@@ -13,5 +13,7 @@ public record AddMovieCommand(
     DateTime ReleaseDate,
     string Language,
     int Rating,
+    List<int> IdActors,
+    List<int> IdGenres,
     int CountryId
 ) : IRequest<ErrorOr<AddMovieResult>>;

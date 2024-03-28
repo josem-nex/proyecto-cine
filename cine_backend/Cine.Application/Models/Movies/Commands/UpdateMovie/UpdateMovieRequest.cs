@@ -10,4 +10,6 @@ public record UpdateMovieRequest(
     DateTime ReleaseDate,
     string Language,
     int Rating,
+    List<int> IdActors,
+    List<int> IdGenres,
     int CountryId);

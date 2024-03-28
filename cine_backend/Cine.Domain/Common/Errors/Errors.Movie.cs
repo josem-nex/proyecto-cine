@@ -17,5 +17,11 @@ public static partial class Errors
         public static Error MovieAlreadyExists => Error.Conflict(
             code: ErrorCode.MovieAlreadyExists,
             description: "Movie already exists");
+        public static Error ActorNotFound => Error.NotFound(
+            code: ErrorCode.ActorNotFound,
+            description: "Actor not found");
+        public static Error GenreNotFound => Error.NotFound(
+            code: ErrorCode.GenreNotFound,
+            description: "Genre not found");
     }
 }
