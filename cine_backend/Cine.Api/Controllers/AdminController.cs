@@ -64,7 +64,7 @@ public class AdminController : ApiController
         var query = new GetAllAdminsQuery();
         ErrorOr<GetAllAdminResult> result = await _mediator.Send(query);
         return result.Match(
-            result => Ok(result.Admins),
+            result => Ok(_mapper.Map<GetAllAdminResult>(result)),
             errors => Problem(errors)
         );
     }

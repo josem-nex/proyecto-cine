@@ -26,10 +26,10 @@ public class PartnerRepository : IPartnerRepository
         return await _dbContext.Partners.SingleOrDefaultAsync(u => u.Email == email);
         // return _Partners.SingleOrDefault(u => u.Email == email);
     }
-    public async Task Delete(string email)
+    public async Task Delete(Guid Id)
     {
         // garantizar que ese usuario ya exista, revisar eso antes
-        var Partner = await _dbContext.Partners.SingleOrDefaultAsync(u => u.Email == email);
+        var Partner = await _dbContext.Partners.SingleOrDefaultAsync(u => u.Id == Id);
         _dbContext.Partners.Remove(Partner);
         await _dbContext.SaveChangesAsync();
     }

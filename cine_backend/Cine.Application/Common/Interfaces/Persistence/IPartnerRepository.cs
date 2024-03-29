@@ -6,7 +6,7 @@ public interface IPartnerRepository
 {
     Task Add(Partner partner);
     Task Update(Partner partner);
-    Task Delete(string email);
+    Task Delete(Guid Id);
     Task<Partner?> GetPartnerByEmail(string email);
     Task<Partner?> GetPartnerById(Guid id);
     Task<List<Partner>> GetPartnerList();

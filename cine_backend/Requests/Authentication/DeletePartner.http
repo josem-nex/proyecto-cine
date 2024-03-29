@@ -3,6 +3,5 @@ POST {{host}}/auth/delete
 Content-Type: application/json
 
 {
-    "email": "lmariar@gmail.com",
-    "password": "123mn213"
+    "id": "a1b5e6a9-744b-4a68-9aee-d3fe031f71f5"
 }

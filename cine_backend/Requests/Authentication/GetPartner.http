@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/auth/get
+Content-Type: application/json
+
+{
+    "id": "c7cfb122-aa11-4841-850e-04a74702763f"
+}

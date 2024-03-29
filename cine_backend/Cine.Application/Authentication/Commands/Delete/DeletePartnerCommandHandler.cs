@@ -18,17 +18,12 @@ public class DeletePartnerCommandHandler : IRequestHandler<DeletePartnerCommand,
     public async Task<ErrorOr<Unit>> Handle(DeletePartnerCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (await _partnerRepository.GetPartnerByEmail(request.Email) is not Partner partner)
+        var partner = await _partnerRepository.GetPartnerById(request.Id);
+        if (partner is null)
         {
-            return Errors.Partner.EmailNotFound;
+            return Errors.Partner.PartnerNotFound;
         }
-        var hasher = new PasswordHasher<Partner>();
-        var verificationResult = hasher.VerifyHashedPassword(partner, partner.Password, request.Password);
-        if (verificationResult == PasswordVerificationResult.Failed)
-        {
-            return Errors.Partner.InvalidPassword;
-        }
-        await _partnerRepository.Delete(request.Email);
+        await _partnerRepository.Delete(request.Id);
         return Unit.Value;
     }
 }

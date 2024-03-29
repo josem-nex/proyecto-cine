@@ -4,6 +4,7 @@ using Cine.Api.Controllers;
 using Cine.Application.Authentication.Commands.Register;
 using Cine.Application.Authentication.Commands.Update;
 using Cine.Application.Authentication.Common;
+using Cine.Application.Authentication.Queries.Get;
 using Cine.Application.Authentication.Queries.GetAll;
 using Cine.Application.Authentication.Querys.Login;
 using Cine.Application.Models.Admins.Commands;
@@ -35,6 +36,7 @@ public class AuthenticationMappingConfig : IRegister
         config.NewConfig<UpdatePartnerRequest, UpdatePartnerCommand>();
 
         config.NewConfig<LoginRequest, LoginQuery>();
+        config.NewConfig<GetPartnerByIdRequest, GetPartnerByIdQuery>();
 
         config.NewConfig<AuthenticationResult, AuthenticationResponse>()
             .Map(dest => dest.Token, src => src.Token)
@@ -42,6 +44,8 @@ public class AuthenticationMappingConfig : IRegister
 
         config.NewConfig<GetPartnerListResult, GetPartnerListResult>()
             .ConstructUsing(src => new GetPartnerListResult(src.Partners));
+        config.NewConfig<GetAllAdminResult, GetAllAdminResult>()
+            .ConstructUsing(src => new GetAllAdminResult(src.Admins));
 
         config.NewConfig<AddAdminRequest, AddAdminCommand>();
         config.NewConfig<GetAdminResult, GetAdminResponse>()

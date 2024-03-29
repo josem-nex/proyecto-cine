@@ -9,6 +9,7 @@ using ErrorOr;
 using MediatR;
 using MapsterMapper;
 using Cine.Application.Authentication.Commands.Update;
+using Cine.Application.Authentication.Queries.Get;
 namespace Cine.Api.Controllers
 {
     [Route("auth")]
@@ -32,8 +33,6 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
-
-
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
@@ -74,5 +73,16 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
+        [HttpPost("get")]
+        public async Task<IActionResult> GetPartnerById(GetPartnerByIdRequest request)
+        {
+            var query = _mapper.Map<GetPartnerByIdQuery>(request);
+            ErrorOr<AuthenticationResult> result = await _mediator.Send(query);
+            return result.Match(
+                result => Ok(_mapper.Map<AuthenticationResponse>(result)),
+                errors => Problem(errors)
+            );
+        }
     }
+
 }
