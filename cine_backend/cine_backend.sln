@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cine.Infrastructure", "Cine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cine.Domain", "Cine.Domain\Cine.Domain.csproj", "{87AEEFAD-0326-4566-9FB7-E983629B88DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cine.Contracts", "Cine.Contracts\Cine.Contracts.csproj", "{E3FE9F82-F705-4DDB-9474-6F20DD9B4B44}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

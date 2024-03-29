@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cine.Contracts\Cine.Contracts.csproj" />
     <ProjectReference Include="..\Cine.Application\Cine.Application.csproj" />
     <ProjectReference Include="..\Cine.Infrastructure\Cine.Infrastructure.csproj" />
   </ItemGroup>
