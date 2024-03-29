@@ -31,6 +31,7 @@ public static class DependencyInjection
         services.AddScoped<IShowTimeRepository, ShowTimeRepository>();
         services.AddScoped<IActorRepository, ActorRepository>();
         services.AddScoped<IGenreRepository, GenreRepository>();
+        services.AddScoped<IChairRepository, ChairRepository>();
         return services;
     }
 }

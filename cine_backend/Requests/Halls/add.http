@@ -3,6 +3,6 @@ POST {{host}}/halls/add
 Content-Type: application/json
 
 {
-    "Name": "Sala2", 
+    "Name": "Sala5", 
     "Capacity": 50
 }
