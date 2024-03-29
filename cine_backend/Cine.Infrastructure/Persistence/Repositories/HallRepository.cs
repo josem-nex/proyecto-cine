@@ -13,10 +13,16 @@ public class HallRepository : IHallRepository
         _dbContext = dbContext;
     }
 
-    public async Task Add(Hall Hall)
+    public async Task Add(Hall Hall, List<int> SchedulesId)
     {
         await _dbContext.Halls.AddAsync(Hall);
         await _dbContext.SaveChangesAsync();
+        foreach (var scheduleId in SchedulesId)
+        {
+            var scheduleHall = new ScheduleHall(scheduleId, Hall.Id);
+            await _dbContext.ScheduleHall.AddAsync(scheduleHall);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
     public async Task<Hall?> GetHallById(int Id)
@@ -30,6 +36,7 @@ public class HallRepository : IHallRepository
 
     public async Task Delete(Hall Hall)
     {
+        _dbContext.ScheduleHall.RemoveRange(_dbContext.ScheduleHall.Where(sh => sh.HallsId == Hall.Id));
         _dbContext.Halls.Remove(Hall);
         await _dbContext.SaveChangesAsync();
     }
@@ -39,10 +46,21 @@ public class HallRepository : IHallRepository
         return _dbContext.Halls.AsNoTracking().ToListAsync();
     }
 
-    public async Task<Hall?> Update(Hall Hall)
+    public async Task<Hall?> Update(Hall Hall, List<int> SchedulesId)
     {
         _dbContext.Halls.Update(Hall);
-        await _dbContext.SaveChangesAsync();
+        var existingRelations = await _dbContext.ScheduleHall
+        .Where(sh => sh.HallsId == Hall.Id)
+        .ToListAsync();
+
+        _dbContext.ScheduleHall.RemoveRange(existingRelations);
+
+        foreach (var scheduleId in SchedulesId)
+        {
+            var scheduleHall = new ScheduleHall(scheduleId, Hall.Id);
+            await _dbContext.ScheduleHall.AddAsync(scheduleHall);
+            await _dbContext.SaveChangesAsync();
+        }
         return Hall;
     }
 
