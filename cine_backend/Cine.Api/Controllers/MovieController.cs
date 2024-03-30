@@ -8,6 +8,7 @@ using Cine.Application.Models.Movies.Queries.GetOne;
 using Cine.Application.Models.Movies.Commands.DeleteMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries.GetActorsGenres;
+using Cine.Application.Models.Movies.Queries.GetShowtimesMovies;
 namespace Cine.Api.Controllers
 {
     [Route("movies")]
@@ -77,6 +78,16 @@ namespace Cine.Api.Controllers
             ErrorOr<GetActorsGenresResult> result = await _mediator.Send(query);
             return result.Match(
                 result => Ok(_mapper.Map<GetActorsGenresResult>(result)),
+                errors => Problem(errors)
+            );
+        }
+        [HttpPost("getshowtimesmovies")]
+        public async Task<IActionResult> GetShowtimesMovies(GetShowtimesMoviesRequest getShowtimesMoviesRequest)
+        {
+            var query = _mapper.Map<GetShowtimesMoviesQuery>(getShowtimesMoviesRequest);
+            ErrorOr<GetShowtimesMoviesResult> result = await _mediator.Send(query);
+            return result.Match(
+                result => Ok(_mapper.Map<GetShowtimesMoviesResult>(result)),
                 errors => Problem(errors)
             );
         }

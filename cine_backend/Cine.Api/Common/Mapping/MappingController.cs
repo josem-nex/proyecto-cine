@@ -25,6 +25,7 @@ using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries.GetActorsGenres;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
+using Cine.Application.Models.Movies.Queries.GetShowtimesMovies;
 using Cine.Application.Models.Schedules.Commands;
 using Cine.Application.Models.Schedules.Queries.Get;
 using Cine.Application.Models.Schedules.Queries.GetAll;
@@ -113,6 +114,9 @@ public class MappingConfig : IRegister
         config.NewConfig<GetActorsGenresResult, GetActorsGenresResult>()
             .ConstructUsing(src => new GetActorsGenresResult(src.Actors, src.Genres));
 
+        config.NewConfig<GetShowtimesMoviesRequest, GetShowtimesMoviesQuery>();
+        config.NewConfig<GetShowtimesMoviesResult, GetShowtimesMoviesResult>()
+            .ConstructUsing(src => new GetShowtimesMoviesResult(src.ShowtimesId));
 
         config.NewConfig<GetAllChairsQuery, GetAllChairsQuery>();
         config.NewConfig<GetAllChairsResult, GetAllChairsResult>()

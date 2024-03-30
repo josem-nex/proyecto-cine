@@ -12,4 +12,6 @@ public interface IMovieRepository
     Task<Movie?> GetMovieByTitle(string title);
     Task<List<int>> GetGenresByMovie(int Id);
     Task<List<int>> GetActorsByMovie(int Id);
+    Task<List<int>> GetShowtimesByMovie(int Id);
+
 }

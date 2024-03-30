@@ -7,5 +7,5 @@ Content-Type: application/json
     "SchedulesId": 2,
     "Cost": 100000,
     "CostPoints": 100,
-    "MovieId": 19
+    "MovieId": 1040
 }

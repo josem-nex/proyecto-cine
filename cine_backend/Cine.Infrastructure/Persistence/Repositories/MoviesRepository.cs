@@ -127,4 +127,8 @@ public class MovieRepository : IMovieRepository
                     .ContinueWith(t => t.Result.Genres.Select(g => g.Id).ToList());
 
     }
+    public async Task<List<int>> GetShowtimesByMovie(int Id)
+    {
+        return await _dbContext.ShowTimes.Where(st => st.MovieId == Id).Select(st => st.Id).ToListAsync();
+    }
 }
