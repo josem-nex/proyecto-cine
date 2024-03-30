@@ -103,4 +103,28 @@ public class MovieRepository : IMovieRepository
         // _dbContext.Movies.Update(movieToUpdate);
         await _dbContext.SaveChangesAsync(); */
     }
+    public async Task<List<int>> GetActorsByMovie(int Id)
+    {
+        return await _dbContext.Movies
+                    .Include(m => m.Actors)
+                    .SingleOrDefaultAsync(m => m.Id == Id)
+                    .ContinueWith(t => t.Result.Actors.Select(a => a.Id).ToList());
+    }
+    public async Task<List<int>> GetGenresByMovie(int Id)
+    {
+        /* var movie = await _dbContext.Movies
+                    .Include(m => m.Genres)
+                    .SingleOrDefaultAsync(m => m.Id == Id);
+        List<Genre> genres = new();
+        foreach (var genre in movie.Genres)
+        {
+            genres.Add(await _dbContext.Genres.SingleOrDefaultAsync(g => g.Id == genre.Id));
+        }
+        return genres; */
+        return await _dbContext.Movies
+                    .Include(m => m.Genres)
+                    .SingleOrDefaultAsync(m => m.Id == Id)
+                    .ContinueWith(t => t.Result.Genres.Select(g => g.Id).ToList());
+
+    }
 }

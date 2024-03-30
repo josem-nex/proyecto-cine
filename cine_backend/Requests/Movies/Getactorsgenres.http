@@ -1,0 +1,8 @@
+# getactorsgenres
+@host= http://localhost:5000
+POST {{host}}/movies/getactorsgenres
+Content-Type: application/json
+
+{
+    "Id": 1040
+}
