@@ -1,0 +1,34 @@
+
+<main class="form-signin w-100 m-auto">
+  <form>
+    <h1 class="h3 mb-3 fw-normal">Creación de un nuevo Partner</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="send.email" name="something1">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.firstname" name="something2">
+      <label for="floatingInput">Nombre</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.lastname" name="something3">
+      <label for="floatingInput">Apellido</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.ci" name="something4">
+      <label for="floatingInput">CI</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.phonenumber" name="something5">
+      <label for="floatingInput">Número de teléfono</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="something6">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <br>
+    <button class="btn btn-primary w-50" type="submit" (click)="create()">Crear</button>
+    <button class="btn btn-primary w-50" type="submit" (click)="cancel()">Cancel</button>
+  </form>
+</main>

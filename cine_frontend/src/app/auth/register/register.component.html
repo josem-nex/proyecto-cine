@@ -1,0 +1,43 @@
+<main class="form-signin w-100 m-auto">
+  <form>
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="send.email" name="something1">
+      <label for="floatingInput">Email</label>
+    </div>
+    
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.firstname" name="something2">
+      <label for="floatingPassword">Nombre</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.lastname" name="something3">
+      <label for="floatingPassword">Apellido</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.ci" name="something4">
+      <label for="floatingPassword">CI</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.address" name="something5">
+      <label for="floatingPassword">Dirección</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.phonenumber" name="something6">
+      <label for="floatingPassword">Número de Teléfono</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="something7">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <br>
+    <button class="btn btn-primary w-50" type="button" (click)="register()">Aceptar</button>
+    <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
+  </form>
+</main>
