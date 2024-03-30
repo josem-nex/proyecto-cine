@@ -20,6 +20,7 @@ using Cine.Application.Models.Discounts;
 using Cine.Application.Models.Genres;
 using Cine.Application.Models.Halls.Commands;
 using Cine.Application.Models.Halls.Queries;
+using Cine.Application.Models.Halls.Queries.GetChairs;
 using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries.GetActorsGenres;
@@ -141,6 +142,9 @@ public class MappingConfig : IRegister
             .Map(dest => dest, src => src.Hall);
         config.NewConfig<GetAllHallsResult, GetAllHallsResult>()
             .ConstructUsing(src => new GetAllHallsResult(src.Halls));
+        config.NewConfig<GetChairsHallRequest, GetChairsHallQuery>();
+        config.NewConfig<GetChairsHallResult, GetChairsHallResult>()
+            .ConstructUsing(src => new GetChairsHallResult(src.ChairsId));
 
 
         config.NewConfig<GetAllSchedulesResult, GetAllSchedulesResult>()

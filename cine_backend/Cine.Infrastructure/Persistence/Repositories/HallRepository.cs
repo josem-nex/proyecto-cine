@@ -64,6 +64,12 @@ public class HallRepository : IHallRepository
         return Hall;
     }
 
-
+    public Task<List<int>> GetChairsId(int Id)
+    {
+        return _dbContext.Chairs
+            .Where(c => c.HallId == Id)
+            .Select(c => c.Id)
+            .ToListAsync();
+    }
 }
 

@@ -4,6 +4,7 @@ using MediatR;
 using MapsterMapper;
 using Cine.Application.Models.Halls.Queries;
 using Cine.Application.Models.Halls.Commands;
+using Cine.Application.Models.Halls.Queries.GetChairs;
 namespace Cine.Api.Controllers
 {
     [Route("halls")]
@@ -66,5 +67,16 @@ namespace Cine.Api.Controllers
                 errors => Problem(errors)
             );
         }
+        [HttpPost("getchairshall")]
+        public async Task<IActionResult> GetChairs(GetChairsHallRequest request)
+        {
+            var query = _mapper.Map<GetChairsHallQuery>(request);
+            ErrorOr<GetChairsHallResult> result = await _mediator.Send(query);
+            return result.Match(
+                result => Ok(_mapper.Map<GetChairsHallResult>(result)),
+                errors => Problem(errors)
+            );
+        }
     }
+
 }
