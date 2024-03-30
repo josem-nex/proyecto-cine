@@ -31,18 +31,7 @@ export class AdminComponent implements OnInit {
     private auxiliar: AuxiliarService
   ) { }
   ngOnInit(): void {
-    this.local.setItem("isAdmin", "false")
+    
   }
 
-  login() {
-    /*
-    this.serviceAdmin.Login(this.send).subscribe((values)=>{
-      console.log()
-    })*/
-
-    this.local.setItem("isAdmin", "true")
-  }
-  cancel() {
-    this.router.navigate([''])
-  }
 }

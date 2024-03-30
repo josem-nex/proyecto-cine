@@ -1,0 +1,19 @@
+<main class="form-signin w-100 m-auto">
+    <form>
+        <h1 class="h3 mb-3 fw-normal">Log in (de Admin)</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.User"
+                name="something1">
+            <label for="floatingInput">Nombre de admin</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.Password"
+                name="something2">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <br>
+        <button class="btn btn-primary w-50" type="button" (click)="login()">Aceptar</button>
+        <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
+    </form>
+</main>

@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   }
   desconnect() {
     this.service.setItem("isUser", "false")
+    this.service.setItem("isAdmin", "false")
     this.router.navigate([''])
   }
 

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { LoginAdminComponent } from './login/login.component';
 
 export const ADMIN_ROUTES: Routes = [
     { 
@@ -21,5 +22,9 @@ export const ADMIN_ROUTES: Routes = [
     {
         path: 'admin',
         loadChildren: () => import('./crud-admin/crudAdmin.routes').then(m => m.CRUD_ADMIN_ROUTES)
+    },
+    {
+        path: 'login',
+        component: LoginAdminComponent
     }
 ]

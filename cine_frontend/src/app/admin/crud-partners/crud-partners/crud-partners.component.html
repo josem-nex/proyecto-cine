@@ -28,7 +28,7 @@
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a class="btn btn-primary" role="button"
                                 [routerLink]="['/admin/partners/update',item.id]">UPDATE</a>
-                            <a class="btn btn-primary" role="button">DELETE</a>
+                            <a class="btn btn-primary" role="button" (click)="delete(item.id)">DELETE</a>
                         </div>
                     </div>
                 </div>

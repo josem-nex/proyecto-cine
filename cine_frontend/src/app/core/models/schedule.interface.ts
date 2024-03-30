@@ -17,9 +17,11 @@ export interface Iadd_schedule_response {
     dateStart: Date;
     dateEnd: Date;    
 }
-export interface Idelete_schedule_response {
+
+export interface Idelete_schedule_send {
     Id: number;
 }
+
 export interface Iget_schedule_send {
     Id: number;
 }

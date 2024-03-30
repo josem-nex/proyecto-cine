@@ -5,7 +5,11 @@
     @if (this.service.getItem("isUser") == 'true') {
         <a style="float: right;">CANCELAR PELICULA</a>
         <a style="float: right;" (click)="desconnect()">DESCONNECT</a>
-        <a href="/admin" style="float: right">ADMIN</a> 
+        @if (this.service.getItem("isAdmin") == 'true') {
+            <a href="/admin" style="float: right">ADMIN</a>   
+        } @else {
+            <a href="/admin/login" style="float: right">ADMIN</a> 
+        }
     } @else {
         <a href="/auth/register" style="float: right">REGISTRARSE</a>
         <a href="/auth/login" style="float: right">INICIAR SECCION</a>

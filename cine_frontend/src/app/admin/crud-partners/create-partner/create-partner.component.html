@@ -24,11 +24,15 @@
       <label for="floatingInput">Número de teléfono</label>
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="something6">
+      <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.address" name="something6">
+      <label for="floatingInput">Dirección</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="something7">
       <label for="floatingPassword">Password</label>
     </div>
     <br>
-    <button class="btn btn-primary w-50" type="submit" (click)="create()">Crear</button>
-    <button class="btn btn-primary w-50" type="submit" (click)="cancel()">Cancel</button>
+    <button class="btn btn-primary w-50" type="button" (click)="create()">Crear</button>
+    <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
   </form>
 </main>
