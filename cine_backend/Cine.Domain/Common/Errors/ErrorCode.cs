@@ -24,4 +24,6 @@ public class ErrorCode
     public const string ActorNotFound = "Error.ActorNotFound";
     public const string GenreNotFound = "Error.GenreNotFound";
     public const string ChairNotFound = "Error.ChairNotFound";
+    public const string TicketNotFound = "Error.TicketNotFound";
+    public const string DiscountNotFound = "Error.DiscountNotFound";
 }

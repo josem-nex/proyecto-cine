@@ -16,6 +16,7 @@ using Cine.Application.Models.Chairs;
 using Cine.Application.Models.Countries.Commands.Add;
 using Cine.Application.Models.Countries.Queries.GetAll;
 using Cine.Application.Models.Countries.Queries.GetOne;
+using Cine.Application.Models.Discounts;
 using Cine.Application.Models.Genres;
 using Cine.Application.Models.Halls.Commands;
 using Cine.Application.Models.Halls.Queries;
@@ -113,6 +114,13 @@ public class MappingConfig : IRegister
         config.NewConfig<GetChairRequest, GetChairQuery>();
         config.NewConfig<GetChairResult, GetChairResponse>()
             .Map(dest => dest, src => src.Chair);
+
+        config.NewConfig<GetAllDiscountsQuery, GetAllDiscountsQuery>();
+        config.NewConfig<GetAllDiscountsResult, GetAllDiscountsResult>()
+            .ConstructUsing(src => new GetAllDiscountsResult(src.Discounts));
+        config.NewConfig<GetDiscountRequest, GetDiscountQuery>();
+        config.NewConfig<GetDiscountResult, GetDiscountResponse>()
+            .Map(dest => dest, src => src.Discount);
 
         config.NewConfig<AddHallRequest, AddHallCommand>();
         config.NewConfig<AddHallResult, AddHallResponse>()

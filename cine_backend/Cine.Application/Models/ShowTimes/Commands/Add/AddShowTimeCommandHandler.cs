@@ -23,19 +23,16 @@ public class AddShowTimeCommandHandler : IRequestHandler<AddShowTimeCommand, Err
     public async Task<ErrorOr<GetShowTimeResult>> Handle(AddShowTimeCommand request, CancellationToken cancellationToken)
     {
         Hall? Halls = await _HallRepository.GetHallById(request.HallsId);
-        System.Console.WriteLine("AQUI SIU________________-");
         if (Halls is null)
         {
             return Errors.Hall.HallNotFound;
         }
-        System.Console.WriteLine("AQUI SIU2");
 
         Schedule? Schedules = await _ScheduleRepository.GetScheduleById(request.SchedulesId);
         if (Schedules is null)
         {
             return Errors.Schedule.ScheduleNotFound;
         }
-        System.Console.WriteLine("AQUI SIU3");
         Movie? Movie = await _MovieRepository.GetMovieById(request.MovieId);
         if (Movie is null)
         {
