@@ -1,3 +1,3 @@
 namespace Cine.Application.Models.Halls.Commands;
 
-public record AddHallRequest(string Name, int Capacity);
+public record AddHallRequest(string Name, int Capacity, List<int> SchedulesId);

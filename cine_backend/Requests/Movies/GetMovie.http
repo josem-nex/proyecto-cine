@@ -3,5 +3,5 @@ POST {{host}}/movies/get
 Content-Type: application/json
 
 {
-    "movieId": 38
+    "movieId": 1040
 }

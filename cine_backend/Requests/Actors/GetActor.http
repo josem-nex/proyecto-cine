@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/actors/get
+Content-Type: application/json
+
+{
+    "Id": 1
+}

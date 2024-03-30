@@ -3,5 +3,5 @@ POST {{host}}/halls/delete
 Content-Type: application/json
 
 {
-    "Id": 1
+    "Id": 1006
 }

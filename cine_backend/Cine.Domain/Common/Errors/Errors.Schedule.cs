@@ -1,7 +1,7 @@
 using ErrorOr;
 
 namespace Cine.Domain.Common.Errors;
-public partial class Errors
+public static partial class Errors
 {
     public static class Schedule
     {

@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/discounts/get
+Content-Type: application/json
+
+{
+    "Id": 4
+}
