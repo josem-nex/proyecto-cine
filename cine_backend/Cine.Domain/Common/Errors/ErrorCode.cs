@@ -26,4 +26,5 @@ public class ErrorCode
     public const string ChairNotFound = "Error.ChairNotFound";
     public const string TicketNotFound = "Error.TicketNotFound";
     public const string DiscountNotFound = "Error.DiscountNotFound";
+    public const string InvalidChair = "Error.InvalidChair";
 }

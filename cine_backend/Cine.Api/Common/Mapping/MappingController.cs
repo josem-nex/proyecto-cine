@@ -20,14 +20,19 @@ using Cine.Application.Models.Discounts;
 using Cine.Application.Models.Genres;
 using Cine.Application.Models.Halls.Commands;
 using Cine.Application.Models.Halls.Queries;
+using Cine.Application.Models.Halls.Queries.GetChairs;
 using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
+using Cine.Application.Models.Movies.Queries.GetActorsGenres;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
+using Cine.Application.Models.Movies.Queries.GetShowtimesMovies;
 using Cine.Application.Models.Schedules.Commands;
 using Cine.Application.Models.Schedules.Queries.Get;
 using Cine.Application.Models.Schedules.Queries.GetAll;
 using Cine.Application.Models.ShowTimes;
+using Cine.Application.Models.Tickets.Commands;
+using Cine.Application.Models.Tickets.Queries;
 using Cine.Contracts.Authentication;
 using Mapster;
 
@@ -108,6 +113,14 @@ public class MappingConfig : IRegister
         config.NewConfig<GetActorResult, GetActorResponse>()
             .Map(dest => dest, src => src.Actor);
 
+        config.NewConfig<GetActorsGenresRequest, GetActorsGenresQuery>();
+        config.NewConfig<GetActorsGenresResult, GetActorsGenresResult>()
+            .ConstructUsing(src => new GetActorsGenresResult(src.Actors, src.Genres));
+
+        config.NewConfig<GetShowtimesMoviesRequest, GetShowtimesMoviesQuery>();
+        config.NewConfig<GetShowtimesMoviesResult, GetShowtimesMoviesResult>()
+            .ConstructUsing(src => new GetShowtimesMoviesResult(src.ShowtimesId));
+
         config.NewConfig<GetAllChairsQuery, GetAllChairsQuery>();
         config.NewConfig<GetAllChairsResult, GetAllChairsResult>()
             .ConstructUsing(src => new GetAllChairsResult(src.Chairs));
@@ -131,6 +144,9 @@ public class MappingConfig : IRegister
             .Map(dest => dest, src => src.Hall);
         config.NewConfig<GetAllHallsResult, GetAllHallsResult>()
             .ConstructUsing(src => new GetAllHallsResult(src.Halls));
+        config.NewConfig<GetChairsHallRequest, GetChairsHallQuery>();
+        config.NewConfig<GetChairsHallResult, GetChairsHallResult>()
+            .ConstructUsing(src => new GetChairsHallResult(src.ChairsId));
 
 
         config.NewConfig<GetAllSchedulesResult, GetAllSchedulesResult>()
@@ -155,5 +171,18 @@ public class MappingConfig : IRegister
         config.NewConfig<DeleteShowTimeRequest, DeleteShowTimeCommand>();
         config.NewConfig<GetAllShowTimesResult, GetAllShowTimesResult>()
             .ConstructUsing(src => new GetAllShowTimesResult(src.ShowTimes));
+
+        config.NewConfig<GetAllTicketsResult, GetAllTicketsResult>()
+            .ConstructUsing(src => new GetAllTicketsResult(src.Tickets));
+        config.NewConfig<GetTicketResult, GetTicketResponse>()
+            .Map(dest => dest, src => src.Ticket);
+        config.NewConfig<DeleteTicketRequest, DeleteTicketCommand>();
+        config.NewConfig<UpdateTicketRequest, UpdateTicketCommand>();
+
+        config.NewConfig<GetAllTicketsQuery, GetAllTicketsQuery>();
+        config.NewConfig<AddTicketRequest, AddTicketCommand>();
+        config.NewConfig<GetTicketRequest, GetTicketQuery>();
+        config.NewConfig<GetTicketResult, GetTicketResponse>()
+            .Map(dest => dest, src => src.Ticket);
     }
 }

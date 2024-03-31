@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
 using MediatR;
 using MapsterMapper;
-using Cine.Domain.Entities.Tickets;
-using Cine.Domain.Entities.Movies;
-using Cine.Domain.Common.Errors;
-using Cine.Application.Common.Interfaces.Persistence;
 using Cine.Application.Models.ShowTimes;
 namespace Cine.Api.Controllers
 {

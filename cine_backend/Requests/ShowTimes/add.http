@@ -3,9 +3,9 @@ POST {{host}}/showtimes/add
 Content-Type: application/json
 
 {
-    "HallsId": 2,
+    "HallsId": 1002,
     "SchedulesId": 2,
-    "Cost": 100000,
+    "Cost": 1000,
     "CostPoints": 100,
-    "MovieId": 19
+    "MovieId": 1040
 }

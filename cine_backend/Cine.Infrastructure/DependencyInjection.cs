@@ -33,6 +33,7 @@ public static class DependencyInjection
         services.AddScoped<IGenreRepository, GenreRepository>();
         services.AddScoped<IChairRepository, ChairRepository>();
         services.AddScoped<IDiscountRepository, DiscountRepository>();
+        services.AddScoped<ITicketRepository, TicketsRepository>();
         return services;
     }
 }

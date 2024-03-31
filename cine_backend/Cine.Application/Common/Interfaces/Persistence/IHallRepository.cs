@@ -9,4 +9,5 @@ public interface IHallRepository
     Task Delete(Hall Hall);
     Task<List<Hall>> GetHallList();
     Task<Hall?> Update(Hall Hall, List<int> SchedulesId);
+    Task<List<int>> GetChairsId(int Id);
 }
