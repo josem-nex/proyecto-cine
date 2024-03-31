@@ -1,0 +1,9 @@
+@host= http://localhost:5000
+POST {{host}}/tickets/add
+Content-Type: application/json
+
+{
+    "ShowTimesId": 5,
+    "ChairsId" : 5,
+    "IsWeb" : true
+}

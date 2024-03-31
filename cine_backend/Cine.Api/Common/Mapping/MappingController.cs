@@ -31,6 +31,8 @@ using Cine.Application.Models.Schedules.Commands;
 using Cine.Application.Models.Schedules.Queries.Get;
 using Cine.Application.Models.Schedules.Queries.GetAll;
 using Cine.Application.Models.ShowTimes;
+using Cine.Application.Models.Tickets.Commands;
+using Cine.Application.Models.Tickets.Queries;
 using Cine.Contracts.Authentication;
 using Mapster;
 
@@ -169,5 +171,18 @@ public class MappingConfig : IRegister
         config.NewConfig<DeleteShowTimeRequest, DeleteShowTimeCommand>();
         config.NewConfig<GetAllShowTimesResult, GetAllShowTimesResult>()
             .ConstructUsing(src => new GetAllShowTimesResult(src.ShowTimes));
+
+        config.NewConfig<GetAllTicketsResult, GetAllTicketsResult>()
+            .ConstructUsing(src => new GetAllTicketsResult(src.Tickets));
+        config.NewConfig<GetTicketResult, GetTicketResponse>()
+            .Map(dest => dest, src => src.Ticket);
+        config.NewConfig<DeleteTicketRequest, DeleteTicketCommand>();
+        config.NewConfig<UpdateTicketRequest, UpdateTicketCommand>();
+
+        config.NewConfig<GetAllTicketsQuery, GetAllTicketsQuery>();
+        config.NewConfig<AddTicketRequest, AddTicketCommand>();
+        config.NewConfig<GetTicketRequest, GetTicketQuery>();
+        config.NewConfig<GetTicketResult, GetTicketResponse>()
+            .Map(dest => dest, src => src.Ticket);
     }
 }

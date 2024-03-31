@@ -1,0 +1,10 @@
+@host= http://localhost:5000
+POST {{host}}/tickets/update
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "ShowTimesId": 4,
+    "ChairsId" : 5,
+    "IsWeb" : false
+}
