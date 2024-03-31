@@ -4,6 +4,7 @@ Content-Type: application/json
 
 {
     "ShowTimesId": 5,
-    "ChairsId" : 5,
+    "ChairsId" : 6,
+    "DiscountsIds": [1,2],
     "IsWeb" : true
 }

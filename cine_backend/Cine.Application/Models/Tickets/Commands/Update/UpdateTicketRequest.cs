@@ -1,3 +1,3 @@
 namespace Cine.Application.Models.Tickets.Commands;
 
-public record UpdateTicketRequest(int Id, int ShowTimesId, int ChairsId, bool IsWeb);
+public record UpdateTicketRequest(int Id, int ShowTimesId, int ChairsId, List<int> DiscountsIds, bool IsWeb);

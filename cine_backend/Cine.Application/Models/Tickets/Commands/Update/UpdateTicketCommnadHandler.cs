@@ -12,11 +12,15 @@ public class UpdateTicketCommnadHandler : IRequestHandler<UpdateTicketCommand, E
     private readonly ITicketRepository _TicketRepository;
     private readonly IShowTimeRepository _showTimeRepository;
     private readonly IChairRepository _chairRepository;
-    public UpdateTicketCommnadHandler(ITicketRepository TicketRepository, IChairRepository chairRepository, IShowTimeRepository showTimeRepository)
+    private readonly IHallRepository _hallRepository;
+    private readonly IDiscountRepository _discountRepository;
+    public UpdateTicketCommnadHandler(ITicketRepository TicketRepository, IChairRepository chairRepository, IShowTimeRepository showTimeRepository, IHallRepository hallRepository, IDiscountRepository discountRepository)
     {
         _TicketRepository = TicketRepository;
         _chairRepository = chairRepository;
         _showTimeRepository = showTimeRepository;
+        _hallRepository = hallRepository;
+        _discountRepository = discountRepository;
     }
     public async Task<ErrorOr<GetTicketResult>> Handle(UpdateTicketCommand request, CancellationToken cancellationToken)
     {
@@ -35,7 +39,25 @@ public class UpdateTicketCommnadHandler : IRequestHandler<UpdateTicketCommand, E
         {
             return Errors.Hall.ChairNotFound;
         }
-        Ticket.Update(showTime, request.ShowTimesId, chair, request.ChairsId, request.IsWeb);
+        var chairShow = await _hallRepository.GetChairsId(showTime.HallsId);
+        if (request.ChairsId != Ticket.ChairsId)
+        {
+            if (chairShow.Contains(request.ChairsId) == false)
+            {
+                return Errors.Tickets.InvalidChair;
+            }
+        }
+        List<Discount> discounts = new();
+        foreach (var discountId in request.DiscountsIds)
+        {
+            var discount = await _discountRepository.GetDiscountById(discountId);
+            if (discount is null)
+            {
+                return Errors.Tickets.DiscountNotFound;
+            }
+            discounts.Add(discount);
+        }
+        Ticket.Update(showTime, request.ShowTimesId, chair, request.ChairsId, discounts, request.IsWeb);
         await _TicketRepository.Update(Ticket);
         return new GetTicketResult(Ticket);
     }

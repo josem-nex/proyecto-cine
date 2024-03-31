@@ -13,12 +13,14 @@ public class AddTicketCommandHandler : IRequestHandler<AddTicketCommand, ErrorOr
     private readonly IShowTimeRepository _showTimeRepository;
     private readonly IChairRepository _chairRepository;
     private readonly IHallRepository _hallRepository;
-    public AddTicketCommandHandler(ITicketRepository TicketRepository, IChairRepository chairRepository, IShowTimeRepository showTimeRepository, IHallRepository hallRepository)
+    private readonly IDiscountRepository _discountRepository;
+    public AddTicketCommandHandler(ITicketRepository TicketRepository, IChairRepository chairRepository, IShowTimeRepository showTimeRepository, IHallRepository hallRepository, IDiscountRepository discountRepository)
     {
         _TicketRepository = TicketRepository;
         _chairRepository = chairRepository;
         _showTimeRepository = showTimeRepository;
         _hallRepository = hallRepository;
+        _discountRepository = discountRepository;
     }
     public async Task<ErrorOr<GetTicketResult>> Handle(AddTicketCommand request, CancellationToken cancellationToken)
     {
@@ -37,7 +39,17 @@ public class AddTicketCommandHandler : IRequestHandler<AddTicketCommand, ErrorOr
         {
             return Errors.Tickets.InvalidChair;
         }
-        var Ticket = new Ticket(showTime, request.ShowTimesId, chair, request.ChairsId, request.IsWeb);
+        List<Discount> discounts = new();
+        foreach (var discountId in request.DiscountsIds)
+        {
+            var discount = await _discountRepository.GetDiscountById(discountId);
+            if (discount is null)
+            {
+                return Errors.Tickets.DiscountNotFound;
+            }
+            discounts.Add(discount);
+        }
+        var Ticket = new Ticket(showTime, request.ShowTimesId, chair, request.ChairsId, discounts, request.IsWeb);
         await _TicketRepository.Add(Ticket);
         return new GetTicketResult(Ticket);
     }

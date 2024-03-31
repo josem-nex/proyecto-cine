@@ -3,5 +3,5 @@ POST {{host}}/tickets/delete
 Content-Type: application/json
 
 {
-    "Id": 2
+    "Id": 3
 }

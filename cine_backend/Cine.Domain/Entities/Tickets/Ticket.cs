@@ -14,12 +14,13 @@ public class Ticket
         this.ChairsId = ChairsId;
         this.IsWeb = IsWeb;
     }
-    public Ticket(ShowTime showTime, int ShowTimesId, Chair chair, int ChairsId, bool IsWeb)
+    public Ticket(ShowTime showTime, int ShowTimesId, Chair chair, int ChairsId, List<Discount> discounts, bool IsWeb)
     {
         ShowTimes = showTime;
         this.ShowTimesId = ShowTimesId;
         Chairs = chair;
         this.ChairsId = ChairsId;
+        Discounts = discounts;
         this.IsWeb = IsWeb;
     }
     public void Update(int ShowTimesId, int ChairsId, bool IsWeb)
@@ -28,12 +29,13 @@ public class Ticket
         this.ChairsId = ChairsId;
         this.IsWeb = IsWeb;
     }
-    public void Update(ShowTime showTime, int ShowTimesId, Chair chair, int ChairsId, bool IsWeb)
+    public void Update(ShowTime showTime, int ShowTimesId, Chair chair, int ChairsId, List<Discount> discounts, bool IsWeb)
     {
         ShowTimes = showTime;
         this.ShowTimesId = ShowTimesId;
         Chairs = chair;
         this.ChairsId = ChairsId;
+        Discounts = discounts;
         this.IsWeb = IsWeb;
     }
 }

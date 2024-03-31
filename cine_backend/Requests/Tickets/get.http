@@ -3,5 +3,5 @@ POST {{host}}/tickets/get
 Content-Type: application/json
 
 {
-    "Id": 1
+    "Id": 4
 }
