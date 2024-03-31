@@ -2,6 +2,6 @@
 GET {{host}}/showtimes/getall
 Content-Type: application/json
 
-{
-
+{   
+    
 }
