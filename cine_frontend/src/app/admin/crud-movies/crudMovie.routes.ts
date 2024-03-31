@@ -13,7 +13,7 @@ export const CRUD_MOVIES_ROUTES: Routes = [
         component: CreateMovieComponent
     },
     {
-        path: 'update',
+        path: 'update/:id',
         component: UpdateMovieComponent
     }
 ]

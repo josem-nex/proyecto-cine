@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
+
 import { AuthService } from '../../../core/services/auth.service';
 import { IRegister_send } from '../../../core/models/auth.interface';
 
 @Component({
   selector: 'app-create-partner',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, RouterModule],
+  imports: [
+    RouterOutlet, 
+    FormsModule, 
+    RouterModule
+  ],
   templateUrl: './create-partner.component.html',
   styleUrl: './create-partner.component.css'
 })
@@ -26,7 +31,6 @@ export class CreatePartnerComponent implements OnInit {
     private serviceAuth: AuthService,
     private router: Router
     ) { }
-
   ngOnInit(): void { }
 
   create() {

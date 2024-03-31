@@ -48,14 +48,14 @@ export class UpdatePartnerComponent implements OnInit {
       this.send.ci = value.ci
       this.send.address = value.address
     },(error)=>{
-      console.log(error)
+      alert(error)
       this.router.navigate(['admin/partners/'])
     })
   }
 
   update() {
     this.serviceAuth.updatePartner(this.send).subscribe((values)=>{
-      alert("Actualizacion hecho con exito")
+      alert("Actualizacioa hecho con exito")
     }, (error)=>{
       alert(error)
     })

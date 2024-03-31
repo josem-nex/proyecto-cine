@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { EMPTY, Observable, catchError } from 'rxjs';
+
 import { AuthService } from '../../../core/services/auth.service';
 import { IDeletePartner_send, IGetAllPartners_response } from '../../../core/models/auth.interface';
 

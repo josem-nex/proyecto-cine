@@ -1,12 +1,76 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
+import { IGetMovie_response, IGetMovie_send, IUpdateMovie_send } from '../../../core/models/movie.interface';
+import { MovieService } from '../../../core/services/movies.service';
+
+
 
 @Component({
   selector: 'app-update-movie',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterOutlet,
+    FormsModule,
+    RouterModule
+  ],
   templateUrl: './update-movie.component.html',
   styleUrl: './update-movie.component.css'
 })
-export class UpdateMovieComponent {
+export class UpdateMovieComponent implements OnInit {
+  index!: number;
+  send: IUpdateMovie_send = {
+    id: 0,
+    title: '',
+    description: '',
+    director: '',
+    imageurl: '',
+    durationminutes: 0,
+    releasedate: new Date,
+    language: '',
+    rating: 0,
+    idactors: [],
+    idgenres: [],
+    countryid: 0
+  }
+
+  constructor(
+    private serviceMovie: MovieService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+  ngOnInit(): void {
+    this.index = this.route.snapshot.params['id'];
+    const send: IGetMovie_send = {
+      movieId: this.index
+    }
+    this.serviceMovie.getMovie(send).subscribe((value:IGetMovie_response)=>{
+      this.send.id = send.movieId
+      this.send.title = value.title
+      this.send.description = value.description
+      this.send.director = value.director
+      this.send.countryid = value.countryId
+      this.send.language = value.language
+      this.send.durationminutes = value.durationMinutes
+      this.send.imageurl = value.imageUrl
+      this.send.releasedate = value.releaseDate
+    },(error)=>{
+      alert(error)
+      this.router.navigate(['admin/movies/'])
+    })
+  }
+
+  update() {
+    this.serviceMovie.updateMovie(this.send).subscribe((values)=>{
+      alert("Actualizacion hecha con exito")
+    },(error)=>{
+      alert(error)
+    })
+    this.router.navigate(['admin'])
+  }
+  cancel() {
+    this.router.navigate(['admin/movies/'])
+  }
+
 
 }
