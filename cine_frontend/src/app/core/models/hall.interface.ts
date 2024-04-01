@@ -31,3 +31,9 @@ export interface Iupdate_hall_send {
     Capacity: number;
     SchedulesId: number[];
 }
+export interface Igetchairshall_send {
+    Id: number;
+} 
+export interface Igetchairshall_response {
+    chairsId: number[];
+}

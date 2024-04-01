@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
+
 import { IAdd_admin_send } from '../../../core/models/admin.interface';
 import { AdminService } from '../../../core/services/admin.service';
 
@@ -31,7 +32,7 @@ export class CreateAdminComponent implements OnInit {
     this.serviceAdmin.Add(this.send).subscribe(()=>{
       alert("Admin creado con exito")
       this.router.navigate(['admin/admin/'])
-    }, (error)=>{
+    },(error)=>{
       alert(error)
     })
   }

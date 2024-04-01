@@ -1,0 +1,40 @@
+<br>
+<a class="btn btn-primary" href="/admin/halls/create" role="button">CREATE</a>
+<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+
+<br>
+<br>
+@if (hallsResponse|async; as halls) {
+    <div class="row">
+        <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+                @for (item of halls.halls; track item.id) {
+                <a class="list-group-item list-group-item-action" [id]="'list-' + item.id + '-list'" data-bs-toggle="list"
+                    [href]="'#list-' + item.id" role="tab" [attr.aria-controls]="'list-' + item.id">
+                    {{ item.name }}
+                </a>
+                }
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                @for (item of halls.halls; track item.id) {
+                <div class="tab-pane fade" [id]="'list-' + item.id" role="tabpanel"
+                    [attr.aria-labelledby]="'list-' + item.id">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ID de la Sala: {{item.id}}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Capacidad: {{item.capacity}}</h6>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-primary" role="button"
+                                    [routerLink]="['/admin/halls/update',item.id]">UPDATE</a>
+                                <a class="btn btn-primary" role="button" (click)="delete(item.id)">DELETE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    }

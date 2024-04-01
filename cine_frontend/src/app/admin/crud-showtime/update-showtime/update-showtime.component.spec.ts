@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateHallComponent } from './update-hall.component';
+import { UpdateShowtimeComponent } from './update-showtime.component';
 
-describe('UpdateHallComponent', () => {
-  let component: UpdateHallComponent;
-  let fixture: ComponentFixture<UpdateHallComponent>;
+describe('UpdateShowtimeComponent', () => {
+  let component: UpdateShowtimeComponent;
+  let fixture: ComponentFixture<UpdateShowtimeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UpdateHallComponent]
+      imports: [UpdateShowtimeComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UpdateHallComponent);
+    fixture = TestBed.createComponent(UpdateShowtimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

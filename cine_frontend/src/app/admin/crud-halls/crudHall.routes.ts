@@ -1,5 +1,3 @@
-
-
 import { Routes } from "@angular/router";
 import { CreateHallComponent } from "./create-hall/create-hall.component";
 import { UpdateHallComponent } from "./update-hall/update-hall.component";
@@ -15,7 +13,7 @@ export const CRUD_HALLS_ROUTES: Routes = [
         component: CreateHallComponent
     },
     {
-        path: 'update',
+        path: 'update/:id',
         component: UpdateHallComponent
     }
 ]

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateHallComponent } from './create-hall.component';
+import { CrudShowtimeComponent } from './crud-showtime.component';
 
-describe('CreateHallComponent', () => {
-  let component: CreateHallComponent;
-  let fixture: ComponentFixture<CreateHallComponent>;
+describe('CrudShowtimeComponent', () => {
+  let component: CrudShowtimeComponent;
+  let fixture: ComponentFixture<CrudShowtimeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateHallComponent]
+      imports: [CrudShowtimeComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CreateHallComponent);
+    fixture = TestBed.createComponent(CrudShowtimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

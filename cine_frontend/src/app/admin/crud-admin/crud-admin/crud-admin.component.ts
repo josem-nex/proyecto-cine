@@ -27,19 +27,16 @@ export class CrudAdminComponent implements OnInit {
     private router: Router
   ) { }
   ngOnInit(): void {
-    this.adminResponse = this.serviceAdmin.GetAll().pipe(catchError((error: string) => {
-      return EMPTY
-    }))
+    this.adminResponse = this.serviceAdmin.GetAll().pipe(catchError((error: string) => { return EMPTY }))
   }
 
   delete(id: string) {
     const send: IDelete_admin_send = { id: id }
     this.serviceAdmin.Delete(send).subscribe(()=>{
+      alert("Eliminación con éxito")
       this.router.navigate(['admin'])
     },(error)=>{
       alert("error");
     })
-  }
-
-  
+  } 
 }

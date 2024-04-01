@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
+
 import { IGet_admin_response, IGet_admin_send, IUpdate_admin_send } from '../../../core/models/admin.interface';
 import { AdminService } from '../../../core/services/admin.service';
 
@@ -44,7 +45,7 @@ export class UpdateAdminComponent implements OnInit {
 
   update() { 
     this.serviceAdmin.Update(this.send).subscribe((values)=>{
-      alert("Actualizacion hecha con exito")
+      alert("Actualización hecha con éxito")
     },(error)=>{
       alert(error)
     })

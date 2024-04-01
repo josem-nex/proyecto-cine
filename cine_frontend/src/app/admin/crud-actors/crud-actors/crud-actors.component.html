@@ -1,0 +1,17 @@
+<br>
+<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+
+<br>
+<br>
+@if (actorsResponse|async; as actors) {
+    <div class="row">
+        @for (item of actors.actors; track item.id) {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">ID del Actor: {{item.id}}</h5>
+                    <h6>Nombre del Actor: {{item.name}}</h6>
+                </div>
+            </div>
+        }
+    </div>
+}
