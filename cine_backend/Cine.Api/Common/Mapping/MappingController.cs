@@ -27,6 +27,8 @@ using Cine.Application.Models.Movies.Queries.GetActorsGenres;
 using Cine.Application.Models.Movies.Queries.GetAll;
 using Cine.Application.Models.Movies.Queries.GetOne;
 using Cine.Application.Models.Movies.Queries.GetShowtimesMovies;
+using Cine.Application.Models.PointsPurchases;
+using Cine.Application.Models.PointsPurchases.Commands;
 using Cine.Application.Models.Schedules.Commands;
 using Cine.Application.Models.Schedules.Queries.Get;
 using Cine.Application.Models.Schedules.Queries.GetAll;
@@ -178,11 +180,29 @@ public class MappingConfig : IRegister
             .Map(dest => dest, src => src.Ticket);
         config.NewConfig<DeleteTicketRequest, DeleteTicketCommand>();
         config.NewConfig<UpdateTicketRequest, UpdateTicketCommand>();
-
         config.NewConfig<GetAllTicketsQuery, GetAllTicketsQuery>();
         config.NewConfig<AddTicketRequest, AddTicketCommand>();
         config.NewConfig<GetTicketRequest, GetTicketQuery>();
-        config.NewConfig<GetTicketResult, GetTicketResponse>()
-            .Map(dest => dest, src => src.Ticket);
+
+
+        config.NewConfig<GetAllPointsPurchasesQuery, GetAllPointsPurchasesQuery>();
+        config.NewConfig<GetAllPointsPurchasesResult, GetAllPointsPurchasesResult>()
+            .ConstructUsing(src => new GetAllPointsPurchasesResult(src.PointsPurchases));
+        config.NewConfig<AddPointsPurchaseRequest, AddPointsPurchaseCommand>();
+        config.NewConfig<GetPointsPurchaseResult, GetPointsPurchaseResponse>()
+            .Map(dest => dest, src => src.PointsPurchase);
+        config.NewConfig<GetPointsPurchaseRequest, GetPointsPurchaseQuery>();
+        config.NewConfig<DeletePointsPurchaseRequest, DeletePointsPurchaseCommand>();
+        config.NewConfig<UpdatePointsPurchaseRequest, UpdatePointsPurchaseCommand>();
+        /* 
+                config.NewConfig<GetAllMonetaryPurchasesQuery, GetAllMonetaryPurchasesQuery>();
+                config.NewConfig<GetAllMonetaryPurchasesResult, GetAllMonetaryPurchasesResult>()
+                    .ConstructUsing(src => new GetAllMonetaryPurchasesResult(src.MonetaryPurchases));
+                config.NewConfig<AddMonetaryPurchaseRequest, AddMonetaryPurchaseCommand>();
+                config.NewConfig<GetMonetaryPurchaseResult, GetMonetaryPurchaseResponse>()
+                    .Map(dest => dest, src => src.MonetaryPurchase);
+                config.NewConfig<GetMonetaryPurchaseRequest, GetMonetaryPurchaseQuery>();
+                config.NewConfig<DeleteMonetaryPurchaseRequest, DeleteMonetaryPurchaseCommand>();
+                config.NewConfig<UpdateMonetaryPurchaseRequest, UpdateMonetaryPurchaseCommand>(); */
     }
 }

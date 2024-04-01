@@ -1,0 +1,9 @@
+@host= http://localhost:5000
+POST {{host}}/pointspurchase/add
+Content-Type: application/json
+
+{
+    "UserID" : "c7cfb122-aa11-4841-850e-04a74702763f",
+    "TicketId": "4",
+    "TotalPoints" : "100"
+}

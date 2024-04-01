@@ -5,12 +5,18 @@ public static partial class Errors
 {
     public static class Tickets
     {
+        public static Error PurchaseAlreadyExists => Error.Conflict(
+            code: ErrorCode.PurchaseAlreadyExists,
+            description: "Purchase already exists");
         public static Error TicketNotFound => Error.NotFound(
             code: ErrorCode.TicketNotFound,
             description: "Ticket not found");
         public static Error DiscountNotFound => Error.NotFound(
             code: ErrorCode.DiscountNotFound,
             description: "Discount not found");
+        public static Error PurchaseNotFound => Error.NotFound(
+            code: ErrorCode.PurchaseNotFound,
+            description: "Purchase not found");
         public static Error NullValue(string field) => Error.Validation(
             code: ErrorCode.NullValue,
             description: $"Value for {field} cannot be null");

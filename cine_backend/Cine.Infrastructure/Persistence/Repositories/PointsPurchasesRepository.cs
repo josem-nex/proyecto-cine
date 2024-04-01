@@ -20,7 +20,7 @@ public class PointsPurchaseRepository : IPointsPurchaseRepository
 
     public async Task<PointsPurchase?> GetPointsPurchaseById(int TicketId)
     {
-        return await _dbContext.PointsPurchases.SingleOrDefaultAsync(u => u.TicketsId == TicketId);
+        return await _dbContext.PointsPurchases.SingleOrDefaultAsync(u => u.TicketId == TicketId);
     }
 
     public async Task Delete(PointsPurchase PointsPurchase)

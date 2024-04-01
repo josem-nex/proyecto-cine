@@ -34,6 +34,8 @@ public static class DependencyInjection
         services.AddScoped<IChairRepository, ChairRepository>();
         services.AddScoped<IDiscountRepository, DiscountRepository>();
         services.AddScoped<ITicketRepository, TicketsRepository>();
+        services.AddScoped<IPointsPurchaseRepository, PointsPurchaseRepository>();
+        services.AddScoped<IMonetaryPurchaseRepository, MonetaryPurchaseRepository>();
         return services;
     }
 }

@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/pointspurchase/get
+Content-Type: application/json
+
+{
+    "TicketId": 4
+}
