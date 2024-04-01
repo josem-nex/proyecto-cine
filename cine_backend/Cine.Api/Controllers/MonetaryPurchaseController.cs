@@ -1,4 +1,8 @@
-/* using Cine.Domain.Entities.Tickets;
+using Cine.Application.Common.Interfaces.Persistence;
+using Cine.Application.Models.MonetaryPurchases.Commands;
+using Cine.Application.Models.MonetaryPurchases.Queries;
+using Cine.Domain.Common.Errors;
+using Cine.Domain.Entities.Tickets;
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
@@ -66,23 +70,3 @@ public class MonetaryPurchaseController : ApiController
         );
     }
 }
-
-public record UpdateMonetaryPurchaseCommand(Guid UserId, int TicketsId, int TotalPrice, string CreditCard) : IRequest<ErrorOr<GetMonetaryPurchaseResult>>;
-
-public record UpdateMonetaryPurchaseRequest(Guid UserId, int TicketsId, int TotalPrice, string CreditCard);
-
-public record DeleteMonetaryPurchaseCommand(int TicketId) : IRequest<ErrorOr<Unit>>;
-
-public record DeleteMonetaryPurchaseRequest(int TicketId);
-
-public record GetMonetaryPurchaseRequest(int TicketId);
-public record GetMonetaryPurchaseResult(MonetaryPurchase MonetaryPurchase);
-public record GetMonetaryPurchaseResponse(Guid UserId, int TicketsId, int TotalPrice, string CreditCard);
-public record GetMonetaryPurchaseQuery(int TicketId) : IRequest<ErrorOr<GetMonetaryPurchaseResult>>;
-public record AddMonetaryPurchaseCommand(Guid UserId, int TicketsId, int TotalPrice, string CreditCard) : IRequest<ErrorOr<GetMonetaryPurchaseResult>>;
-
-public record AddMonetaryPurchaseRequest(Guid UserId, int TicketsId, int TotalPrice, string CreditCard);
-
-public record GetAllMonetaryPurchasesResult(List<MonetaryPurchase> MonetaryPurchases);
-
-public record GetAllMonetaryPurchasesQuery() : IRequest<ErrorOr<GetAllMonetaryPurchasesResult>>; */

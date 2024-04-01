@@ -20,7 +20,7 @@ public class MonetaryPurchaseRepository : IMonetaryPurchaseRepository
 
     public async Task<MonetaryPurchase?> GetMonetaryPurchaseById(int TicketId)
     {
-        return await _dbContext.MonetaryPurchases.SingleOrDefaultAsync(u => u.TicketsId == TicketId);
+        return await _dbContext.MonetaryPurchases.SingleOrDefaultAsync(u => u.TicketId == TicketId);
     }
 
     public async Task Delete(MonetaryPurchase MonetaryPurchase)

@@ -1,0 +1,7 @@
+@host= http://localhost:5000
+POST {{host}}/monetarypurchase/delete
+Content-Type: application/json
+
+{
+    "TicketId": 4
+}

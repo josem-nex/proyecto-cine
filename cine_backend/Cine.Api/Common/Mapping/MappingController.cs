@@ -21,6 +21,8 @@ using Cine.Application.Models.Genres;
 using Cine.Application.Models.Halls.Commands;
 using Cine.Application.Models.Halls.Queries;
 using Cine.Application.Models.Halls.Queries.GetChairs;
+using Cine.Application.Models.MonetaryPurchases.Commands;
+using Cine.Application.Models.MonetaryPurchases.Queries;
 using Cine.Application.Models.Movies.Commands.AddMovie;
 using Cine.Application.Models.Movies.Commands.UpdateMovie;
 using Cine.Application.Models.Movies.Queries.GetActorsGenres;
@@ -194,15 +196,15 @@ public class MappingConfig : IRegister
         config.NewConfig<GetPointsPurchaseRequest, GetPointsPurchaseQuery>();
         config.NewConfig<DeletePointsPurchaseRequest, DeletePointsPurchaseCommand>();
         config.NewConfig<UpdatePointsPurchaseRequest, UpdatePointsPurchaseCommand>();
-        /* 
-                config.NewConfig<GetAllMonetaryPurchasesQuery, GetAllMonetaryPurchasesQuery>();
-                config.NewConfig<GetAllMonetaryPurchasesResult, GetAllMonetaryPurchasesResult>()
-                    .ConstructUsing(src => new GetAllMonetaryPurchasesResult(src.MonetaryPurchases));
-                config.NewConfig<AddMonetaryPurchaseRequest, AddMonetaryPurchaseCommand>();
-                config.NewConfig<GetMonetaryPurchaseResult, GetMonetaryPurchaseResponse>()
-                    .Map(dest => dest, src => src.MonetaryPurchase);
-                config.NewConfig<GetMonetaryPurchaseRequest, GetMonetaryPurchaseQuery>();
-                config.NewConfig<DeleteMonetaryPurchaseRequest, DeleteMonetaryPurchaseCommand>();
-                config.NewConfig<UpdateMonetaryPurchaseRequest, UpdateMonetaryPurchaseCommand>(); */
+
+        config.NewConfig<GetAllMonetaryPurchasesQuery, GetAllMonetaryPurchasesQuery>();
+        config.NewConfig<GetAllMonetaryPurchasesResult, GetAllMonetaryPurchasesResult>()
+            .ConstructUsing(src => new GetAllMonetaryPurchasesResult(src.MonetaryPurchases));
+        config.NewConfig<AddMonetaryPurchaseRequest, AddMonetaryPurchaseCommand>();
+        config.NewConfig<GetMonetaryPurchaseResult, GetMonetaryPurchaseResponse>()
+            .Map(dest => dest, src => src.MonetaryPurchase);
+        config.NewConfig<GetMonetaryPurchaseRequest, GetMonetaryPurchaseQuery>();
+        config.NewConfig<DeleteMonetaryPurchaseRequest, DeleteMonetaryPurchaseCommand>();
+        config.NewConfig<UpdateMonetaryPurchaseRequest, UpdateMonetaryPurchaseCommand>();
     }
 }
