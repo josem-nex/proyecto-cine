@@ -31,9 +31,8 @@ export class UpdateAdminComponent implements OnInit {
   ) { } 
   ngOnInit(): void {
     this.index = this.route.snapshot.params['id'];
-    const send: IGet_admin_send = {
-      id: this.index
-    }
+    const send: IGet_admin_send = { id: this.index }
+    
     this.serviceAdmin.Get(send).subscribe((value:IGet_admin_response)=>{
       this.send.id = send.id
       this.send.user = value.user

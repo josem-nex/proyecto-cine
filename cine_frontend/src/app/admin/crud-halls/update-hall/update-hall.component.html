@@ -1,19 +1,25 @@
 <main class="form-signin w-100 m-auto">
     <form>
-        <h1 class="h3 mb-3 fw-normal">Actualizar un Hall</h1>
+        <h1 class="h3 mb-3 fw-normal">Actualizar una sala</h1>
 
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.Name" name="something1">
-            <label for="floatingInput">Nombre de Hall</label>
+            <label for="floatingInput">Nombre de la sala</label>
         </div>
 
         <div class="form-floating">
             <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.Capacity" name="something2">
-            <label for="floatingInput">Capacidad del Hall</label>
+            <label for="floatingInput">Capacidad</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="schedulesIdText"
+                name="something3">
+            <label for="floatingInput">Ids de los horarios</label>
         </div>
 
         <br>
         <button class="btn btn-primary w-50" type="button" (click)="update()">Actualizar</button>
-        <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
+        <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
     </form>
 </main>

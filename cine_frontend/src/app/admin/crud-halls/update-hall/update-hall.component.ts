@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
+
 import { HallService } from '../../../core/services/hall.service';
 import { Iget_hall_response, Iget_hall_send, Iupdate_hall_send } from '../../../core/models/hall.interface';
-
 
 @Component({
   selector: 'app-update-hall',
@@ -24,6 +24,7 @@ export class UpdateHallComponent implements OnInit {
     Capacity: 0,
     SchedulesId: []
   }
+  schedulesIdText!: string;
 
   constructor(
     private serviceHall: HallService,
@@ -31,10 +32,9 @@ export class UpdateHallComponent implements OnInit {
     private router: Router 
   ) { }
   ngOnInit(): void {
+    this.schedulesIdText = ''
     this.index = this.route.snapshot.params['id'];
-    const send: Iget_hall_send = {
-      Id: this.index
-    }
+    const send: Iget_hall_send = { Id: this.index }
     this.serviceHall.get(send).subscribe((value:Iget_hall_response)=>{
       this.send.Id = send.Id
       this.send.Name = value.name
@@ -46,6 +46,8 @@ export class UpdateHallComponent implements OnInit {
   }
 
   update() {
+    this.send.SchedulesId = this.schedulesIdText.split(',').map(m=>parseInt(m,10))
+
     this.serviceHall.update(this.send).subscribe((values)=>{
       alert("Actualización hecha con éxito")
     },(error)=>{

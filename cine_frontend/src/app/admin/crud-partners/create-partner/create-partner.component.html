@@ -1,7 +1,7 @@
 
 <main class="form-signin w-100 m-auto">
   <form>
-    <h1 class="h3 mb-3 fw-normal">Creación de un nuevo Partner</h1>
+    <h1 class="h3 mb-3 fw-normal">Creación de un nuevo socio</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="send.email" name="something1">
@@ -13,7 +13,7 @@
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.lastname" name="something3">
-      <label for="floatingInput">Apellido</label>
+      <label for="floatingInput">Apellidos</label>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.ci" name="something4">
@@ -29,10 +29,10 @@
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="something7">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">Contraseña</label>
     </div>
     <br>
     <button class="btn btn-primary w-50" type="button" (click)="create()">Crear</button>
-    <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
+    <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
   </form>
 </main>

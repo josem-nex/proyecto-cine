@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Host, Injectable } from "@angular/core";
 import { RouterOutlet } from '@angular/router';
 import { HOST } from "../const/const";
-import { IAddMovie_response, IAddMovie_send, IDeleteMovie_send, IGetAllMovies_response, IGetMovie_response, IGetMovie_send, IUpdateMovie_response, IUpdateMovie_send } from "../models/movie.interface";
+import { IAddMovie_response, IAddMovie_send, IDeleteMovie_send, IGetAllMovies_response, IGetMovie_response, IGetMovie_send, IGetshowtimemovie_response, IGetshowtimemovie_send, IUpdateMovie_response, IUpdateMovie_send } from "../models/movie.interface";
 
 @Injectable({ providedIn: 'root' })
 export class MovieService {
@@ -24,5 +24,8 @@ export class MovieService {
     }
     updateMovie(send: IUpdateMovie_send): Observable<IUpdateMovie_response> {
         return this.http.post<IUpdateMovie_response>(HOST + '/movies/update', send)
+    }
+    getShowtimeMovie(send: IGetshowtimemovie_send): Observable<IGetshowtimemovie_response> { 
+        return this.http.post<IGetshowtimemovie_response>(HOST + '/movies/getshowtimesmovies', send)
     }
 }

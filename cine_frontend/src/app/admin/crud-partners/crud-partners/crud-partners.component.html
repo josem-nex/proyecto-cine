@@ -1,6 +1,8 @@
 <br>
-<a class="btn btn-primary" href="/admin/partners/create" role="button">CREATE</a>
-<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+<a class="btn btn-primary" href="/admin/partners/create" role="button">Crear</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
+
+<a class="btn btn-primary" (click)="save_pdf()" role="button">PDF</a>
 
 <br>
 <br>
@@ -30,8 +32,8 @@
 
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a class="btn btn-primary" role="button"
-                                [routerLink]="['/admin/partners/update',item.id]">UPDATE</a>
-                            <a class="btn btn-primary" role="button" (click)="delete(item.id)">DELETE</a>
+                                [routerLink]="['/admin/partners/update',item.id]">Actualizar</a>
+                            <a class="btn btn-primary" role="button" (click)="delete(item.id)">Eliminar</a>
                         </div>
                     </div>
                 </div>

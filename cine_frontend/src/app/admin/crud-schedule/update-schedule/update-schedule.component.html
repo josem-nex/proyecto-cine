@@ -3,17 +3,17 @@
       <h1 class="h3 mb-3 fw-normal">Actualizar un horario</h1>
   
       <div class="form-floating">
-        <input type="datetime-local" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.DateStart" name="something1">
+        <input type="date" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.DateStart" name="something1">
         <label for="floatingInput">Inicio</label>
       </div>
 
       <div class="form-floating">
-        <input type="datetime-local" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.DateEnd" name="something2">
+        <input type="date" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.DateEnd" name="something2">
         <label for="floatingInput">Fin</label>
       </div>
 
       <br>
       <button class="btn btn-primary w-50" type="button" (click)="update()">Actualizar</button>
-      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
+      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
     </form>
   </main>

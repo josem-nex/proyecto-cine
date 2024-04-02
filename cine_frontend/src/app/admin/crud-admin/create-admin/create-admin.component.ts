@@ -30,7 +30,7 @@ export class CreateAdminComponent implements OnInit {
   
   create() {
     this.serviceAdmin.Add(this.send).subscribe(()=>{
-      alert("Admin creado con exito")
+      alert("Admin creado con éxito")
       this.router.navigate(['admin/admin/'])
     },(error)=>{
       alert(error)

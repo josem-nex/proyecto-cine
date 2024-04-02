@@ -1,1 +1,19 @@
-<p>gallery works!</p>
+<br>
+<div class="container">
+    <div class="row">
+        @if (moviesResponse|async; as movies) {
+        @for (item of movies.movies; track item.id) {
+        <div class="col-md-4 col-lg-3 col-xl-2 mb-4">
+            <div class="card">
+                <img src="{{item.imageUrl}}" class="card-img-top" width="200" height="250" alt="{{item.title}}">
+                <div class="card-body">
+                    
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <a class="btn btn-primary" role="button" [routerLink]="['/movies/item',item.id]">COMPRAR</a>
+                </div>
+            </div>
+        </div>
+        }
+        }
+    </div>
+</div>

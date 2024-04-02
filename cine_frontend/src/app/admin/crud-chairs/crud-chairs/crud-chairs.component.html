@@ -1,5 +1,5 @@
 <br>
-<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
 
 <br>
 <br>
@@ -8,10 +8,10 @@
         @for (item of chairs.chairs; track item.id) {
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">ID del Chair: {{item.id}}</h5>
+                    <h5 class="card-title">ID del silla: {{item.id}}</h5>
                     <h6>Fila: {{item.row}}</h6>
                     <h6>Columna: {{item.column}}</h6>
-                    <h6>ID del Hall: {{item.hallId}}</h6>
+                    <h6>ID de la sala: {{item.hallId}}</h6>
                 </div>
             </div>
         }

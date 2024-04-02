@@ -1,19 +1,19 @@
 <main class="form-signin w-100 m-auto">
     <form>
-      <h1 class="h3 mb-3 fw-normal">Actualizar un Admin</h1>
+      <h1 class="h3 mb-3 fw-normal">Actualizar un administrador</h1>
   
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.user" name="something1">
-        <label for="floatingInput">Nombre de Usuario</label>
+        <label for="floatingInput">Nombre de administrador</label>
       </div>
 
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.password" name="something1">
-        <label for="floatingInput">Password</label>
+        <label for="floatingInput">Contraseña</label>
       </div>
 
       <br>
       <button class="btn btn-primary w-50" type="button" (click)="update()">Actualizar</button>
-      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
+      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
     </form>
   </main>

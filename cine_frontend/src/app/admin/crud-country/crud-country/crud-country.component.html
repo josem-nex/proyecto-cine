@@ -1,6 +1,6 @@
 <br>
-<a class="btn btn-primary" href="/admin/country/create" role="button">CREATE</a>
-<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+<a class="btn btn-primary" href="/admin/country/create" role="button">Crear</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
 
 <br>
 <br>
@@ -9,8 +9,8 @@
     @for (item of countries.countries; track item.id) {
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">ID del País: {{item.id}}</h5>
-                <h6>Nombre del País: {{item.name}}</h6>
+                <h5 class="card-title">ID del país: {{item.id}}</h5>
+                <h6>Nombre del país: {{item.name}}</h6>
             </div>
         </div>
     }

@@ -48,6 +48,22 @@ export const ADMIN_ROUTES: Routes = [
         loadChildren: () => import('./crud-schedule/crudSchedule.routes').then(m => m.CRUD_SCHEDULE_ROUTES)
     },
     {
+        path: 'showtime',
+        loadChildren: () => import('./crud-showtime/crudShowTime.routes').then(m => m.CRUD_SHOWTIME_ROUTES)
+    },
+    {
+        path: 'tickets',
+        loadChildren: () => import('./crud-tickets/crudTickets.routes').then(m => m.CRUD_TICKETS_ROUTES)
+    },
+    {
+        path: 'points',
+        loadChildren: () => import('./crud-points/crudPoints.routes').then(m=>m.CRUD_POINTS_ROUTES)
+    },
+    {
+        path: 'monetary',
+        loadChildren: () => import('./crud-monetary/crudMonetary.routes').then(m=>m.CRUD_MONETARY_ROUTES)
+    },
+    {
         path: 'login',
         component: LoginAdminComponent
     }

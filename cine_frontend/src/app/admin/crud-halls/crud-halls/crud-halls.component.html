@@ -1,6 +1,6 @@
 <br>
-<a class="btn btn-primary" href="/admin/halls/create" role="button">CREATE</a>
-<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+<a class="btn btn-primary" href="/admin/halls/create" role="button">Crear</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
 
 <br>
 <br>
@@ -23,12 +23,12 @@
                     [attr.aria-labelledby]="'list-' + item.id">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">ID de la Sala: {{item.id}}</h5>
+                            <h5 class="card-title">ID de la sala: {{item.id}}</h5>
                             <h6 class="card-subtitle mb-2 text-body-secondary">Capacidad: {{item.capacity}}</h6>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a class="btn btn-primary" role="button"
-                                    [routerLink]="['/admin/halls/update',item.id]">UPDATE</a>
-                                <a class="btn btn-primary" role="button" (click)="delete(item.id)">DELETE</a>
+                                    [routerLink]="['/admin/halls/update',item.id]">Actualizar</a>
+                                <a class="btn btn-primary" role="button" (click)="delete(item.id)">Eliminar</a>
                             </div>
                         </div>
                     </div>
