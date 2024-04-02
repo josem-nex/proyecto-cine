@@ -29,4 +29,5 @@ public class ErrorCode
     public const string InvalidChair = "Error.InvalidChair";
     public const string PurchaseNotFound = "Error.PurchaseNotFound";
     public const string PurchaseAlreadyExists = "Error.PurchaseAlreadyExists";
+    public const string InvalidEmail = "Error.InvalidEmail";
 }

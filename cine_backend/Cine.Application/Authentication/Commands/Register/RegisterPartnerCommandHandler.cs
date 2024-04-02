@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Common.Interfaces.Authentication;
 using Cine.Application.Common.Interfaces.Persistence;
@@ -21,11 +22,21 @@ public class RegisterPartnerCommandHandler :
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterPartnerCommand command, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-
-        if (await _partnerRepository.GetPartnerByEmail(command.Email) is not null)
+        try
         {
-            return Errors.Partner.DuplicatedEmail;
+            var mailAddress = new System.Net.Mail.MailAddress(command.Email);
         }
+        catch (FormatException)
+        {
+            return Errors.Partner.InvalidEmail;
+        }
+        if (await _partnerRepository.GetPartnerByEmail(command.Email) is not null)
+            return Errors.Partner.DuplicatedEmail;
+
+        var passwordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
+        if (!passwordRegex.IsMatch(command.Password))
+            return Errors.Partner.InvalidPassword;
+
         var hasher = new PasswordHasher<Partner>();
         var hashedPassword = hasher.HashPassword(null, command.Password);
         var partner = new Partner(

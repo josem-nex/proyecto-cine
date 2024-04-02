@@ -6,6 +6,9 @@ public static partial class Errors
 {
     public static class Partner
     {
+        public static Error InvalidEmail => Error.Validation(
+            code: ErrorCode.InvalidEmail,
+            description: "Invalid email");
         public static Error DuplicatedEmail => Error.Conflict(
             code: ErrorCode.DuplicatedEmail,
             description: "Email already in use");

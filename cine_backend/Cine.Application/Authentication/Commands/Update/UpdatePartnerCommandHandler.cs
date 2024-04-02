@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Cine.Application.Authentication.Common;
 using Cine.Application.Common.Interfaces.Authentication;
 using Cine.Application.Common.Interfaces.Persistence;
@@ -24,6 +25,9 @@ public class UpdatePartnerCommandHandler :
         var partner = await _partnerRepository.GetPartnerById(Guid.Parse(command.Id));
         if (partner is null)
             return Errors.Partner.PartnerNotFound;
+        var passwordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
+        if (!passwordRegex.IsMatch(command.Password))
+            return Errors.Partner.InvalidPassword;
         var hasher = new PasswordHasher<Partner>();
         var hashedPassword = hasher.HashPassword(partner, command.Password);
         partner.Update(

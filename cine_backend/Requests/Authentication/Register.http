@@ -2,22 +2,22 @@
 POST {{host}}/auth/register
 Content-Type: application/json
 
-{
-    "firstname": "Laura Maria",
-    "lastname":  "Ramona",
-    "email": "lmariar@gmail.com",
-    "ci": "02101576475",
-    "address": "Calle 1 #123",
-    "phonenumber": "787-123-1234",
-    "password": "123mn213"
-}
-
 # {
-#     "firstname": "caemllo",
-#     "lastname":  "desierto",
-#     "email": "camello@gmail.com",
-#     "ci": "02101576123",
-#     "address": "muylejos",
-#     "phonenumber": "713-213-534",
-#     "password": "87654321"
+#     "firstname": "Laura Maria",
+#     "lastname":  "Ramona",
+#     "email": "lmariar@gmail.com",
+#     "ci": "02101576475",
+#     "address": "Calle 1 #123",
+#     "phonenumber": "787-123-1234",
+#     "password": "123mn213"
 # }
+
+{
+    "firstname": "caemllo",
+    "lastname":  "desierto",
+    "email": "camello@gmail.com",
+    "ci": "02101576123",
+    "address": "muylejos",
+    "phonenumber": "713-213-534",
+    "password": "Kjkszpj1"
+}

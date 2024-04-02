@@ -3,5 +3,5 @@ POST {{host}}/auth/delete
 Content-Type: application/json
 
 {
-    "id": "a1b5e6a9-744b-4a68-9aee-d3fe031f71f5"
+    "id": "54afb036-3179-4a0d-b35d-35c2bfe31bff"
 }
