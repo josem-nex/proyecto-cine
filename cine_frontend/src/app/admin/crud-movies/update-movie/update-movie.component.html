@@ -1,58 +1,65 @@
 <main class="form-signin w-100 m-auto">
     <form>
-      <h1 class="h3 mb-3 fw-normal">Actualizar una Película</h1>
+      <h1 class="h3 mb-3 fw-normal">Actualizar una película</h1>
   
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.title" name="something1">
-        <label for="floatingInput">Título de Película</label>
-      </div>
+        <label for="floatingInput">Nombre de la película</label>
+    </div>
 
-      <div class="form-floating">
+    <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.description" name="something2">
-        <label for="floatingInput">Descripción de Película</label>
-      </div>
+        <label for="floatingInput">Descripción</label>
+    </div>
 
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="" id="floatingTextarea" style="height: 100px" [(ngModel)]="send.language" name="something3"></textarea>
-        <label for="floatingTextarea">Idioma</label>
-      </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.director" name="something3">
+        <label for="floatingInput">Director</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.durationminutes" name="something4">
-        <label for="floatingInput">Duración de Película</label>
-      </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.imageurl" name="something4">
+        <label for="floatingInput">Imagen</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.rating" name="something5">
-        <label for="floatingInput">Ranking de Película</label>
-      </div>
+    <div class="form-floating">
+        <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.durationminutes" name="something5">
+        <label for="floatingInput">Duración en minutos</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.director" name="something6">
-        <label for="floatingInput">Director de Película</label>
-      </div>
+    <div class="form-floating">
+        <input type="datetime-local" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.releasedate" name="something6">
+        <label for="floatingInput">Date</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="datetime" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.releasedate" name="something7">
-        <label for="floatingInput">Fecha de Película</label>
-      </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.language" name="something7">
+        <label for="floatingInput">Lenguaje</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.imageurl" name="something8">
-        <label for="floatingInput">Imagen de Película</label>
-      </div>
+    <div class="form-floating">
+        <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.rating" name="something8">
+        <label for="floatingInput">Ranking</label>
+    </div>
 
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="actorsIdText" name="something9">
+        <label for="floatingInput">IDs de actores</label>
+    </div>
 
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="genresIdText" name="something10">
+        <label for="floatingInput">IDs de géneros</label>
+    </div>
 
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.imageurl" name="something">
-        <label for="floatingInput">Imagen de Película</label>
-      </div>
-
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.countryid" name="something11">
+        <label for="floatingInput">IDs de países</label>
+    </div>
 
       <br>
       <button class="btn btn-primary w-50" type="button" (click)="update()">Actualizar</button>
-      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancel</button>
+      <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
     </form>
   </main>
 

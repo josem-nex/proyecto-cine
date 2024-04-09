@@ -22,6 +22,6 @@ export class ShowTimeService {
         return this.http.get<Igetall_showtime_response>(HOST + '/showtimes/getall')
     }
     update(send: Iupdate_showtime_send): Observable<Iupdate_showtime_response> {
-        return this.http.post<Iupdate_showtime_response>(HOST + '', send);
+        return this.http.post<Iupdate_showtime_response>(HOST + '/showtimes/update', send);
     }
 }

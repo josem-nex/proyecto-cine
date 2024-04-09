@@ -24,6 +24,46 @@ export const ADMIN_ROUTES: Routes = [
         loadChildren: () => import('./crud-admin/crudAdmin.routes').then(m => m.CRUD_ADMIN_ROUTES)
     },
     {
+        path: 'actors',
+        loadChildren: () => import('./crud-actors/crudActors.routes').then(m => m.CRUD_ACTORS_ROUTES)
+    },
+    {
+        path: 'chairs',
+        loadChildren: () => import('./crud-chairs/crudChairs.routes').then(m => m.CRUD_CHAIRS_ROUTES)
+    },
+    {
+        path: 'country',
+        loadChildren: () => import('./crud-country/crudCountry.routes').then(m => m.CRUD_COUNTRY_ROUTES)
+    },
+    {
+        path: 'discounts',
+        loadChildren: () => import('./crud-discount/crudDiscount.routes').then(m => m.CRUD_DISCOUNT_ROUTES)
+    },
+    {
+        path: 'genres',
+        loadChildren: () => import('./crud-genre/crudGenre.routes').then(m => m.CRUD_GENRE_ROUTES)
+    },
+    {
+        path: 'schedule',
+        loadChildren: () => import('./crud-schedule/crudSchedule.routes').then(m => m.CRUD_SCHEDULE_ROUTES)
+    },
+    {
+        path: 'showtime',
+        loadChildren: () => import('./crud-showtime/crudShowTime.routes').then(m => m.CRUD_SHOWTIME_ROUTES)
+    },
+    {
+        path: 'tickets',
+        loadChildren: () => import('./crud-tickets/crudTickets.routes').then(m => m.CRUD_TICKETS_ROUTES)
+    },
+    {
+        path: 'points',
+        loadChildren: () => import('./crud-points/crudPoints.routes').then(m=>m.CRUD_POINTS_ROUTES)
+    },
+    {
+        path: 'monetary',
+        loadChildren: () => import('./crud-monetary/crudMonetary.routes').then(m=>m.CRUD_MONETARY_ROUTES)
+    },
+    {
         path: 'login',
         component: LoginAdminComponent
     }

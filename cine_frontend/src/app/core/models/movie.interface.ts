@@ -86,3 +86,16 @@ export interface IUpdateMovie_response {
     rating: number;
     countryId: number;
 }
+export interface IGetactorsgenres_send {
+    Id: number;
+}
+export interface IGetactorsgenres_response {
+    actors: number[]
+    genres: number[]
+}
+export interface IGetshowtimemovie_send {
+    Id: number;
+}
+export interface IGetshowtimemovie_response {
+    showtimesId: number[]
+}

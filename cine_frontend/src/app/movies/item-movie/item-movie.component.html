@@ -1,1 +1,93 @@
-<p>item-movie works!</p>
+<br>
+<a class="btn btn-primary" href="/movies" role="button">ATRAS</a>
+
+<br><br>
+
+@if (responseMovie|async; as movie) {
+
+<div class="card">
+    <div class="card-body">
+        <img [src]="movie.imageUrl" class="rounded float-end img-thumbnail" alt="imagen no disponible" width="300"
+            height="350" style="padding: 5px; margin: 5px;">
+
+        <h5 class="card-title">{{movie.title}}</h5>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{movie.description}}</h6>
+        </div>
+
+        <ul class="list-group" style="width: 75%;">
+            <li class="list-group-item">Director: {{movie.director}}</li>
+            <li class="list-group-item">Duración en minutos: {{movie.durationMinutes}}</li>
+            <li class="list-group-item">Idioma: {{movie.language}}</li>
+            <li class="list-group-item">Fecha de lanzamiento: {{movie.releaseDate}}</li>
+            <li class="list-group-item">Ranking: {{movie.rating}}</li>
+        </ul>
+    </div>
+</div>
+}
+<br>
+<div class="card">
+    @if (phaseOne) {
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-body-secondary">IDs de los tickets</h6>
+        @if (responseShowtime|async; as showtimes) {
+            @if (responseTickets|async; as tickets) {
+                @for (item of tickets.tickets; track item.id) {
+                    @if (showtimes.showtimesId.includes(item.showTimesId)) {
+                        <h5>ID de Ticket: {{item.id}}</h5>
+                        <h6>El ID de la tanda es: {{item.showTimesId}}</h6>
+                        <h6>El ID de la butaca es: {{item.chairsId}}</h6>
+                    }
+                }
+            }
+        }
+        <br>
+     <form class="row g-4">
+            <div class="col-auto">
+              <label for="inputShowtime" class="visually-hidden">Selección</label>
+              <input type="text" class="form-control" id="inputShowtime" placeholder="IDs de Tickets" [(ngModel)]="showtimesIdsText" name="something"> 
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-primary mb-3" (click)="change()">Confirmar</button>
+            </div>
+          </form>
+    </div>
+    }
+
+    @if (phaseTwo) {
+        <div class="card-body">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="send.email" name="somethingEmail">
+                <label for="floatingInput">Email</label>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]="send.password" name="somethingPassword">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <form class="row g-4">
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary mb-3" (click)="continuar()">Continuar</button>
+                  <button type="button" class="btn btn-primary mb-3" (click)="cancel()">Cancelar</button>
+                </div>
+              </form>
+        </div>
+
+        
+        
+    }
+
+    @if (phaseThree) {
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-body-secondary">Se desean comprar los tickets: {{showtimesIds}}</h6> 
+
+            <form class="row g-4">
+                <div class="col-auto">
+                  @if (this.serviceLocal.getItem("isUser") == 'true') {<button type="button" class="btn btn-primary mb-3" (click)="ok_points()">Pago en Puntos</button>}
+                  <button type="button" class="btn btn-primary mb-3" (click)="ok_monetary()">Pago en Dinero</button>
+                  <button type="button" class="btn btn-primary mb-3" (click)="cancel()">Cancelar</button>
+                </div>
+              </form>
+        </div>
+    }
+</div>
+

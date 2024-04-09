@@ -1,0 +1,17 @@
+<main class="form-signin w-100 m-auto">
+    <form>
+        <h1 class="h3 mb-3 fw-normal">
+            Creación de un nuevo país
+        </h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.name"
+                name="something1">
+            <label for="floatingInput">Nombre del país</label>
+        </div>
+
+        <br>
+        <button class="btn btn-primary w-50" type="button" (click)="create()">Crear</button>
+        <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
+    </form>
+</main>

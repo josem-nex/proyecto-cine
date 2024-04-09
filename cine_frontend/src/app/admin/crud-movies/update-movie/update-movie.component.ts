@@ -4,8 +4,6 @@ import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/rou
 import { IGetMovie_response, IGetMovie_send, IUpdateMovie_send } from '../../../core/models/movie.interface';
 import { MovieService } from '../../../core/services/movies.service';
 
-
-
 @Component({
   selector: 'app-update-movie',
   standalone: true,
@@ -33,6 +31,8 @@ export class UpdateMovieComponent implements OnInit {
     idgenres: [],
     countryid: 0
   }
+  actorsIdText!: string;
+  genresIdText!: string;
 
   constructor(
     private serviceMovie: MovieService,
@@ -53,7 +53,6 @@ export class UpdateMovieComponent implements OnInit {
       this.send.language = value.language
       this.send.durationminutes = value.durationMinutes
       this.send.imageurl = value.imageUrl
-      this.send.releasedate = value.releaseDate
     },(error)=>{
       alert(error)
       this.router.navigate(['admin/movies/'])
@@ -61,6 +60,9 @@ export class UpdateMovieComponent implements OnInit {
   }
 
   update() {
+    this.send.idactors = this.actorsIdText.split(',').map(m=>parseInt(m,10))
+    this.send.idgenres = this.genresIdText.split(',').map(m=>parseInt(m,10))
+
     this.serviceMovie.updateMovie(this.send).subscribe((values)=>{
       alert("Actualizacion hecha con exito")
     },(error)=>{

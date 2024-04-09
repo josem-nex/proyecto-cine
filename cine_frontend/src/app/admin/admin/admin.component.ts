@@ -19,19 +19,17 @@ import { ILogin_admin_send } from '../../core/models/admin.interface';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit {
-  send: ILogin_admin_send = {
-    User: '',
-    Password: ''
-  }
-
   constructor(
     public local: LocalStorageService,
     private serviceAdmin: AdminService, 
     private router: Router,
     private auxiliar: AuxiliarService
   ) { }
-  ngOnInit(): void {
-    
+  ngOnInit(): void { }
+
+  desconnect() {
+    this.local.setItem("isAdmin", "false")
+    this.router.navigate([''])
   }
 
 }

@@ -1,6 +1,8 @@
 <br>
-<a class="btn btn-primary" href="/admin/admin/create" role="button">CREATE</a>
-<a class="btn btn-primary" href="/admin" role="button">ATRAS</a>
+<a class="btn btn-primary" href="/admin/admin/create" role="button">Crear</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
+
+<a class="btn btn-primary" (click)="save_pdf()" role="button">PDF</a>
 
 <br>
 <br>
@@ -9,9 +11,9 @@
     @for (item of admins.admins; track item.id) {
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Nombre de Usuario: {{item.user}}</h5>
-                <a class="btn btn-primary" role="button" [routerLink]="['/admin/admin/update',item.id]">UPDATE</a>
-                <a class="btn btn-primary" role="button" (click)="delete(item.id)">DELETE</a>                
+                <h5 class="card-title">Nombre de administrador: {{item.user}}</h5>
+                <a class="btn btn-primary" role="button" [routerLink]="['/admin/admin/update',item.id]">Actualizar</a>
+                <a class="btn btn-primary" role="button" (click)="delete(item.id)">Eliminar</a>                
             </div>
         </div>
     }

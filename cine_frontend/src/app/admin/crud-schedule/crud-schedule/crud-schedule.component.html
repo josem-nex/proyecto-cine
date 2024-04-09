@@ -1,0 +1,21 @@
+<br>
+<a class="btn btn-primary" href="/admin/schedule/create" role="button">Crear</a>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
+
+<br>
+<br>
+@if (scheduleResponse|async; as schedules) {
+<div class="row">
+    @for (item of schedules.schedules; track item.id) {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ID del horario: {{item.id}}</h5>
+                <h6>Inicio: {{item.dateStart}}</h6>
+                <h6>Final: {{item.dateEnd}}</h6>
+                <a class="btn btn-primary" role="button" [routerLink]="['/admin/schedule/update',item.id]">Actualizar</a>
+                <a class="btn btn-primary" role="button" (click)="delete(item.id)">Eliminar</a>                
+            </div>
+        </div>
+    }
+</div>
+}

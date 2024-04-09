@@ -3,7 +3,7 @@ export interface IGetAllGenres_response {
 }
 export interface IGetAllGenres_response_aux {
     id: number;
-    string: string;
+    name: string;
     movies: []
 }
 

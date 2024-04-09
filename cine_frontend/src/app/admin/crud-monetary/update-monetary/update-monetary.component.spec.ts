@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateHallComponent } from './create-hall.component';
+import { UpdateMonetaryComponent } from './update-monetary.component';
 
-describe('CreateHallComponent', () => {
-  let component: CreateHallComponent;
-  let fixture: ComponentFixture<CreateHallComponent>;
+describe('UpdateMonetaryComponent', () => {
+  let component: UpdateMonetaryComponent;
+  let fixture: ComponentFixture<UpdateMonetaryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateHallComponent]
+      imports: [UpdateMonetaryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CreateHallComponent);
+    fixture = TestBed.createComponent(UpdateMonetaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

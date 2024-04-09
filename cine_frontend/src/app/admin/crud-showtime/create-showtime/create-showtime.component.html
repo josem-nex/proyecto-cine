@@ -1,0 +1,41 @@
+<main class="form-signin w-100 m-auto">
+    <form>
+        <h1 class="h3 mb-3 fw-normal">
+            Creación de una tanda
+        </h1>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.Cost"
+                name="something1">
+            <label for="floatingInput">Costo</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.CostPoints"
+                name="something2">
+            <label for="floatingInput">Costo en Puntos</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.HallsId"
+                name="something3">
+            <label for="floatingInput">ID de la sala</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.MovieId"
+                name="something4">
+            <label for="floatingInput">ID de la película</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="floatingInput" placeholder="" [(ngModel)]="send.SchedulesId"
+                name="something5">
+            <label for="floatingInput">ID del horario</label>
+        </div>
+
+        <br>
+        <button class="btn btn-primary w-50" type="button" (click)="create()">Crear</button>
+        <button class="btn btn-primary w-50" type="button" (click)="cancel()">Cancelar</button>
+    </form>
+</main>

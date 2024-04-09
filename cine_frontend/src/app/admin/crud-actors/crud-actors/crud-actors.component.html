@@ -1,0 +1,19 @@
+<br>
+<a class="btn btn-primary" href="/admin" role="button">Atrás</a>
+<a class="btn btn-primary" (click)="save_pdf()" role="button">PDF</a>
+
+<br>
+<br>
+@if (actorsResponse|async; as actors) {
+    <div class="row">
+        @for (item of actors.actors; track item.id) {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">ID del actor: {{item.id}}</h5>
+                    <h6>Nombre del actor: {{item.name}}</h6>
+                </div>
+            </div>
+        }
+    </div>
+}
+

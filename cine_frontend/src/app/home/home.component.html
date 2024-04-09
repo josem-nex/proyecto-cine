@@ -1,1 +1,53 @@
-<h1>HOME</h1>
+<h1>Proyecto CINE+</h1>
+
+
+Cine+ es una aplicación web multiplataforma que permite la compra de entradas a través de su página web por parte de los clientes. La aplicación permite además que los gerentes del cine puedan actualizar el listado de películas y horarios disponibles y que estos sean mostrados en la web. También se posibilita la visualización en una página web de las 10 películas disponibles
+
+<br>
+<br>
+
+<h4>TOP de Películas</h4>
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            @for (item of movieResponse; track item.id) {
+            <a class="list-group-item list-group-item-action" [id]="'list-' + item.id + '-list'" data-bs-toggle="list"
+                [href]="'#list-' + item.id" role="tab" [attr.aria-controls]="'list-' + item.id">
+                {{item.id}}: {{ item.title }}
+            </a>
+            }
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            @for (item of movieResponse; track item.id) {
+            <div class="tab-pane fade" [id]="'list-' + item.id" role="tabpanel"
+                [attr.aria-labelledby]="'list-' + item.id">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <img [src]="item.imageUrl" class="rounded float-end" alt="imagen no disponible" width="200" height="250">
+
+                        <h5 class="card-title">Descripción:</h5>
+                        <p>{{item.description}}</p>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Idioma: {{item.language}}</h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Duración en minutos: {{item.durationMinutes}}</h6>
+                        <p class="card-text">Ranking: {{item.rating}}</p>
+                
+                        <h6>Director: {{item.director}}</h6>
+                        <h6>Date: {{item.releaseDate}}</h6>
+                        <h6>Country: {{item.countryId}}</h6>
+
+                        <br>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" role="button"
+                                [routerLink]="['/movies/item',item.id]">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
